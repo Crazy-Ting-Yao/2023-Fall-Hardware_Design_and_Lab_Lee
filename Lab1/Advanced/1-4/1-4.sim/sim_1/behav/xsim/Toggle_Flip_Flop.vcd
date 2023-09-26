@@ -1,0 +1,354 @@
+$date
+   Tue Sep 26 22:57:59 2023
+$end
+$version
+  2020.2
+$end
+$timescale
+  1ps
+$end
+$scope module Toggle_Flip_Flop_t $end
+$var reg 1 ! clk $end
+$var reg 1 " t $end
+$var wire 1 # q $end
+$var reg 1 $ rst_n $end
+$scope module T1 $end
+$var wire 1 % clk $end
+$var wire 1 & t $end
+$var wire 1 ' rst_n $end
+$var wire 1 # q $end
+$var wire 1 ( temp1 $end
+$var wire 1 ) temp2 $end
+$var wire 1 * temp3 $end
+$var wire 1 + temp4 $end
+$scope module DFF $end
+$var wire 1 % clk $end
+$var wire 1 + d $end
+$var wire 1 # q $end
+$var wire 1 , not_clk $end
+$var wire 1 - temp $end
+$scope module Master $end
+$var wire 1 , e $end
+$var wire 1 + d $end
+$var wire 1 - q $end
+$var wire 1 . node1 $end
+$var wire 1 / node2 $end
+$var wire 1 0 notd $end
+$var wire 1 1 notq $end
+$upscope $end
+$scope module Slave $end
+$var wire 1 % e $end
+$var wire 1 - d $end
+$var wire 1 # q $end
+$var wire 1 2 node1 $end
+$var wire 1 3 node2 $end
+$var wire 1 4 notd $end
+$var wire 1 5 notq $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+x#
+0$
+0%
+0&
+0'
+x(
+1)
+x*
+0+
+1,
+1-
+1.
+0/
+10
+01
+12
+13
+04
+x5
+$end
+#1000
+1!
+0#
+1%
+0(
+1)
+0*
+0+
+0,
+1-
+1.
+1/
+02
+13
+15
+#2000
+0!
+1"
+1$
+0%
+1&
+1'
+1(
+1)
+1*
+1+
+1,
+0-
+0.
+1/
+00
+11
+12
+13
+14
+15
+#3000
+1!
+1#
+1%
+1(
+0)
+0*
+0+
+0,
+1.
+1/
+10
+11
+12
+03
+05
+#4000
+0!
+0"
+1#
+0%
+0&
+1(
+1)
+1*
+1+
+1,
+0-
+0.
+1/
+00
+11
+12
+13
+14
+#5000
+1!
+1#
+1%
+0,
+1.
+1/
+11
+12
+03
+#6000
+0!
+1"
+1#
+0%
+1&
+1(
+0)
+0*
+0+
+1,
+1-
+1.
+0/
+10
+01
+12
+13
+04
+#7000
+1!
+0#
+1%
+1(
+1)
+1*
+1+
+0,
+1-
+1.
+1/
+00
+02
+13
+15
+#8000
+0!
+0"
+0%
+0&
+0(
+1)
+0*
+0+
+1,
+1-
+1.
+0/
+10
+01
+12
+13
+04
+15
+#9000
+1!
+1%
+0,
+1-
+1.
+1/
+02
+13
+15
+#10000
+0!
+1"
+0%
+1&
+1(
+1)
+1*
+1+
+1,
+0-
+0.
+1/
+00
+11
+12
+13
+14
+15
+#11000
+1!
+1#
+1%
+1(
+0)
+0*
+0+
+0,
+1.
+1/
+10
+11
+12
+03
+05
+#12000
+0!
+0"
+1#
+0%
+0&
+1(
+1)
+1*
+1+
+1,
+0-
+0.
+1/
+00
+11
+12
+13
+14
+#13000
+1!
+1#
+1%
+0,
+1.
+1/
+11
+12
+03
+#14000
+0!
+1"
+1#
+0%
+1&
+1(
+0)
+0*
+0+
+1,
+1-
+1.
+0/
+10
+01
+12
+13
+04
+#15000
+1!
+0#
+1%
+1(
+1)
+1*
+1+
+0,
+1-
+1.
+1/
+00
+02
+13
+15
+#16000
+0!
+0"
+0%
+0&
+0(
+1)
+0*
+0+
+1,
+1-
+1.
+0/
+10
+01
+12
+13
+04
+15
+#17000
+1!
+1%
+0,
+1-
+1.
+1/
+02
+13
+15
+#18000
+0!
+0%
+1,
+12
+13

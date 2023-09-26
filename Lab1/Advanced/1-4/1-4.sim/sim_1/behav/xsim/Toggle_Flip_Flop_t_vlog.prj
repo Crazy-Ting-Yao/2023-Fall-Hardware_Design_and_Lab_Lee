@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Lab1_111062109_Toggle_Flip_Flop.v" \
+"../../../../Lab1_111062109_Toggle_Flip_Flop_t.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
