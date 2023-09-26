@@ -1,0 +1,54 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002989aec5db0 .scope module, "Fanout_4_t" "Fanout_4_t" 2 3;
+ .timescale -9 -12;
+v000002989adab9a0_0 .var "in", 0 0;
+v000002989adaba40_0 .net "out", 3 0, L_000002989aec4520;  1 drivers
+S_000002989aec5f40 .scope module, "FO4" "Fanout_4" 2 9, 3 3 0, S_000002989aec5db0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "in";
+    .port_info 1 /OUTPUT 4 "out";
+v000002989adae2d0_0 .net *"_ivl_3", 0 0, L_000002989adabb80;  1 drivers
+v000002989ae93140_0 .net *"_ivl_5", 0 0, L_000002989aec42b0;  1 drivers
+v000002989aec60d0_0 .net *"_ivl_7", 0 0, L_000002989aec4350;  1 drivers
+v000002989aec6170_0 .net *"_ivl_9", 0 0, L_000002989aec4480;  1 drivers
+v000002989adab7c0_0 .net "in", 0 0, v000002989adab9a0_0;  1 drivers
+v000002989adab860_0 .net "node", 0 0, L_000002989adabae0;  1 drivers
+v000002989adab900_0 .net "out", 3 0, L_000002989aec4520;  alias, 1 drivers
+L_000002989adabae0 .reduce/nor v000002989adab9a0_0;
+L_000002989adabb80 .reduce/nor L_000002989adabae0;
+L_000002989aec42b0 .reduce/nor L_000002989adabae0;
+L_000002989aec4350 .reduce/nor L_000002989adabae0;
+L_000002989aec4480 .reduce/nor L_000002989adabae0;
+L_000002989aec4520 .concat [ 1 1 1 1], L_000002989aec4480, L_000002989aec4350, L_000002989aec42b0, L_000002989adabb80;
+    .scope S_000002989aec5db0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002989adab9a0_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_000002989aec5db0;
+T_1 ;
+    %delay 1000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002989adab9a0_0, 0, 1;
+    %delay 1000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002989adab9a0_0, 0, 1;
+    %delay 1000, 0;
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "Fanout_4_t.v";
+    "./Lab1_Fanout_4.v";

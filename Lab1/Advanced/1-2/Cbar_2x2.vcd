@@ -1,0 +1,239 @@
+$date
+	Mon Sep 25 21:32:07 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Crossbar_2x2_4bit_t $end
+$var wire 4 ! o2 [3:0] $end
+$var wire 4 " o1 [3:0] $end
+$var reg 1 # ctl $end
+$var reg 4 $ in1 [3:0] $end
+$var reg 4 % in2 [3:0] $end
+$scope module C1 $end
+$var wire 1 # control $end
+$var wire 4 & in1 [3:0] $end
+$var wire 4 ' in2 [3:0] $end
+$var wire 1 ( ncontrol $end
+$var wire 4 ) temp4 [3:0] $end
+$var wire 4 * temp3 [3:0] $end
+$var wire 4 + temp2 [3:0] $end
+$var wire 4 , temp1 [3:0] $end
+$var wire 4 - out2 [3:0] $end
+$var wire 4 . out1 [3:0] $end
+$scope module d1 $end
+$var wire 4 / in [3:0] $end
+$var wire 1 0 nsel $end
+$var wire 1 # sel $end
+$var wire 4 1 b [3:0] $end
+$var wire 4 2 a [3:0] $end
+$upscope $end
+$scope module d2 $end
+$var wire 4 3 in [3:0] $end
+$var wire 1 4 nsel $end
+$var wire 1 ( sel $end
+$var wire 4 5 b [3:0] $end
+$var wire 4 6 a [3:0] $end
+$upscope $end
+$scope module m1 $end
+$var wire 4 7 a [3:0] $end
+$var wire 4 8 b [3:0] $end
+$var wire 1 9 not_sel $end
+$var wire 1 # sel $end
+$var wire 4 : newb [3:0] $end
+$var wire 4 ; newa [3:0] $end
+$var wire 4 < f [3:0] $end
+$upscope $end
+$scope module m2 $end
+$var wire 4 = a [3:0] $end
+$var wire 4 > b [3:0] $end
+$var wire 1 ? not_sel $end
+$var wire 1 ( sel $end
+$var wire 4 @ newb [3:0] $end
+$var wire 4 A newa [3:0] $end
+$var wire 4 B f [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1 B
+b0 A
+b1 @
+0?
+b1 >
+b0 =
+b100 <
+b100 ;
+b0 :
+19
+b0 8
+b100 7
+b0 6
+b1 5
+04
+b1 3
+b100 2
+b0 1
+10
+b100 /
+b100 .
+b1 -
+b100 ,
+b0 +
+b0 *
+b1 )
+1(
+b1 '
+b100 &
+b1 %
+b100 $
+0#
+b100 "
+b1 !
+$end
+#1000
+b10 :
+b101 !
+b101 -
+b101 B
+b10 "
+b10 .
+b10 <
+b101 A
+b10 *
+b10 6
+b10 8
+14
+b0 )
+b0 5
+b0 >
+1?
+b0 @
+b0 ,
+b0 2
+b0 7
+b0 ;
+0(
+00
+b101 +
+b101 1
+b101 =
+09
+b10 %
+b10 '
+b10 3
+b101 $
+b101 &
+b101 /
+1#
+#2000
+b11 !
+b11 -
+b11 B
+b11 @
+b110 ;
+b0 *
+b0 6
+b0 8
+b0 A
+b110 "
+b110 .
+b110 <
+04
+b11 )
+b11 5
+b11 >
+0?
+b110 ,
+b110 2
+b110 7
+1(
+10
+b0 +
+b0 1
+b0 =
+19
+b0 :
+b11 %
+b11 '
+b11 3
+b110 $
+b110 &
+b110 /
+0#
+#3000
+b100 :
+b111 !
+b111 -
+b111 B
+b100 "
+b100 .
+b100 <
+b111 A
+b100 *
+b100 6
+b100 8
+14
+b0 )
+b0 5
+b0 >
+1?
+b0 @
+b0 ,
+b0 2
+b0 7
+b0 ;
+0(
+00
+b111 +
+b111 1
+b111 =
+09
+b100 %
+b100 '
+b100 3
+b111 $
+b111 &
+b111 /
+1#
+#4000
+b101 !
+b101 -
+b101 B
+b101 @
+b1000 ;
+b0 *
+b0 6
+b0 8
+b0 A
+b1000 "
+b1000 .
+b1000 <
+04
+b101 )
+b101 5
+b101 >
+0?
+b1000 ,
+b1000 2
+b1000 7
+1(
+10
+b0 +
+b0 1
+b0 =
+19
+b0 :
+b101 %
+b101 '
+b101 3
+b1000 $
+b1000 &
+b1000 /
+0#
+#5000

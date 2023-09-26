@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-1/Lab1_111062109_Dmux_1x4_4bit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmux_1x2_4bit
+INFO: [VRFC 10-311] analyzing module Dmux_1x4_4bit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-1/Lab1_111062109_Dmux_1x4_4bit_t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmux_1x2_4bit
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'Dmux_1x2_4bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-1/Lab1_111062109_Dmux_1x4_4bit.v:2]
+INFO: [VRFC 10-311] analyzing module Dmux_1x4_4bit
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'Dmux_1x4_4bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-1/Lab1_111062109_Dmux_1x4_4bit.v:22]
+INFO: [VRFC 10-311] analyzing module Dmux_1x4_4bit_t
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-1/1-1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

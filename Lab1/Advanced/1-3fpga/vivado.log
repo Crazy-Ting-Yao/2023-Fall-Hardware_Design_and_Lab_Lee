@@ -1,0 +1,72 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Sep 26 16:14:47 2023
+# Process ID: 26228
+# Current directory: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5332 D:\GitHub\2023-Fall-Hardware_Design_and_Lab_Lee\Lab1\Advanced\1-3fpga\1-3FPGA.xpr
+# Log file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/vivado.log
+# Journal file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.xpr
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.gen/sources_1'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit.v'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+update_compile_order -fileset sources_1
+update_files -from_files D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v -to_files D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit.v -filesets [get_filesets *]
+INFO: [filemgmt 20-762] Replacing file 'D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit.v' with file 'D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v'.
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a35tcpg236-1
+Top: Crossbar_2x2_4bit
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1344.039 ; gain = 250.625
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Crossbar_2x2_4bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v:46]
+INFO: [Synth 8-6157] synthesizing module 'Dmux_1x2_4bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Dmux_1x2_4bit' (1#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Mux_2x1_4bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Mux_2x1_4bit' (2#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Crossbar_2x2_4bit' (3#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v:46]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1397.020 ; gain = 303.605
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1397.020 ; gain = 303.605
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1397.020 ; gain = 303.605
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1397.020 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.srcs/constrs_1/new/cons.xdc]
+Finished Parsing XDC File [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.srcs/constrs_1/new/cons.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1496.820 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1637.941 ; gain = 544.527
+9 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1637.941 ; gain = 629.586
+write_schematic D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/schematic.sch
+D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/schematic.sch
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 26 16:16:44 2023...
