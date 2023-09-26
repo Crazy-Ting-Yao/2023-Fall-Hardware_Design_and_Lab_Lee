@@ -124,6 +124,7 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 6
+  set_param xicom.use_bs_reader 1
   open_checkpoint Crossbar_2x2_4bit_routed.dcp
   set_property webtalk.parent_dir D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.cache/wt [current_project]
 set_property TOP Crossbar_2x2_4bit [current_fileset]

@@ -1,0 +1,7 @@
+Running: xsim.dir/Crossbar_2x2_4bit_behav/xsimk.exe -simmode gui -wdb Crossbar_2x2_4bit_behav.wdb -simrunnum 0 -socket 60301
+Design successfully loaded
+Design Loading Memory Usage: 7308 KB (Peak: 7308 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 7912 KB (Peak: 7912 KB)
+Simulation CPU Usage: 15 ms

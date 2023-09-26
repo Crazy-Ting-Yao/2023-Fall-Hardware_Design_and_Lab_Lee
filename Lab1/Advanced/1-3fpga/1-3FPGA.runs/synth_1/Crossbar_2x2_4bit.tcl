@@ -84,7 +84,7 @@ set_property ip_output_repo d:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit.v
+read_verilog -library xil_defaultlib D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/Lab1_111062109_Crossbar_2x2_4bit_fpga.v
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

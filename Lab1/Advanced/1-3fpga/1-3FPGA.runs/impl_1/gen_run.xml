@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1695654189">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1695737699">
+  <File Type="OPT-HWDEF" Name="Crossbar_2x2_4bit.hwdef"/>
+  <File Type="ROUTE-BUS-SKEW" Name="Crossbar_2x2_4bit_bus_skew_routed.rpt"/>
+  <File Type="PA-DCP" Name="Crossbar_2x2_4bit.dcp"/>
   <File Type="BITSTR-BMM" Name="Crossbar_2x2_4bit_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="Crossbar_2x2_4bit_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="Crossbar_2x2_4bit_timing_summary_init.rpt"/>
@@ -10,7 +13,6 @@
   <File Type="ROUTE-PWR-SUM" Name="Crossbar_2x2_4bit_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="Crossbar_2x2_4bit_reports.tcl"/>
   <File Type="OPT-DRC" Name="Crossbar_2x2_4bit_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="Crossbar_2x2_4bit.hwdef"/>
   <File Type="PWROPT-DCP" Name="Crossbar_2x2_4bit_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="Crossbar_2x2_4bit_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="Crossbar_2x2_4bit_timing_summary_pwropted.rpt"/>
@@ -48,7 +50,6 @@
   <File Type="ROUTE-TIMING-RPX" Name="Crossbar_2x2_4bit_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="Crossbar_2x2_4bit_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="Crossbar_2x2_4bit_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="Crossbar_2x2_4bit_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="Crossbar_2x2_4bit_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="Crossbar_2x2_4bit_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="Crossbar_2x2_4bit_postroute_physopt.dcp"/>
@@ -77,7 +78,7 @@
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/Lab1_111062109_Crossbar_2x2_4bit.v">
+    <File Path="$PPRDIR/Lab1_111062109_Crossbar_2x2_4bit_fpga.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -110,9 +111,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
