@@ -9,22 +9,10 @@ reg [3:0] in4 = 4'b0111;
 reg [4:0] ctl = 5'b00000;
 wire [3:0] o1, o2, o3, o4;
 
-
-initial begin
-     $dumpfile("Cbar_4x4.vcd");
-     $dumpvars(0, Crossbar_4x4_4bit_t);
-end
-
 Crossbar_4x4_4bit C1(
-    .in1 (in1),
-    .in2 (in2),
-    .in3 (in3),
-    .in4 (in4),
-    .control (ctl),
-    .out1 (o1),
-    .out2 (o2),
-    .out3 (o3),
-    .out4 (o4)
+    .in1 (in1), .in2 (in2), .in3 (in3), .in4 (in4),
+    .control (ctl), 
+    .out1 (o1), .out2 (o2), .out3 (o3), .out4 (o4)
 );
 
 initial begin
@@ -38,3 +26,8 @@ initial begin
     #1 $finish;
 end
 endmodule
+
+initial begin
+     $dumpfile("Cbar_4x4.vcd");
+     $dumpvars(0, Crossbar_4x4_4bit_t);
+end
