@@ -1,0 +1,7 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/2-1.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v,1696497196,verilog,,D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v,,AND;Mux_2x1_1bit;Mux_8x1_1bit;NAND_Implement;NOR;NOT;OR;XNOR;XOR,,,,,,,,
+D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v,1696495937,verilog,,,D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v,NAND_Implement_t,,,,,,,,

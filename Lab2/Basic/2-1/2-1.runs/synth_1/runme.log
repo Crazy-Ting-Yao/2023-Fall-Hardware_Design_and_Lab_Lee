@@ -1,0 +1,341 @@
+
+*** Running vivado
+    with args -log NAND_Implement_t.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source NAND_Implement_t.tcl
+
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source NAND_Implement_t.tcl -notrace
+Command: synth_design -top NAND_Implement_t -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 6424
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module NOT [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:3]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module AND [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:9]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module OR [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:17]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module NOR [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:26]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module XOR [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:36]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module XNOR [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:47]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Mux_2x1_1bit [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:58]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Mux_8x1_1bit [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:70]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module NAND_Implement [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:84]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'NAND_Implement_t' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:3]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:27]
+INFO: [Synth 8-6157] synthesizing module 'NAND_Implement' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:84]
+INFO: [Synth 8-6157] synthesizing module 'AND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'AND' (1#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:9]
+WARNING: [Synth 8-6104] Input port 'b' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:90]
+INFO: [Synth 8-6157] synthesizing module 'OR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'OR' (2#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:17]
+WARNING: [Synth 8-6104] Input port 'b' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:91]
+INFO: [Synth 8-6157] synthesizing module 'NOR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'NOR' (3#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:26]
+WARNING: [Synth 8-6104] Input port 'b' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:92]
+INFO: [Synth 8-6157] synthesizing module 'XOR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:36]
+INFO: [Synth 8-6155] done synthesizing module 'XOR' (4#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:36]
+WARNING: [Synth 8-6104] Input port 'b' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:93]
+INFO: [Synth 8-6157] synthesizing module 'XNOR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:47]
+INFO: [Synth 8-6155] done synthesizing module 'XNOR' (5#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:47]
+WARNING: [Synth 8-6104] Input port 'b' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:94]
+INFO: [Synth 8-6157] synthesizing module 'NOT' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'NOT' (6#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:3]
+WARNING: [Synth 8-6104] Input port 'a' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:95]
+INFO: [Synth 8-6157] synthesizing module 'Mux_8x1_1bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:70]
+INFO: [Synth 8-6157] synthesizing module 'Mux_2x1_1bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:58]
+WARNING: [Synth 8-6104] Input port 'sel' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:64]
+WARNING: [Synth 8-6104] Input port 'a' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:65]
+WARNING: [Synth 8-6104] Input port 'b' has an internal driver [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:66]
+INFO: [Synth 8-6155] done synthesizing module 'Mux_2x1_1bit' (7#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'Mux_8x1_1bit' (8#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:70]
+INFO: [Synth 8-6155] done synthesizing module 'NAND_Implement' (9#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:84]
+INFO: [Synth 8-6155] done synthesizing module 'NAND_Implement_t' (10#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v:3]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 1st driver pin 'nand_i/SEL1/n2_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:14]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:14]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net b is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:14]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 1st driver pin 'nand_i/SEL2/n3_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:21]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:21]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net b is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:21]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 1st driver pin 'nand_i/SEL3/n4_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:33]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:33]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net b is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:33]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 1st driver pin 'nand_i/SEL4/n5_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:40]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:40]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net b is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:40]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 1st driver pin 'nand_i/SEL5/n5_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:51]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net b is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin a with 1st driver pin 'nand_i/SEL6/n1_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin a with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net a is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[0] with 1st driver pin 'nand_i/M1/M1/N1/n1_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[0] with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net sel[0] is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[0] with 1st driver pin 'nand_i/M1/M2/N1/n1_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[0] with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net sel[0] is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[0] with 1st driver pin 'nand_i/M1/M3/N1/n1_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[0] with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net sel[0] is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[0] with 1st driver pin 'nand_i/M1/M4/N1/n1_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[0] with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net sel[0] is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[1] with 1st driver pin 'nand_i/M1/M5/N1/n1_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[1] with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net sel[1] is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[1] with 1st driver pin 'nand_i/M1/M6/N1/n1_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[1] with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net sel[1] is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[2] with 1st driver pin 'nand_i/M1/M7/N1/n1_inferred/out' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin sel[2] with 2nd driver pin 'GND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net sel[2] is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:6]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:03 ; elapsed = 00:00:16 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:03 ; elapsed = 00:00:16 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:03 ; elapsed = 00:00:16 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++-+-----+------+
+| |Cell |Count |
++-+-----+------+
++-+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     0|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 48 critical warnings and 105 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1016.910 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1016.910 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1016.910 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 105 Warnings, 48 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:22 . Memory (MB): peak = 1016.910 ; gain = 0.000
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/2-1.runs/synth_1/NAND_Implement_t.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file NAND_Implement_t_utilization_synth.rpt -pb NAND_Implement_t_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Oct  5 17:02:11 2023...
