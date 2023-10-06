@@ -38,14 +38,6 @@ module Majority(a, b, c, out);
     OR O2 (out, temp4, temp3);
 endmodule
 
-module Half_Adder(a, b, cout, sum);
-    input a, b;
-    output cout, sum;
-
-    XOR X1 (sum, a, b);
-    AND A1 (cout, a, b);
-endmodule
-
 module Full_Adder (a, b, cin, cout, sum);
     input a, b, cin;
     output cout, sum;
@@ -55,3 +47,18 @@ module Full_Adder (a, b, cin, cout, sum);
     XOR X2 (sum, temp1, cin);
 endmodule
 
+module Ripple_Carry_Adder(a, b, cin, cout, sum);
+    input [8-1:0] a, b;
+    input cin;
+    output cout;
+    output [8-1:0] sum;
+    wire [7-1:0] tempcin;
+    Full_Adder F1 (a[0], b[0], cin, tempcin[0], sum[0]);
+    Full_Adder F2 (a[1], b[1], tempcin[0], tempcin[1], sum[1]);
+    Full_Adder F3 (a[2], b[2], tempcin[1], tempcin[2], sum[2]);
+    Full_Adder F4 (a[3], b[3], tempcin[2], tempcin[3], sum[3]);
+    Full_Adder F5 (a[4], b[4], tempcin[3], tempcin[4], sum[4]);
+    Full_Adder F6 (a[5], b[5], tempcin[4], tempcin[5], sum[5]);
+    Full_Adder F7 (a[6], b[6], tempcin[5], tempcin[6], sum[6]);
+    Full_Adder F8 (a[7], b[7], tempcin[6], cout, sum[7]);
+endmodule
