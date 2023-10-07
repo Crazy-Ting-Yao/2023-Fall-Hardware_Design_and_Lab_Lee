@@ -170,7 +170,7 @@ endmodule
 
 module COMPARE_EQ(out, a, b);
     input [4-1:0] a, b;
-    output out;
+    output [4-1:0] out;
     wire [4-1:0] XNs;
     wire temp0, temp1;
     Uni_XNOR XN1 (XNs[0], a[0], b[0]);
@@ -179,22 +179,25 @@ module COMPARE_EQ(out, a, b);
     Uni_XNOR XN4 (XNs[3], a[3], b[3]);
     Uni_AND A1 (temp0, XNs[0], XNs[1]);
     Uni_AND A2 (temp1, XNs[2], XNs[3]);
-    Uni_AND A3 (out, temp0, temp1);
+    Uni_AND A3 (out[0], temp0, temp1);
+    Uni_NOT U1(out[1], 1'b0);
+    Uni_NOT U2(out[2], 1'b0);
+    Uni_NOT U3(out[3], 1'b0);
 endmodule
 
 module COMPARE_LT(out, a, b);
     input [4-1:0] a, b;
-    output out;
+    output [4-1:0]out;
     wire [4-1:0] nota;
     wire [4-1:0] eq;
     wire [4-1:0] bg;
-    wire [4:0] temp;
+    wire temp1, temp2, temp3, temp4, temp5;
     Uni_NOT N1 (nota[0], a[0]);
     Uni_NOT N2 (nota[1], a[1]);
     Uni_NOT N3 (nota[2], a[2]);
     Uni_NOT N4 (nota[3], a[3]);
 
-    Uni_XNOR XN1 (eq[0], a[0], b[0]);
+    //Uni_XNOR XN1 (eq[0], a[0], b[0]);
     Uni_XNOR XN2 (eq[1], a[1], b[1]);
     Uni_XNOR XN3 (eq[2], a[2], b[2]);
     Uni_XNOR XN4 (eq[3], a[3], b[3]);
@@ -204,15 +207,26 @@ module COMPARE_LT(out, a, b);
     Uni_AND A3 (bg[2], nota[2], b[2]);
     Uni_AND A4 (bg[3], nota[3], b[3]);
 
-    Uni_AND A5 (temp[0], eq[1], bg[0]);
-    Uni_OR O1 (temp[1], bg[1], temp[0]);
-    Uni_AND A6 (temp[2], eq[2], temp[1]);
-    Uni_OR O2 (temp[3], bg[2], temp[2]);
-    Uni_AND A7 (temp[4], eq[3], temp[3]);
-    Uni_OR O3 (out, bg[3], temp[4]);
+    Uni_AND A5 (temp0, eq[1], bg[0]);
+    Uni_OR O1 (temp1, bg[1], temp0);
+    Uni_AND A6 (temp2, eq[2], temp1);
+    Uni_OR O2 (temp3, bg[2], temp2);
+    Uni_AND A7 (temp4, eq[3], temp3);
+    Uni_OR O3 (out[0], bg[3], temp4);
+    Uni_NOT U1(out[1], 1'b0);
+    Uni_NOT U2(out[2], 1'b1);
+    Uni_NOT U3(out[3], 1'b0);
 endmodule
 
-
+module Mux_8x1_4bit(out, a, b, c, d, e, f, g, h, sel);
+    input [4-1:0] a, b, c, d, e, f, g, h;
+    input [2:0]sel;
+    output [4-1:0] out;
+    Mux_8x1_1bit M1 (out[0], a[0], b[0], c[0], d[0], e[0], f[0], g[0], h[0], sel);
+    Mux_8x1_1bit M2 (out[1], a[1], b[1], c[1], d[1], e[1], f[1], g[1], h[1], sel);   
+    Mux_8x1_1bit M3 (out[2], a[2], b[2], c[2], d[2], e[2], f[2], g[2], h[2], sel);
+    Mux_8x1_1bit M4 (out[3], a[3], b[3], c[3], d[3], e[3], f[3], g[3], h[3], sel);
+endmodule
 
 module Decode_And_Execute(rs, rt, sel, rd);
     input [4-1:0] rs, rt;
@@ -225,16 +239,7 @@ module Decode_And_Execute(rs, rt, sel, rd);
     BITWISE_AND A2 (d, rs, rt);
     RT_ARI_RIGHT_SHIFT R1 (e, rt);
     RS_CIR_LEFT_SHIFT L1 (f, rs);
-    COMPARE_LT LT1 (g[0], rs, rt);
-    COMPARE_EQ EQ1 (h[0], rs, rt);
-    Universal_Gate U1(g[1], 1'b1, 1'b0);
-    Universal_Gate U2(g[2], 1'b0, 1'b0);
-    Universal_Gate U3(g[3], 1'b1, 1'b0);
-    Universal_Gate U4(h[1], 1'b1, 1'b0);
-    Universal_Gate U5(h[2], 1'b1, 1'b0);
-    Universal_Gate U6(h[3], 1'b1, 1'b0);
-    Mux_8x1_1bit M1 (rd[0], a[0], b[0], c[0], d[0], e[0], f[0], g[0], h[0], sel);
-    Mux_8x1_1bit M2 (rd[1], a[1], b[1], c[1], d[1], e[1], f[1], g[1], h[1], sel);   
-    Mux_8x1_1bit M3 (rd[2], a[2], b[2], c[2], d[2], e[2], f[2], g[2], h[2], sel);
-    Mux_8x1_1bit M4 (rd[3], a[3], b[3], c[3], d[3], e[3], f[3], g[3], h[3], sel);
+    COMPARE_LT LT1 (g, rs, rt);
+    COMPARE_EQ EQ1 (h, rs, rt);
+    Mux_8x1_4bit M1 (rd, a, b, c, d, e, f, g, h, sel);
 endmodule
