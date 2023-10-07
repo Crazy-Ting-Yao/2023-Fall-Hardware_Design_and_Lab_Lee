@@ -12,9 +12,11 @@ Decode_And_Execute DAE (rs, rt, sel, rd);
 initial begin
     $dumpfile("Decode_And_Execute.vcd");
     $dumpvars(0, Decode_And_Execute_v);
-    repeat(30) begin
-        #1 rs = rs + 1;
-        rt = rt + 2;
+    repeat(8) begin
+        repeat(10) begin
+            #1 rs = rs + 1;
+            rt = rt + 2;
+        end
         sel = sel + 1;
     end
     $finish;
