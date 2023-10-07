@@ -1,4 +1,3 @@
-`include "Lab1_111062109_Dmux_1x4_4bit.v"
 `timescale 1ns/1ps
 
 module Dmux_1x4_4bit_t;

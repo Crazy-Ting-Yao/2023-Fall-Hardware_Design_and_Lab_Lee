@@ -1,4 +1,3 @@
-`include "Lab1_111062109_Crossbar_2x2_4bit.v"
 `timescale 1ns/1ps
 
 module Crossbar_2x2_4bit_t;

@@ -54,14 +54,14 @@
 #endif
 typedef void (*funcp)(char *, char *);
 extern int main(int, char**);
-IKI_DLLESPEC extern void execute_2(char*, char *);
+IKI_DLLESPEC extern void execute_28(char*, char *);
 IKI_DLLESPEC extern void execute_29(char*, char *);
-IKI_DLLESPEC extern void execute_30(char*, char *);
+IKI_DLLESPEC extern void execute_260(char*, char *);
 IKI_DLLESPEC extern void execute_261(char*, char *);
 IKI_DLLESPEC extern void execute_262(char*, char *);
 IKI_DLLESPEC extern void execute_263(char*, char *);
 IKI_DLLESPEC extern void execute_264(char*, char *);
-IKI_DLLESPEC extern void execute_265(char*, char *);
+IKI_DLLESPEC extern void execute_35(char*, char *);
 IKI_DLLESPEC extern void execute_36(char*, char *);
 IKI_DLLESPEC extern void execute_37(char*, char *);
 IKI_DLLESPEC extern void execute_38(char*, char *);
@@ -71,7 +71,7 @@ IKI_DLLESPEC extern void execute_41(char*, char *);
 IKI_DLLESPEC extern void execute_42(char*, char *);
 IKI_DLLESPEC extern void execute_43(char*, char *);
 IKI_DLLESPEC extern void execute_44(char*, char *);
-IKI_DLLESPEC extern void execute_45(char*, char *);
+IKI_DLLESPEC extern void execute_54(char*, char *);
 IKI_DLLESPEC extern void execute_55(char*, char *);
 IKI_DLLESPEC extern void execute_56(char*, char *);
 IKI_DLLESPEC extern void execute_57(char*, char *);
@@ -84,24 +84,23 @@ IKI_DLLESPEC extern void execute_63(char*, char *);
 IKI_DLLESPEC extern void execute_64(char*, char *);
 IKI_DLLESPEC extern void execute_65(char*, char *);
 IKI_DLLESPEC extern void execute_66(char*, char *);
-IKI_DLLESPEC extern void execute_67(char*, char *);
+IKI_DLLESPEC extern void execute_31(char*, char *);
 IKI_DLLESPEC extern void execute_32(char*, char *);
 IKI_DLLESPEC extern void execute_33(char*, char *);
 IKI_DLLESPEC extern void execute_34(char*, char *);
-IKI_DLLESPEC extern void execute_35(char*, char *);
+IKI_DLLESPEC extern void execute_265(char*, char *);
 IKI_DLLESPEC extern void execute_266(char*, char *);
 IKI_DLLESPEC extern void execute_267(char*, char *);
 IKI_DLLESPEC extern void execute_268(char*, char *);
 IKI_DLLESPEC extern void execute_269(char*, char *);
 IKI_DLLESPEC extern void execute_270(char*, char *);
-IKI_DLLESPEC extern void execute_271(char*, char *);
 IKI_DLLESPEC extern void vlog_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
-funcp funcTab[42] = {(funcp)execute_2, (funcp)execute_29, (funcp)execute_30, (funcp)execute_261, (funcp)execute_262, (funcp)execute_263, (funcp)execute_264, (funcp)execute_265, (funcp)execute_36, (funcp)execute_37, (funcp)execute_38, (funcp)execute_39, (funcp)execute_40, (funcp)execute_41, (funcp)execute_42, (funcp)execute_43, (funcp)execute_44, (funcp)execute_45, (funcp)execute_55, (funcp)execute_56, (funcp)execute_57, (funcp)execute_58, (funcp)execute_59, (funcp)execute_60, (funcp)execute_61, (funcp)execute_62, (funcp)execute_63, (funcp)execute_64, (funcp)execute_65, (funcp)execute_66, (funcp)execute_67, (funcp)execute_32, (funcp)execute_33, (funcp)execute_34, (funcp)execute_35, (funcp)execute_266, (funcp)execute_267, (funcp)execute_268, (funcp)execute_269, (funcp)execute_270, (funcp)execute_271, (funcp)vlog_transfunc_eventcallback};
-const int NumRelocateId= 42;
+funcp funcTab[41] = {(funcp)execute_28, (funcp)execute_29, (funcp)execute_260, (funcp)execute_261, (funcp)execute_262, (funcp)execute_263, (funcp)execute_264, (funcp)execute_35, (funcp)execute_36, (funcp)execute_37, (funcp)execute_38, (funcp)execute_39, (funcp)execute_40, (funcp)execute_41, (funcp)execute_42, (funcp)execute_43, (funcp)execute_44, (funcp)execute_54, (funcp)execute_55, (funcp)execute_56, (funcp)execute_57, (funcp)execute_58, (funcp)execute_59, (funcp)execute_60, (funcp)execute_61, (funcp)execute_62, (funcp)execute_63, (funcp)execute_64, (funcp)execute_65, (funcp)execute_66, (funcp)execute_31, (funcp)execute_32, (funcp)execute_33, (funcp)execute_34, (funcp)execute_265, (funcp)execute_266, (funcp)execute_267, (funcp)execute_268, (funcp)execute_269, (funcp)execute_270, (funcp)vlog_transfunc_eventcallback};
+const int NumRelocateId= 41;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/Crossbar_4x4_4bit_t_behav/xsim.reloc",  (void **)funcTab, 42);
+	iki_relocate(dp, "xsim.dir/Crossbar_4x4_4bit_t_behav/xsim.reloc",  (void **)funcTab, 41);
 
 	/*Populate the transaction function pointer field in the whole net structure */
 }

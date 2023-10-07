@@ -1,4 +1,3 @@
-`include "Lab1_111062109_Crossbar_4x4_4bit.v"
 `timescale 1ns/1ps
 
 module Crossbar_4x4_4bit_t;
@@ -26,8 +25,3 @@ initial begin
     #1 $finish;
 end
 endmodule
-
-initial begin
-     $dumpfile("Cbar_4x4.vcd");
-     $dumpvars(0, Crossbar_4x4_4bit_t);
-end
