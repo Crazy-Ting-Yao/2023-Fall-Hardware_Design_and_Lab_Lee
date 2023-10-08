@@ -48,37 +48,28 @@ module Carry_Look_Ahead_Generator_4bit(p, g, cin, cout, p03, g03);
     input cin;
     output [2:0]cout;
     output p03, g03;
-    wire p01, p02, p12, p13, p23;
+    wire p01, p02;
     wire [13:0] temp;
 
     AND a1(p01, p[0], p[1]);
     AND a2(p02, p01, p[2]);
     AND a3(p03, p02, p[3]);
-    AND a4(p12, p[1], p[2]);
-    AND a5(p13, p12, p[3]);
-    AND a6(p23, p[2], p[3]);
 
     AND a7(temp[0], p[0], cin);
     OR o1(cout[0], g[0], temp[0]);
 
     AND a8(temp[1], p01, cin);
     AND a9(temp[2], g[0], p[1]);
-    OR o2(temp[3], temp[1], temp[2]);
-    OR o3(cout[1], g[1], temp[3]);
+    OR o2(temp[3], g[1], temp[2]);
+    OR o3(cout[1], temp[1], temp[3]);
 
     AND a10(temp[4], p02, cin);
-    AND a11(temp[5], g[0], p12);
-    AND a12(temp[6], g[1], p[2]);
-    OR o4(temp[7], temp[4], temp[5]);
-    OR o5(temp[8], temp[6], temp[7]);
-    OR o6(cout[2], g[2], temp[8]);
+    AND a11(temp[5], temp[3], p[2]);
+    OR o5(temp[6], g[2], temp[5]);
+    OR o6(cout[2], temp[4], temp[6]);
 
-    AND a13(temp[9], g[0], p13);
-    AND a14(temp[10], g[1], p23);
-    AND a15(temp[11], g[2], p[3]);
-    OR o7(temp[12], temp[9], temp[10]);
-    OR o8(temp[13], temp[11], temp[12]);
-    OR o9(g03, g[3], temp[13]);
+    AND a13(temp[7], temp[6], p[3]);
+    OR o7(g03, g[3], temp[7]);
 endmodule
 
 

@@ -45,7 +45,8 @@ initial begin
         a = a + 1;
     end
     done = 1'b1;
-    #5 done = 1'b0;
+    #1 error = 1'b0;
+    #4 done = 1'b0;
 end
 
 endmodule
