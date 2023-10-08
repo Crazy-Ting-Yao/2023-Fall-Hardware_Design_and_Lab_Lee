@@ -298,5 +298,5 @@ module Decode_And_Execute(rs, rt, sel, AN, regs);
     Uni_NOT NT4(AN[3], 1'b1);
 
     Decoder_4bit D1 (de, rd);
-    sevenSegs S1 (regs, de);
+    sevenSegs Seg1 (regs, de);
 endmodule
