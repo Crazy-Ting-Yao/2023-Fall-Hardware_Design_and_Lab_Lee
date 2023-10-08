@@ -55,15 +55,15 @@ module Half_Adder(a, b, cout, sum);
     AND A1 (cout, a, b);
 endmodule
 
-module Adder_4bit(a, b, sum, cout);
+module Adder_4bit(a, b, sum, lastbit);
     input [4-1:0] a, b;
-    output cout;
+    output lastbit;
     output [4-1:0] sum;
     wire [4-1-1:0] tempcin;
-    Half_Adder H1 (a[0], b[0], tempcin[0], sum[0]);
-    Full_Adder F2 (a[1], b[1], tempcin[0], tempcin[1], sum[1]);
-    Full_Adder F3 (a[2], b[2], tempcin[1], tempcin[2], sum[2]);
-    Full_Adder F4 (a[3], b[3], tempcin[2], cout, sum[3]);
+    Half_Adder H1 (a[0], b[0], tempcin[0], lastbit);
+    Full_Adder F2 (a[1], b[1], tempcin[0], tempcin[1], sum[0]);
+    Full_Adder F3 (a[2], b[2], tempcin[1], tempcin[2], sum[1]);
+    Full_Adder F4 (a[3], b[3], tempcin[2], sum[3], sum[2]);
 endmodule
 
 module Multiplier_4x1bit(a, b, p);
@@ -79,14 +79,16 @@ endmodule
 module Multiplier_4bit(a, b, p);
     input [4-1:0] a, b;
     output [8-1:0] p;
-    wire [4-1:0] ab0, ab1, ab2, ab3;
+    wire [4:0] ab0;
+    wire [4-1:0] ab1, ab2, ab3;
     wire [4-1:0] addtemp1, addtemp2;
-    Multiplier_4x1bit M1 (a, b[0], ab0);
+    AND A1 (p[0], a[0], b[0]);
+    Multiplier_4x1bit M1 (a, b[0], ab0[3:0]);
     Multiplier_4x1bit M2 (a, b[1], ab1);
     Multiplier_4x1bit M3 (a, b[2], ab2);
     Multiplier_4x1bit M4 (a, b[3], ab3);
-    AND A1 (p[0], a[0], b[0]);
-    Adder_4bit A2 ({1'b0, ab0[3:1]}, ab1, {addtemp1[2:0], p[1]}, addtemp1[3]);
-    Adder_4bit A3 ( addtemp1, ab2, {addtemp2[2:0], p[2]}, addtemp2[3]);
-    Adder_4bit A4 ( addtemp2, ab3, p[6:3], p[7]);
+    AND A2 (ab0[4], 1'b0, 1'b0);
+    Adder_4bit AD1 (ab0[4:1], ab1, addtemp1, p[1]);
+    Adder_4bit AD2 (addtemp1, ab2, addtemp2, p[2]);
+    Adder_4bit AD3 (addtemp2, ab3, p[7:4], p[3]);
 endmodule

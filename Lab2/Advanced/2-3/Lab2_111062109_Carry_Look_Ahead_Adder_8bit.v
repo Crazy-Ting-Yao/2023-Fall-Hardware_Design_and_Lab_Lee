@@ -27,19 +27,18 @@ module XOR(out, a, b);
     nand n5 (out, temp1, temp2);
 endmodule
 
-module Carry_Look_Ahead_Generator_2bit(p, g, cin, cout);
-    input [2-1:0]p, g;
-    input cin;
-    output [2-1:0] cout;
+module Carry_Look_Ahead_Generator_2bit(p1, p2, g1, g2, cin, cout1, cout2);
+    input p1, p2, g1, g2, cin;
+    output cout1, cout2;
     wire [5-1:0]temp;
-    AND a1 (temp[0], p[0], cin);
-    OR o1 (cout[0], g[0], temp[0]);
+    AND a1 (temp[0], p1, cin);
+    OR o1 (cout1, g1, temp[0]);
 
-    AND a2 (temp[1], p[1], g[0]);
-    AND a3 (temp[2], p[1], p[0]);
+    AND a2 (temp[1], p2, g1);
+    AND a3 (temp[2], p2, p1);
     AND a4 (temp[3], cin, temp[2]);
     OR o2 (temp[4], temp[1], temp[3]);
-    OR o3 (cout[1], g[1], temp[4]);
+    OR o3 (cout2, g2, temp[4]);
 endmodule
 
 
@@ -86,7 +85,7 @@ module Carry_Look_Ahead_Adder_8bit(a, b, c0, s, c8);
     AND a2(cout[0], c0, c0);
     Carry_Look_Ahead_Generator_4bit c1 (p[3:0], g[3:0], c0, cout[3:1], p03, g03);
     Carry_Look_Ahead_Generator_4bit c2 (p[7:4], g[7:4], cout[4], cout[7:5], p47, g47);
-    Carry_Look_Ahead_Generator_2bit c3 ({p47,p03}, {g47,g03}, c0, {c8,cout[4]});
+    Carry_Look_Ahead_Generator_2bit c3 (p03, p47, g03, g47, c0, cout[4], c8);
     
     XOR x2[7:0] (s, cout, p);
 endmodule
