@@ -1,0 +1,252 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Oct  8 14:38:19 2023
+# Process ID: 4220
+# Current directory: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/2-2fpga.runs/synth_1
+# Command line: vivado.exe -log Decode_And_Execute_FPGA.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Decode_And_Execute_FPGA.tcl
+# Log file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/2-2fpga.runs/synth_1/Decode_And_Execute_FPGA.vds
+# Journal file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/2-2fpga.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'C:/Xilinx/Vivado/2020.2/scripts/Vivado_init.tcl'
+source Decode_And_Execute_FPGA.tcl -notrace
+Command: synth_design -top Decode_And_Execute_FPGA -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 7204
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1019.742 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Decode_And_Execute_FPGA' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:276]
+INFO: [Synth 8-6157] synthesizing module 'SUB' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:130]
+INFO: [Synth 8-6157] synthesizing module 'Uni_NOT' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:11]
+INFO: [Synth 8-6157] synthesizing module 'Universal_Gate' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Universal_Gate' (1#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Uni_NOT' (2#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:11]
+INFO: [Synth 8-6157] synthesizing module 'ADD' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:118]
+INFO: [Synth 8-6157] synthesizing module 'Full_Adder' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:109]
+INFO: [Synth 8-6157] synthesizing module 'Majority' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:98]
+INFO: [Synth 8-6157] synthesizing module 'Uni_AND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'Uni_AND' (3#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:25]
+INFO: [Synth 8-6157] synthesizing module 'Uni_OR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'Uni_OR' (4#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'Majority' (5#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:98]
+INFO: [Synth 8-6157] synthesizing module 'Uni_XOR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:51]
+INFO: [Synth 8-6155] done synthesizing module 'Uni_XOR' (6#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:51]
+INFO: [Synth 8-6155] done synthesizing module 'Full_Adder' (7#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:109]
+INFO: [Synth 8-6155] done synthesizing module 'ADD' (8#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:118]
+INFO: [Synth 8-6155] done synthesizing module 'SUB' (9#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:130]
+INFO: [Synth 8-6157] synthesizing module 'BITWISE_OR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:142]
+INFO: [Synth 8-6155] done synthesizing module 'BITWISE_OR' (10#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:142]
+INFO: [Synth 8-6157] synthesizing module 'BITWISE_AND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:151]
+INFO: [Synth 8-6155] done synthesizing module 'BITWISE_AND' (11#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:151]
+INFO: [Synth 8-6157] synthesizing module 'RT_ARI_RIGHT_SHIFT' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:160]
+INFO: [Synth 8-6155] done synthesizing module 'RT_ARI_RIGHT_SHIFT' (12#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:160]
+INFO: [Synth 8-6157] synthesizing module 'RS_CIR_LEFT_SHIFT' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:169]
+INFO: [Synth 8-6155] done synthesizing module 'RS_CIR_LEFT_SHIFT' (13#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:169]
+INFO: [Synth 8-6157] synthesizing module 'COMPARE_LT' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:195]
+INFO: [Synth 8-6157] synthesizing module 'Uni_XNOR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'Uni_XNOR' (14#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'COMPARE_LT' (15#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:195]
+INFO: [Synth 8-6157] synthesizing module 'COMPARE_EQ' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:178]
+INFO: [Synth 8-6155] done synthesizing module 'COMPARE_EQ' (16#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:178]
+INFO: [Synth 8-6157] synthesizing module 'Mux_8x1_4bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:228]
+INFO: [Synth 8-6157] synthesizing module 'Mux_8x1_1bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:84]
+INFO: [Synth 8-6157] synthesizing module 'Mux_2x1_1bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'Mux_2x1_1bit' (17#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'Mux_8x1_1bit' (18#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:84]
+INFO: [Synth 8-6155] done synthesizing module 'Mux_8x1_4bit' (19#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:228]
+INFO: [Synth 8-6157] synthesizing module 'Decoder_4bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:238]
+INFO: [Synth 8-6155] done synthesizing module 'Decoder_4bit' (20#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:238]
+INFO: [Synth 8-6157] synthesizing module 'sevenSegs' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:261]
+INFO: [Synth 8-6155] done synthesizing module 'sevenSegs' (21#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:261]
+INFO: [Synth 8-6155] done synthesizing module 'Decode_And_Execute_FPGA' (22#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/Lab2_111062109_Decode_And_Execute_fpga.v:276]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1019.742 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1019.742 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1019.742 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1019.742 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/2-2fpga.srcs/constrs_1/new/2-2.xdc]
+Finished Parsing XDC File [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/2-2fpga.srcs/constrs_1/new/2-2.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/2-2fpga.srcs/constrs_1/new/2-2.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Decode_And_Execute_FPGA_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Decode_And_Execute_FPGA_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1042.020 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1042.020 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1042.020 ; gain = 22.277
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1042.020 ; gain = 22.277
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1042.020 ; gain = 22.277
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1042.020 ; gain = 22.277
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'R1/A3' (Uni_AND) to 'R1/A4'
+INFO: [Synth 8-223] decloning instance 'LT1/U1' (Uni_NOT) to 'LT1/U3'
+INFO: [Synth 8-223] decloning instance 'EQ1/U1' (Uni_NOT) to 'EQ1/U2'
+INFO: [Synth 8-223] decloning instance 'EQ1/U1' (Uni_NOT) to 'EQ1/U3'
+INFO: [Synth 8-223] decloning instance 'NT2' (Uni_NOT) to 'NT3'
+INFO: [Synth 8-223] decloning instance 'NT2' (Uni_NOT) to 'NT4'
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1042.020 ; gain = 22.277
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1042.020 ; gain = 22.277
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1042.020 ; gain = 22.277
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1047.660 ; gain = 27.918
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1055.141 ; gain = 35.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1055.141 ; gain = 35.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1055.141 ; gain = 35.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1055.141 ; gain = 35.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1055.141 ; gain = 35.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1055.141 ; gain = 35.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT4 |    10|
+|2     |LUT5 |     7|
+|3     |LUT6 |     7|
+|4     |IBUF |    11|
+|5     |OBUF |    11|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1055.141 ; gain = 35.398
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1055.141 ; gain = 13.121
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1055.141 ; gain = 35.398
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1067.238 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1069.395 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+63 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1069.395 ; gain = 49.652
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint 'D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2FPGA/2-2fpga.runs/synth_1/Decode_And_Execute_FPGA.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Decode_And_Execute_FPGA_utilization_synth.rpt -pb Decode_And_Execute_FPGA_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Oct  8 14:38:58 2023...
