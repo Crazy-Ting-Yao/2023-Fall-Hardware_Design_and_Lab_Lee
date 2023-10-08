@@ -238,39 +238,38 @@ endmodule
 module Decoder_4bit(out, in);
     input [3:0] in;
     output [15:0] out;
-    wire [15:0] temp;
-    input [3:0] not_in;
+    wire [3:0] not_in;
     Uni_NOT N1[3:0] (not_in, in);
-    and A1 (temp[0], not_in[0], not_in[1], not_in[2], not_in[3]);
-    and A2 (temp[1], not_in[0], not_in[1], not_in[2], in[3]);
-    and A3 (temp[2], not_in[0], not_in[1], in[2], not_in[3]);
-    and A4 (temp[3], not_in[0], not_in[1], in[2], in[3]);
-    and A5 (temp[4], not_in[0], in[1], not_in[2], not_in[3]);
-    and A6 (temp[5], not_in[0], in[1], not_in[2], in[3]);
-    and A7 (temp[6], not_in[0], in[1], in[2], not_in[3]);
-    and A8 (temp[7], not_in[0], in[1], in[2], in[3]);
-    and A9 (temp[8], in[0], not_in[1], not_in[2], not_in[3]);
-    and A10 (temp[9], in[0], not_in[1], not_in[2], in[3]);
-    and A11 (temp[10], in[0], not_in[1], in[2], not_in[3]);
-    and A12 (temp[11], in[0], not_in[1], in[2], in[3]);
-    and A13 (temp[12], in[0], in[1], not_in[2], not_in[3]);
-    and A14 (temp[13], in[0], in[1], not_in[2], in[3]);
-    and A15 (temp[14], in[0], in[1], in[2], not_in[3]);
-    and A16 (temp[15], in[0], in[1], in[2], in[3]);
+    and A1 (out[0], not_in[0], not_in[1], not_in[2], not_in[3]);
+    and A2 (out[1], not_in[0], not_in[1], not_in[2], in[3]);
+    and A3 (out[2], not_in[0], not_in[1], in[2], not_in[3]);
+    and A4 (out[3], not_in[0], not_in[1], in[2], in[3]);
+    and A5 (out[4], not_in[0], in[1], not_in[2], not_in[3]);
+    and A6 (out[5], not_in[0], in[1], not_in[2], in[3]);
+    and A7 (out[6], not_in[0], in[1], in[2], not_in[3]);
+    and A8 (out[7], not_in[0], in[1], in[2], in[3]);
+    and A9 (out[8], in[0], not_in[1], not_in[2], not_in[3]);
+    and A10 (out[9], in[0], not_in[1], not_in[2], in[3]);
+    and A11 (out[10], in[0], not_in[1], in[2], not_in[3]);
+    and A12 (out[11], in[0], not_in[1], in[2], in[3]);
+    and A13 (out[12], in[0], in[1], not_in[2], not_in[3]);
+    and A14 (out[13], in[0], in[1], not_in[2], in[3]);
+    and A15 (out[14], in[0], in[1], in[2], not_in[3]);
+    and A16 (out[15], in[0], in[1], in[2], in[3]);
 endmodule
 
 module sevenSegs(out, in);
     input [15:0] in;
     output [6:0] out;
-    
-    or O1 (out[0], in[0], in[2], in[3], in[5], in[6], in[7], in[8], in[9], in[10], in[12], in[14], in[15]);
-    or O2 (out[1], in[0], in[1], in[2], in[3], in[4], in[7], in[8], in[9], in[10], in[13]);
-    or O3 (out[2], in[0], in[1], in[3], in[4], in[5], in[6], in[7], in[8], in[9], in[10], in[11], in[13]);
-    or O4 (out[3], in[0], in[2], in[3], in[5], in[6], in[8], in[9], in[11], in[12], in[13], in[14]);
-    or O5 (out[4], in[0], in[2], in[6], in[8], in[10], in[11], in[12], in[13], in[14]);
-    or O6 (out[5], in[0], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[12], in[14], in[15]);
-    or O7 (out[6], in[2], in[3], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[13], in[14], in[15]);
-
+    wire [6:0] temp;
+    or O1 (temp[0], in[0], in[2], in[3], in[5], in[6], in[7], in[8], in[9], in[10], in[12], in[14], in[15]);
+    or O2 (temp[1], in[0], in[1], in[2], in[3], in[4], in[7], in[8], in[9], in[10], in[13]);
+    or O3 (temp[2], in[0], in[1], in[3], in[4], in[5], in[6], in[7], in[8], in[9], in[10], in[11], in[13]);
+    or O4 (temp[3], in[0], in[2], in[3], in[5], in[6], in[8], in[9], in[11], in[12], in[13], in[14]);
+    or O5 (temp[4], in[0], in[2], in[6], in[8], in[10], in[11], in[12], in[13], in[14]);
+    or O6 (temp[5], in[0], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[12], in[14], in[15]);
+    or O7 (temp[6], in[2], in[3], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[13], in[14], in[15]);
+    Uni_NOT N1[6:0] (out, temp);
 endmodule
 
 
