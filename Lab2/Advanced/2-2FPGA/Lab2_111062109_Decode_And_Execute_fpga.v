@@ -240,22 +240,22 @@ module Decoder_4bit(out, in);
     output [15:0] out;
     wire [3:0] not_in;
     Uni_NOT N1[3:0] (not_in, in);
-    and A1 (out[0], not_in[0], not_in[1], not_in[2], not_in[3]);
-    and A2 (out[1], not_in[0], not_in[1], not_in[2], in[3]);
-    and A3 (out[2], not_in[0], not_in[1], in[2], not_in[3]);
-    and A4 (out[3], not_in[0], not_in[1], in[2], in[3]);
-    and A5 (out[4], not_in[0], in[1], not_in[2], not_in[3]);
-    and A6 (out[5], not_in[0], in[1], not_in[2], in[3]);
-    and A7 (out[6], not_in[0], in[1], in[2], not_in[3]);
-    and A8 (out[7], not_in[0], in[1], in[2], in[3]);
-    and A9 (out[8], in[0], not_in[1], not_in[2], not_in[3]);
-    and A10 (out[9], in[0], not_in[1], not_in[2], in[3]);
-    and A11 (out[10], in[0], not_in[1], in[2], not_in[3]);
-    and A12 (out[11], in[0], not_in[1], in[2], in[3]);
-    and A13 (out[12], in[0], in[1], not_in[2], not_in[3]);
-    and A14 (out[13], in[0], in[1], not_in[2], in[3]);
-    and A15 (out[14], in[0], in[1], in[2], not_in[3]);
-    and A16 (out[15], in[0], in[1], in[2], in[3]);
+    and A1 (out[0], not_in[3], not_in[2], not_in[1], not_in[0]);
+    and A2 (out[1], not_in[3], not_in[2], not_in[1], in[0]);
+    and A3 (out[2], not_in[3], not_in[2], in[1], not_in[0]);
+    and A4 (out[3], not_in[3], not_in[2], in[1], in[0]);
+    and A5 (out[4], not_in[3], in[2], not_in[1], not_in[0]);
+    and A6 (out[5], not_in[3], in[2], not_in[1], in[0]);
+    and A7 (out[6], not_in[3], in[2], in[1], not_in[0]);
+    and A8 (out[7], not_in[3], in[2], in[1], in[0]);
+    and A9 (out[8], in[3], not_in[2], not_in[1], not_in[0]);
+    and A10 (out[9], in[3], not_in[2], not_in[1], in[0]);
+    and A11 (out[10], in[3], not_in[2], in[1], not_in[0]);
+    and A12 (out[11], in[3], not_in[2], in[1], in[0]);
+    and A13 (out[12], in[3], in[2], not_in[1], not_in[0]);
+    and A14 (out[13], in[3], in[2], not_in[1], in[0]);
+    and A15 (out[14], in[3], in[2], in[1], not_in[0]);
+    and A16 (out[15], in[3], in[2], in[1], in[0]);
 endmodule
 
 module sevenSegs(out, in);
@@ -266,14 +266,14 @@ module sevenSegs(out, in);
     or O2 (temp[1], in[0], in[1], in[2], in[3], in[4], in[7], in[8], in[9], in[10], in[13]);
     or O3 (temp[2], in[0], in[1], in[3], in[4], in[5], in[6], in[7], in[8], in[9], in[10], in[11], in[13]);
     or O4 (temp[3], in[0], in[2], in[3], in[5], in[6], in[8], in[9], in[11], in[12], in[13], in[14]);
-    or O5 (temp[4], in[0], in[2], in[6], in[8], in[10], in[11], in[12], in[13], in[14]);
+    or O5 (temp[4], in[0], in[2], in[6], in[8], in[10], in[11], in[12], in[13], in[14], in[15]);
     or O6 (temp[5], in[0], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[12], in[14], in[15]);
     or O7 (temp[6], in[2], in[3], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[13], in[14], in[15]);
     Uni_NOT N1[6:0] (out, temp);
 endmodule
 
 
-module Decode_And_Execute(rs, rt, sel, AN, regs);
+module Decode_And_Execute_FPGA(rs, rt, sel, AN, regs);
     input [4-1:0] rs, rt;
     input [3-1:0] sel;
     output [4-1:0] AN;
@@ -291,10 +291,10 @@ module Decode_And_Execute(rs, rt, sel, AN, regs);
     COMPARE_EQ EQ1 (h, rs, rt);
     Mux_8x1_4bit M1 (rd, a, b, c, d, e, f, g, h, sel);
 
-    Uni_NOT NT1(AN[0], 1'b0);
+    Uni_NOT NT1(AN[0], 1'b1);
     Uni_NOT NT2(AN[1], 1'b0);
     Uni_NOT NT3(AN[2], 1'b0);
-    Uni_NOT NT4(AN[3], 1'b1);
+    Uni_NOT NT4(AN[3], 1'b0);
 
     Decoder_4bit D1 (de, rd);
     sevenSegs Seg1 (regs, de);
