@@ -1,5 +1,4 @@
 `timescale 1ns/1ps
-`include "Lab2_111062109_Ripple_Carry_Adder.v"
 module Ripple_Carry_Adder_v;
 reg [8-1:0] a = 8'b00000000;
 reg [8-1:0] b = 8'b00000000;
@@ -18,8 +17,6 @@ Ripple_Carry_Adder rca(
 );
 
 initial begin
-    $dumpfile("Ripple_Carry_Adder.vcd");
-    $dumpvars(0, Ripple_Carry_Adder_v);
     repeat(2**8) begin
         repeat(2**8) begin
             repeat(2) begin

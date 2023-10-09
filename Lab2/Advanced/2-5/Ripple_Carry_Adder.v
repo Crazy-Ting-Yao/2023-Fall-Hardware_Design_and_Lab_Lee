@@ -55,7 +55,7 @@ module Ripple_Carry_Adder(a, b, cin, cout, sum);
     output [4-1:0] sum;
     wire [3-1:0] tempcin;
     Full_Adder F1 (a[0], b[0], cin, tempcin[0], sum[0]);
-    Full_Adder F2 (a[1], b[1], tempcin[0], tempcin[1], sum[1]);
+    Full_Adder F2 (a[1], b[1], tempcin[0], tempcin[1], sum[1]); //error
     Full_Adder F3 (a[2], b[2], tempcin[0], tempcin[2], sum[2]);
     Full_Adder F4 (a[3], b[3], tempcin[2], cout, sum[3]);
 endmodule

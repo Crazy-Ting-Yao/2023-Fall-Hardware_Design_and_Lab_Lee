@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Universal_Gate(out, a, b);
     input a,b;
     output out;

@@ -261,15 +261,13 @@ endmodule
 module sevenSegs(out, in);
     input [15:0] in;
     output [6:0] out;
-    wire [6:0] temp;
-    or O1 (temp[0], in[0], in[2], in[3], in[5], in[6], in[7], in[8], in[9], in[10], in[12], in[14], in[15]);
-    or O2 (temp[1], in[0], in[1], in[2], in[3], in[4], in[7], in[8], in[9], in[10], in[13]);
-    or O3 (temp[2], in[0], in[1], in[3], in[4], in[5], in[6], in[7], in[8], in[9], in[10], in[11], in[13]);
-    or O4 (temp[3], in[0], in[2], in[3], in[5], in[6], in[8], in[9], in[11], in[12], in[13], in[14]);
-    or O5 (temp[4], in[0], in[2], in[6], in[8], in[10], in[11], in[12], in[13], in[14], in[15]);
-    or O6 (temp[5], in[0], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[12], in[14], in[15]);
-    or O7 (temp[6], in[2], in[3], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[13], in[14], in[15]);
-    Uni_NOT N1[6:0] (out, temp);
+    nor O1 (out[0], in[0], in[2], in[3], in[5], in[6], in[7], in[8], in[9], in[10], in[12], in[14], in[15]);
+    nor O2 (out[1], in[0], in[1], in[2], in[3], in[4], in[7], in[8], in[9], in[10], in[13]);
+    nor O3 (out[2], in[0], in[1], in[3], in[4], in[5], in[6], in[7], in[8], in[9], in[10], in[11], in[13]);
+    nor O4 (out[3], in[0], in[2], in[3], in[5], in[6], in[8], in[9], in[11], in[12], in[13], in[14]);
+    nor O5 (out[4], in[0], in[2], in[6], in[8], in[10], in[11], in[12], in[13], in[14], in[15]);
+    nor O6 (out[5], in[0], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[12], in[14], in[15]);
+    nor O7 (out[6], in[2], in[3], in[4], in[5], in[6], in[8], in[9], in[10], in[11], in[13], in[14], in[15]);
 endmodule
 
 

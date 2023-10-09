@@ -1,5 +1,4 @@
 `timescale 1ns/1ps
-`include "Universal_Gate.v"
 
 module Uni_NOT(out, in);
     input in;
