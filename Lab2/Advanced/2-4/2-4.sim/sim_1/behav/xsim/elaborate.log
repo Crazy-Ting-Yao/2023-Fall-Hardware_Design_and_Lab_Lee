@@ -1,0 +1,22 @@
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto e540e6afc1554f259bf8b0a5c6e4e80d --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Multiplier_4bit_t_behav xil_defaultlib.Multiplier_4bit_t xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.AND
+Compiling module xil_defaultlib.Multiplier_4x1bit
+Compiling module xil_defaultlib.XOR
+Compiling module xil_defaultlib.Half_Adder
+Compiling module xil_defaultlib.OR
+Compiling module xil_defaultlib.Majority
+Compiling module xil_defaultlib.Full_Adder
+Compiling module xil_defaultlib.Adder_4bit
+Compiling module xil_defaultlib.Multiplier_4bit
+Compiling module xil_defaultlib.Multiplier_4bit_t
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Multiplier_4bit_t_behav

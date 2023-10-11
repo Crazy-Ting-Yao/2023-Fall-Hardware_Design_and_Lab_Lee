@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-1/Lab2_111062109_Ripple_Carry_Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AND
+INFO: [VRFC 10-311] analyzing module OR
+INFO: [VRFC 10-311] analyzing module XOR
+INFO: [VRFC 10-311] analyzing module Majority
+INFO: [VRFC 10-311] analyzing module Full_Adder
+INFO: [VRFC 10-311] analyzing module Ripple_Carry_Adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-1/Lab2_111062109_Ripple_Carry_Adder_t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Ripple_Carry_Adder_v
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-1/2-1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

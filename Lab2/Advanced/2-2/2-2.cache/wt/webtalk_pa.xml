@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Wed Oct 11 22:17:00 2023">
+<application name="pa" timeStamp="Wed Oct 11 22:22:45 2023">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="ff3e176c934d492e9f74e9a871b45bb6" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -17,35 +17,35 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="ExitApp" value="3" type="JavaHandler"/>
+<property name="ExitApp" value="4" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
-<property name="OpenProject" value="1" type="JavaHandler"/>
+<property name="OpenProject" value="2" type="JavaHandler"/>
 <property name="RunSynthesis" value="1" type="JavaHandler"/>
 <property name="SetTopNode" value="2" type="JavaHandler"/>
-<property name="SimulationRun" value="9" type="JavaHandler"/>
-<property name="ViewTaskRTLAnalysis" value="1" type="JavaHandler"/>
+<property name="SimulationRun" value="11" type="JavaHandler"/>
+<property name="ViewTaskRTLAnalysis" value="2" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
 <property name="AbstractFileView_RELOAD" value="1" type="GuiHandlerData"/>
-<property name="BaseDialog_CANCEL" value="3" type="GuiHandlerData"/>
+<property name="BaseDialog_CANCEL" value="4" type="GuiHandlerData"/>
 <property name="BaseDialog_OK" value="2" type="GuiHandlerData"/>
 <property name="ConstraintsChooserPanel_ADD_FILES" value="1" type="GuiHandlerData"/>
 <property name="FPGAChooser_FAMILY" value="1" type="GuiHandlerData"/>
 <property name="FPGAChooser_FPGA_TABLE" value="1" type="GuiHandlerData"/>
 <property name="FPGAChooser_PACKAGE" value="1" type="GuiHandlerData"/>
 <property name="FPGAChooser_SPEED" value="1" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="53" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="55" type="GuiHandlerData"/>
 <property name="FloatingTopDialog_SELECT_TOP_MODULE_OF_YOUR_DESIGN" value="1" type="GuiHandlerData"/>
 <property name="FloatingTopDialog_SPECIFY_NEW_TOP_MODULE" value="1" type="GuiHandlerData"/>
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="14" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="17" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
-<property name="GettingStartedView_OPEN_PROJECT" value="1" type="GuiHandlerData"/>
+<property name="GettingStartedView_OPEN_PROJECT" value="2" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_IN" value="1" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_OUT" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_AUTO_UPDATE_HIER" value="2" type="GuiHandlerData"/>
 <property name="PACommandNames_SET_AS_TOP" value="2" type="GuiHandlerData"/>
-<property name="PACommandNames_SIMULATION_RUN_BEHAVIORAL" value="9" type="GuiHandlerData"/>
-<property name="PAViews_PROJECT_SUMMARY" value="6" type="GuiHandlerData"/>
+<property name="PACommandNames_SIMULATION_RUN_BEHAVIORAL" value="11" type="GuiHandlerData"/>
+<property name="PAViews_PROJECT_SUMMARY" value="7" type="GuiHandlerData"/>
 <property name="ProgressDialog_CANCEL" value="2" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_CHOOSE_PROJECT_LOCATION" value="1" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_CREATE_PROJECT_SUBDIRECTORY" value="1" type="GuiHandlerData"/>

@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-3/Lab2_111062109_Carry_Look_Ahead_Adder_8bit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AND
+INFO: [VRFC 10-311] analyzing module OR
+INFO: [VRFC 10-311] analyzing module XOR
+INFO: [VRFC 10-311] analyzing module Carry_Look_Ahead_Generator_2bit
+INFO: [VRFC 10-311] analyzing module Carry_Look_Ahead_Generator_4bit
+INFO: [VRFC 10-311] analyzing module Carry_Look_Ahead_Adder_8bit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-3/Lab2_111062109_Carry_Look_Ahead_Adder_8bit_t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Carry_Look_Ahead_Adder_8bit_t
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-3/2-3.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
