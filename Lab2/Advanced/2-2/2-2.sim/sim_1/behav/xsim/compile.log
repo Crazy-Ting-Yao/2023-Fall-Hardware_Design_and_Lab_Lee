@@ -1,0 +1,27 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Lab2_111062109_Decode_And_Execute.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Uni_NOT
+INFO: [VRFC 10-311] analyzing module Uni_NOR
+INFO: [VRFC 10-311] analyzing module Uni_AND
+INFO: [VRFC 10-311] analyzing module Uni_OR
+INFO: [VRFC 10-311] analyzing module Uni_NAND
+INFO: [VRFC 10-311] analyzing module Uni_XOR
+INFO: [VRFC 10-311] analyzing module Uni_XNOR
+INFO: [VRFC 10-311] analyzing module Mux_2x1_1bit
+INFO: [VRFC 10-311] analyzing module Mux_8x1_1bit
+INFO: [VRFC 10-311] analyzing module Majority
+INFO: [VRFC 10-311] analyzing module Full_Adder
+INFO: [VRFC 10-311] analyzing module ADD
+INFO: [VRFC 10-311] analyzing module SUB
+INFO: [VRFC 10-311] analyzing module BITWISE_OR
+INFO: [VRFC 10-311] analyzing module BITWISE_AND
+INFO: [VRFC 10-311] analyzing module RT_ARI_RIGHT_SHIFT
+INFO: [VRFC 10-311] analyzing module RS_CIR_LEFT_SHIFT
+INFO: [VRFC 10-311] analyzing module COMPARE_EQ
+INFO: [VRFC 10-311] analyzing module COMPARE_LT
+INFO: [VRFC 10-2458] undeclared symbol temp0, assumed default net type wire [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Lab2_111062109_Decode_And_Execute.v:208]
+INFO: [VRFC 10-311] analyzing module Mux_8x1_4bit
+INFO: [VRFC 10-311] analyzing module Decode_And_Execute
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Universal_Gate.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Universal_Gate
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Lab2_111062109_Decode_And_Execute_t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Decode_And_Execute_t

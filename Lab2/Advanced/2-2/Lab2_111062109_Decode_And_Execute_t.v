@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module Decode_And_Execute_v;
+module Decode_And_Execute_t;
 reg [4-1:0] rs = 4'b0000;
 reg [4-1:0] rt = 4'b0001;
 reg [3-1:0] sel = 3'b000;
