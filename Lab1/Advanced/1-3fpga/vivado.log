@@ -2,13 +2,14 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Wed Oct 11 22:37:20 2023
-# Process ID: 2824
+# Start of session at: Thu Oct 12 15:17:35 2023
+# Process ID: 8120
 # Current directory: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9956 D:\GitHub\2023-Fall-Hardware_Design_and_Lab_Lee\Lab1\Advanced\1-3fpga\1-3FPGA.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13064 D:\GitHub\2023-Fall-Hardware_Design_and_Lab_Lee\Lab1\Advanced\1-3fpga\1-3FPGA.xpr
 # Log file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/vivado.log
 # Journal file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga\vivado.jou
 #-----------------------------------------------------------
+Sourcing tcl script 'C:/Xilinx/Vivado/2020.2/scripts/Vivado_init.tcl'
 start_gui
 open_project D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.xpr
 WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.gen/sources_1'.
@@ -17,6 +18,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:11 . Memory (MB): peak = 1017.820 ; gain = 0.000
 update_compile_order -fileset sources_1
 open_hw_manager
 connect_hw_server -allow_non_jtag
@@ -41,17 +43,14 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1015.160 ; gain = 0.000
+connect_hw_server: Time (s): cpu = 00:00:02 ; elapsed = 00:00:15 . Memory (MB): peak = 1017.820 ; gain = 0.000
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183698564A
+open_hw_target: Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2338.223 ; gain = 1320.402
 set_property PROGRAM.FILE {D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.runs/impl_1/Crossbar_2x2_4bit.bit} [get_hw_devices xc7a35t_0]
 current_hw_device [get_hw_devices xc7a35t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
-ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183698564A
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183698564A
-INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
-WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property PROGRAM.FILE {D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/1-3FPGA.runs/impl_1/Crossbar_2x2_4bit.bit} [get_hw_devices xc7a35t_0]
@@ -59,3 +58,5 @@ program_hw_devices [get_hw_devices xc7a35t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 12 15:47:21 2023...

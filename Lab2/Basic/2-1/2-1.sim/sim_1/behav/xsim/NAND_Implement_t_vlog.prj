@@ -1,6 +1,5 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../Lab2_NAND_Implement.v" \
 "../../../../NAND_Implement_t.v" \
 
 # compile glbl module

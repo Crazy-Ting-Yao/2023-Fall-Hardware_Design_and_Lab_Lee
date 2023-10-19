@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Oct 12 15:16:55 2023
+# Process ID: 496
+# Current directory: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9016 D:\GitHub\2023-Fall-Hardware_Design_and_Lab_Lee\Lab2\Basic\2-2\2-2.xpr
+# Log file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-2/vivado.log
+# Journal file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-2/2-2.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source Majority_t.tcl
+close_sim

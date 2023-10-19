@@ -2,10 +2,10 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Wed Oct 11 22:37:20 2023
-# Process ID: 2824
+# Start of session at: Thu Oct 12 15:17:35 2023
+# Process ID: 8120
 # Current directory: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9956 D:\GitHub\2023-Fall-Hardware_Design_and_Lab_Lee\Lab1\Advanced\1-3fpga\1-3FPGA.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13064 D:\GitHub\2023-Fall-Hardware_Design_and_Lab_Lee\Lab1\Advanced\1-3fpga\1-3FPGA.xpr
 # Log file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga/vivado.log
 # Journal file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab1/Advanced/1-3fpga\vivado.jou
 #-----------------------------------------------------------

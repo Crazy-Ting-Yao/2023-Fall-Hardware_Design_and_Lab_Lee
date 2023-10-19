@@ -1,30 +1,13 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module NOT
-INFO: [VRFC 10-311] analyzing module AND
-INFO: [VRFC 10-311] analyzing module OR
-INFO: [VRFC 10-311] analyzing module NOR
-INFO: [VRFC 10-311] analyzing module XOR
-INFO: [VRFC 10-311] analyzing module XNOR
-INFO: [VRFC 10-311] analyzing module Mux_2x1_1bit
-INFO: [VRFC 10-311] analyzing module Mux_8x1_1bit
-INFO: [VRFC 10-311] analyzing module NAND_Implement
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/NAND_Implement_t.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module NOT
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'NOT' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:3]
 INFO: [VRFC 10-311] analyzing module AND
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'AND' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:9]
 INFO: [VRFC 10-311] analyzing module OR
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'OR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:17]
 INFO: [VRFC 10-311] analyzing module NOR
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'NOR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:26]
 INFO: [VRFC 10-311] analyzing module XOR
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'XOR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:36]
 INFO: [VRFC 10-311] analyzing module XNOR
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'XNOR' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:47]
 INFO: [VRFC 10-311] analyzing module Mux_2x1_1bit
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'Mux_2x1_1bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:58]
 INFO: [VRFC 10-311] analyzing module Mux_8x1_1bit
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'Mux_8x1_1bit' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:70]
 INFO: [VRFC 10-311] analyzing module NAND_Implement
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'NAND_Implement' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/Lab2_NAND_Implement.v:84]
 INFO: [VRFC 10-311] analyzing module NAND_Implement_t
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Basic/2-1/2-1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

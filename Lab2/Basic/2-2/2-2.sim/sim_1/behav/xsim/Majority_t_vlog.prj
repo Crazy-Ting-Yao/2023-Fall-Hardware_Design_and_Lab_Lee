@@ -1,6 +1,5 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../Lab2_Majority.v" \
 "../../../../Majority_t.v" \
 
 # compile glbl module
