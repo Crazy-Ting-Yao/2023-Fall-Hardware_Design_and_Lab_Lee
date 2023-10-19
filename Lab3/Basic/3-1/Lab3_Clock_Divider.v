@@ -10,12 +10,12 @@ output clk1_3;
 output dclk;
 reg clk1_2, clk1_3, clk1_4, clk1_8;
 reg dclk;
-reg counter_2 = 1'b0;
-reg [1:0] counter_3 = 2'b00;
-reg [1:0] counter_4 = 2'b00;
-reg [2:0] counter_8 = 3'b000;
+reg counter_2;
+reg [1:0] counter_3;
+reg [1:0] counter_4;
+reg [2:0] counter_8;
 
-always @(posedge clk or negedge rst_n) begin
+always @(posedge clk) begin
     if (!rst_n) begin
         clk1_2 <= 1'b1;
         clk1_3 <= 1'b1;
@@ -27,36 +27,37 @@ always @(posedge clk or negedge rst_n) begin
         counter_8 <= 3'b000;
     end
     else begin
-        if (counter_2 == 1'b1) begin
+        if (counter_2 === 1'b1) begin
             clk1_2 <= 1;
             counter_2 <= 0;
         end
-        else begin
-            clk1_2 <= 0;
+        else if (counter_2 === 1'b0) begin
+            clk1_2 <= 1;
             counter_2 <= 1;
         end
-        if (counter_3 == 2'b10) begin
+        if (counter_3 === 2'b10) begin
             clk1_3 <= 1;
             counter_3 <= 2'b00;
         end
-        else begin
+        else if (counter_3 === 2'b00) begin
             clk1_3 <= 0;
+            counter_3 <= 2'b01;
+        end
+        else begin
             counter_3 <= counter_3 + 1'b1;
         end
-        if (counter_4 == 2'b11) begin
-            clk1_4 <= 1;
-            counter_4 <= 2'b00;
-        end
-        else begin
-            clk1_4 <= 0;
+        if (counter_4 === 2'b11 || counter_4 === 2'b00) begin
+            clk1_4 <=  ~clk1_4;
             counter_4 <= counter_4 + 1'b1;
         end
-        if (counter_8 == 3'b111) begin
-            clk1_8 <= 1;
-            counter_8 <= 3'b000;
+        else begin
+            counter_4 <= counter_4 + 1'b1;
+        end
+        if (counter_8 === 3'b111 || counter_8 === 3'b110) begin
+            clk1_8 <= ~clk1_8;
+            counter_8 <= counter_8 + 1'b1;
         end
         else begin
-            clk1_8 <= 0;
             counter_8 <= counter_8 + 1'b1;
         end
     end
