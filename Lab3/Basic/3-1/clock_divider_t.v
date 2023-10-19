@@ -34,8 +34,6 @@ Clock_Divider cd (
 // end
 
 initial begin
-	$dumpfile("Clock_Divider.vcd");
-	$dumpvars(0, Clock_Divider_t);
 	@ (negedge clk)
 	rst_n = 1'b0;
 	@ (negedge clk)

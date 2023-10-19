@@ -30,8 +30,6 @@ Memory mem(
 // end
 
 initial begin
-    $dumpfile("Memory.vcd");
-    $dumpvars(0, Memory_t);
     @(negedge clk)
     addr = 7'd87;
     din = 8'd87;

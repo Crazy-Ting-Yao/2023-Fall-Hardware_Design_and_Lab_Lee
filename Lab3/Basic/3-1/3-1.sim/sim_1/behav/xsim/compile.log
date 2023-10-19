@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Basic/3-1/Lab3_Clock_Divider.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Clock_Divider
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Basic/3-1/Clock_Divider_t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Clock_Divider
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'Clock_Divider' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Basic/3-1/Lab3_Clock_Divider.v:3]
+INFO: [VRFC 10-311] analyzing module Clock_Divider_t
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Basic/3-1/3-1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

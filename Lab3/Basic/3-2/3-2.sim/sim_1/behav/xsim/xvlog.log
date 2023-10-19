@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Basic/3-2/Lab3_Memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Basic/3-2/Memory_t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Memory
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'Memory' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Basic/3-2/Lab3_Memory.v:3]
+INFO: [VRFC 10-311] analyzing module Memory_t
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Basic/3-2/3-2.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
