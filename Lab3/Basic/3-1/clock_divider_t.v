@@ -1,41 +1,50 @@
-`timescale 1ns / 1ps
-`include "clock_divider.v"
-module clock_divider_t;
-    reg clk;
-    reg rst;
-    reg [1:0] sel;
-    wire clk1_2;
-    wire clk1_3;
-    wire clk1_4;
-    wire clk1_8;
-    wire dclk;
+`timescale 1ns/1ps
+`include "Lab3_Clock_Divider.v"
+module Clock_Divider_t;
+reg clk = 1'b1;
+reg rst_n = 1'b1;
+reg [1:0] sel = 2'd0;
+wire clk1_2;
+wire clk1_4;
+wire clk1_8;
+wire clk1_3;
+wire dclk;
 
-    clock_divider uut (
-        .clk(clk),
-        .rst(rst),
-        .sel(sel),
-        .clk1_2(clk1_2),
-        .clk1_3(clk1_3),
-        .clk1_4(clk1_4),
-        .clk1_8(clk1_8),
-        .dclk(dclk)
-    );
+// specify duration of a clock cycle.
+parameter cyc = 10;
 
-    initial begin
-        $dumpfile("clock_divider.vcd");
-        $dumpvars(0, clock_divider_t);
-        clk = 0;
-        rst = 0;
-        sel = 0;
-        #10 rst = 1;
-        #10 sel = 1;
-        #10 sel = 0;
-        #10 sel = 2;
-        #10 sel = 3;
-        #10 $finish;
-    end
+// generate clock.
+always#(cyc/2)clk = !clk;
 
-    always begin
-        #2 clk = ~clk;
-    end
+Clock_Divider cd (
+	.clk (clk),
+	.rst_n (rst_n),
+  	.sel (sel),
+  	.clk1_2 (clk1_2),
+  	.clk1_4 (clk1_4),
+  	.clk1_8 (clk1_8),
+  	.clk1_3 (clk1_3),
+  	.dclk (dclk)
+);
+
+// uncommment and add "+access+r" to your nverilog command to dump fsdb waveform on NTHUCAD
+// initial begin
+//     $fsdbDumpfile("Clock_Divider.fsdb");
+//     $fsdbDumpvars;
+// end
+
+initial begin
+	$dumpfile("Clock_Divider.vcd");
+	$dumpvars(0, Clock_Divider_t);
+	@ (negedge clk)
+	rst_n = 1'b0;
+	@ (negedge clk)
+	rst_n = 1'b1;
+	@ (negedge clk)
+	repeat (2 ** 2) begin
+	#(cyc * 5) sel = sel + 1'b1;
+	end
+	#1 $finish;
+end
+
 endmodule

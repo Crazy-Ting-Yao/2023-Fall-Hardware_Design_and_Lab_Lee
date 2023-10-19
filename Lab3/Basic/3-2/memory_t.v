@@ -1,53 +1,94 @@
-`timescale 1ns / 1ps
-`include "memory.v"
-module memory_t;
-    reg clk;
-    reg ren;
-    reg wen;
-    reg [6:0] addr;
-    reg [7:0] din;
-    wire [7:0] dout;
+`timescale 1ns/1ps
+`include "Lab3_Memory.v"
+module Memory_t;
+reg clk = 0;
+reg ren = 1'b0;
+reg wen = 1'b0;
+reg [6:0] addr = 7'd0;
+reg [7:0] din = 8'd0;
+wire [7:0] dout;
 
-    memory uut (
-        .clk(clk),
-        .ren(ren),
-        .wen(wen),
-        .addr(addr),
-        .din(din),
-        .dout(dout)
-    );
+// specify duration of a clock cycle.
+parameter cyc = 10;
 
-    initial begin
-        $dumpfile("memory.vcd");
-        $dumpvars(0, memory_t);
-        clk = 0;
-        ren = 0;
-        wen = 0;
-        addr = 0;
-        din = 0;
-        #10 wen = 1;
-        addr = 7'd63;
-        din = 8'd4;
-        #10 addr = 7'd45;
-        din = 8'd8;
-        #10 addr = 7'd87;
-        din = 8'd35;
-        #10 addr = 7'd26;
-        din = 8'd77;
-        #10 addr = 7'd0;
-        din = 8'd0;
-        wen = 0;
-        #30 ren = 1;
-        addr = 7'd87;
-        #10 addr = 7'd26;
-        #10 addr = 7'd63;
-        #10 addr = 7'd45;
-        #10 ren = 0;
-        addr = 7'd0;
-        #30 $finish;
-    end
+// generate clock.
+always#(cyc/2)clk = !clk;
 
-    always begin
-        #5 clk = ~clk;
-    end
+Memory mem(
+    .clk(clk),
+    .ren(ren),
+    .wen(wen),
+    .din(din),
+    .addr(addr),
+    .dout(dout)
+);
+
+// uncommment and add "+access+r" to your nverilog command to dump fsdb waveform on NTHUCAD
+// initial begin
+//     $fsdbDumpfile("Memory.fsdb");
+//     $fsdbDumpvars;
+// end
+
+initial begin
+    $dumpfile("Memory.vcd");
+    $dumpvars(0, Memory_t);
+    @(negedge clk)
+    addr = 7'd87;
+    din = 8'd87;
+    ren = 1'b0;
+    wen = 1'b1;
+    @(negedge clk)
+    addr = 7'd87;
+    din = 8'd87;
+    ren = 1'b1;
+    wen = 1'b1;
+    @(negedge clk)
+    addr = 7'd87;
+    din = 8'd87;
+    ren = 1'b1;
+    wen = 1'b0;
+    @(negedge clk)
+    addr = 7'd15;
+    din = 8'd85;
+    ren = 1'b1;
+    wen = 1'b1;
+    @(negedge clk)
+    addr = 7'd15;
+    din = 8'd0;
+    ren = 1'b0;
+    wen = 1'b1;
+    @(negedge clk)
+    addr = 7'd127;
+    din = 8'd77;
+    ren = 1'b1;
+    wen = 1'b0;
+    @(negedge clk)
+    addr = 7'd15;
+    din = 8'd66;
+    ren = 1'b0;
+    wen = 1'b1;
+    @(negedge clk)
+    addr = 7'd127;
+    din = 8'd89;
+    ren = 1'b1;
+    wen = 1'b1;
+    @(negedge clk)
+    addr = 7'd127;
+    din = 8'd89;
+    ren = 1'b0;
+    wen = 1'b1;
+    @(negedge clk)
+    addr = 7'd15;
+    din = 8'd66;
+    ren = 1'b1;
+    wen = 1'b1;
+    @(negedge clk)
+    addr = 7'd127;
+    din = 8'd0;
+    ren = 1'b1;
+    wen = 1'b0;
+    @(negedge clk)
+    $finish;
+end
+
 endmodule
