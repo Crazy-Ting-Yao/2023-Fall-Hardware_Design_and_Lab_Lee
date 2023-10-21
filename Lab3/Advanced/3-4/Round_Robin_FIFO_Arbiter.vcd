@@ -1,0 +1,388 @@
+$date
+	Sat Oct 21 16:40:49 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Round_Robin_FIFO_Arbiter_t $end
+$var wire 1 ! valid $end
+$var wire 8 " dout [7:0] $end
+$var reg 8 # a [7:0] $end
+$var reg 8 $ b [7:0] $end
+$var reg 8 % c [7:0] $end
+$var reg 1 & clk $end
+$var reg 8 ' d [7:0] $end
+$var reg 1 ( rst_n $end
+$var reg 4 ) wen [3:0] $end
+$scope module uut $end
+$var wire 8 * a [7:0] $end
+$var wire 8 + b [7:0] $end
+$var wire 8 , c [7:0] $end
+$var wire 1 & clk $end
+$var wire 8 - d [7:0] $end
+$var wire 1 ( rst_n $end
+$var wire 4 . wen [3:0] $end
+$var wire 4 / errors [3:0] $end
+$var reg 2 0 cnt [1:0] $end
+$var reg 8 1 dout [7:0] $end
+$var reg 1 ! valid $end
+$scope module FIFO_a $end
+$var wire 1 & clk $end
+$var wire 8 2 din [7:0] $end
+$var wire 1 3 ren $end
+$var wire 1 ( rst_n $end
+$var wire 1 4 wen $end
+$var reg 8 5 dontcare [7:0] $end
+$var reg 8 6 dout [7:0] $end
+$var reg 1 7 error $end
+$var reg 1 8 full $end
+$var reg 3 9 read_pointer [2:0] $end
+$var reg 3 : write_pointer [2:0] $end
+$upscope $end
+$scope module FIFO_b $end
+$var wire 1 & clk $end
+$var wire 8 ; din [7:0] $end
+$var wire 1 < ren $end
+$var wire 1 ( rst_n $end
+$var wire 1 = wen $end
+$var reg 8 > dontcare [7:0] $end
+$var reg 8 ? dout [7:0] $end
+$var reg 1 @ error $end
+$var reg 1 A full $end
+$var reg 3 B read_pointer [2:0] $end
+$var reg 3 C write_pointer [2:0] $end
+$upscope $end
+$scope module FIFO_c $end
+$var wire 1 & clk $end
+$var wire 8 D din [7:0] $end
+$var wire 1 E ren $end
+$var wire 1 ( rst_n $end
+$var wire 1 F wen $end
+$var reg 8 G dontcare [7:0] $end
+$var reg 8 H dout [7:0] $end
+$var reg 1 I error $end
+$var reg 1 J full $end
+$var reg 3 K read_pointer [2:0] $end
+$var reg 3 L write_pointer [2:0] $end
+$upscope $end
+$scope module FIFO_d $end
+$var wire 1 & clk $end
+$var wire 8 M din [7:0] $end
+$var wire 1 N ren $end
+$var wire 1 ( rst_n $end
+$var wire 1 O wen $end
+$var reg 8 P dontcare [7:0] $end
+$var reg 8 Q dout [7:0] $end
+$var reg 1 R error $end
+$var reg 1 S full $end
+$var reg 3 T read_pointer [2:0] $end
+$var reg 3 U write_pointer [2:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx U
+bx T
+xS
+xR
+bx Q
+bx P
+1O
+xN
+bx M
+bx L
+bx K
+xJ
+xI
+bx H
+bx G
+1F
+xE
+bx D
+bx C
+bx B
+xA
+x@
+bx ?
+bx >
+1=
+x<
+bx ;
+bx :
+bx 9
+x8
+x7
+bx 6
+bx 5
+14
+x3
+bx 2
+bx 1
+bx 0
+bx /
+b1111 .
+bx -
+bx ,
+bx +
+bx *
+b1111 )
+0(
+bx '
+0&
+bx %
+bx $
+bx #
+bx "
+x!
+$end
+#5000
+08
+bx 6
+17
+b0 9
+b0 :
+0A
+b0 ?
+0@
+b0 B
+b0 C
+0J
+b0 H
+0I
+b0 K
+b0 L
+0S
+b0 Q
+b1 /
+0R
+b0 T
+b0 U
+0!
+b0 "
+b0 1
+13
+0<
+0E
+0N
+b0 0
+1&
+#10000
+b1101 '
+b1101 -
+b1101 M
+b1001 %
+b1001 ,
+b1001 D
+b111000 $
+b111000 +
+b111000 ;
+b1010111 #
+b1010111 *
+b1010111 2
+1(
+0&
+#15000
+bx ?
+b11 /
+1@
+03
+1<
+b1 0
+b1 U
+b1 L
+b1 C
+b1 :
+1&
+#20000
+b111000 ?
+b1 /
+0@
+04
+0=
+0F
+b1010101 '
+b1010101 -
+b1010101 M
+bx %
+bx ,
+bx D
+bx $
+bx +
+bx ;
+bx #
+bx *
+bx 2
+b1000 )
+b1000 .
+0&
+#25000
+b1001 H
+b1 B
+b10 U
+b111000 "
+b111000 1
+1!
+0<
+1E
+b10 0
+1&
+#30000
+bx H
+b101 /
+1I
+1F
+0O
+bx '
+bx -
+bx M
+b10001011 %
+b10001011 ,
+b10001011 D
+b100 )
+b100 .
+0&
+#35000
+b1101 Q
+b0 "
+b0 1
+0!
+0E
+1N
+b11 0
+b10 L
+1&
+#40000
+0F
+bx %
+bx ,
+bx D
+b0 )
+b0 .
+0&
+#45000
+b1010111 6
+b100 /
+07
+b1 T
+b1101 "
+b1101 1
+1!
+13
+0N
+b0 0
+1&
+#50000
+0&
+#55000
+bx ?
+b110 /
+1@
+b1010111 "
+b1010111 1
+03
+1<
+b1 0
+b1 9
+1&
+#60000
+0&
+#65000
+b1001 H
+b10 /
+0I
+b0 "
+b0 1
+0!
+0<
+1E
+b10 0
+1&
+#70000
+14
+b110011 #
+b110011 *
+b110011 2
+b1 )
+b1 .
+0&
+#75000
+b1010101 Q
+b1001 "
+b1001 1
+1!
+0E
+1N
+b11 0
+b1 K
+b10 :
+1&
+#80000
+04
+bx #
+bx *
+bx 2
+b0 )
+b0 .
+0&
+#85000
+b110011 6
+b10 T
+b1010101 "
+b1010101 1
+13
+0N
+b0 0
+1&
+#90000
+0&
+#95000
+b110011 "
+b110011 1
+03
+1<
+b1 0
+b10 9
+1&
+#100000
+0&
+#105000
+b10001011 H
+b0 "
+b0 1
+0!
+0<
+1E
+b10 0
+1&
+#110000
+0&
+#115000
+bx Q
+b1010 /
+1R
+b10001011 "
+b10001011 1
+1!
+0E
+1N
+b11 0
+b10 K
+1&
+#120000
+0&
+#125000
+bx 6
+b1011 /
+17
+b0 "
+b0 1
+0!
+13
+0N
+b0 0
+1&
