@@ -31,31 +31,34 @@ initial begin
     flip = 0;
     max = 4;
     min = 0;
-    #10 rst_n = 1;
-    #90 rst_n = 0;
-
-    #20 rst_n = 1;
-    #30 flip = 1;
-    #10 flip = 0;
-    #50 rst_n = 0;
-
-    #20 rst_n = 1;
-    #30 flip = 1;
-    #10 flip = 0;
-    #10 flip = 1;
-    #10 flip = 0;
-    #30 rst_n = 0;
-    
-    #20 rst_n = 1;
-    max = 3;
-    #50 flip = 1;
-    min = 1;
-    #10 flip = 0;
-    min = 3;
-    #20 min = 2; max = 2;
-    #30 min = 1; max = 3;
-    #30 rst_n = 0;
+    #100 rst_n = 1;
+    #900 rst_n = 0;
     $finish;
+    #200 rst_n = 1;
+    #300 flip = 1;
+    #100 flip = 0;
+    #500 rst_n = 0;
+    #10;
+   
+    /*
+    #200 rst_n = 1;
+    #300 flip = 1;
+    #100 flip = 0;
+    #100 flip = 1;
+    #100 flip = 0;
+    #300 rst_n = 0;
+    
+    #200 rst_n = 1;
+    max = 3;
+    #500 flip = 1;
+    min = 1;
+    #100 flip = 0;
+    min = 3;
+    #200 min = 2; max = 2;
+    #300 min = 1; max = 3;
+    #300 rst_n = 0;
+    $finish;
+    */
 end
 
 always #5 clk = ~clk;

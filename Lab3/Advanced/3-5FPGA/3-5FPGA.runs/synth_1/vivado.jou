@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Oct 22 09:22:11 2023
+# Process ID: 17976
+# Current directory: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/3-5FPGA.runs/synth_1
+# Command line: vivado.exe -log Parameterized_Ping_Pong_Counter_FPGA.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Parameterized_Ping_Pong_Counter_FPGA.tcl
+# Log file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/3-5FPGA.runs/synth_1/Parameterized_Ping_Pong_Counter_FPGA.vds
+# Journal file: D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/3-5FPGA.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Parameterized_Ping_Pong_Counter_FPGA.tcl -notrace

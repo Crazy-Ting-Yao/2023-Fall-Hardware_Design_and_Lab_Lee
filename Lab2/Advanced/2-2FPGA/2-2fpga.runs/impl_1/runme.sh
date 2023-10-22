@@ -41,7 +41,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
+/bin/touch .init_design.begin.rst
 EAStep vivado -log Decode_And_Execute_FPGA.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Decode_And_Execute_FPGA.tcl -notrace
 
 

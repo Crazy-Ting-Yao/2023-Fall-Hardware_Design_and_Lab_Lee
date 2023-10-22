@@ -1,6 +1,4 @@
-`timescale 1ns/1ps
-
-module clock_divider(clk, clk_out);
+module clock_divider1(clk, clk_out);
 input clk;
 output clk_out;
 
@@ -8,7 +6,26 @@ reg clk_out;
 reg [27-1:0] counter = 0;
 
 always @(posedge clk) begin
-    if(counter == 27'd100000000-1) begin
+    if(counter == 2**25-1) begin
+        counter <= 0;
+        clk_out <= 1;
+    end
+    else begin
+        counter <= counter + 1;
+        clk_out <= 0;
+    end
+end
+endmodule
+
+module clock_divider2(clk, clk_out);
+input clk;
+output clk_out;
+
+reg clk_out;
+reg [16-1:0] counter = 0;
+
+always @(posedge clk) begin
+    if(counter == 2**16-1) begin
         counter <= 0;
         clk_out <= 1;
     end
@@ -25,7 +42,7 @@ input button;
 output button_debounced;
 reg [3:0] counter;
 always @(posedge clk) begin
-    counter <<= 1;
+    counter[3:1] <= counter[2:0];
     counter[0] <= button;
 end
 
@@ -35,9 +52,8 @@ endmodule
 module one_pulse(clk, signal, pulse);
 input clk;
 input signal;
-output pulse;
-reg pulse;
-reg A;
+output reg pulse;
+reg A = 0;
 always @(posedge clk) begin
     A <= signal;
     pulse <= signal & ~A;
@@ -49,49 +65,55 @@ module seven_segment(clk, num, direction, AN, out);
     input clk;
     input direction;
     input [4-1:0] num;
-    output reg [4-1:0] AN;
+    output [4-1:0] AN;
     output [7-1:0] out;
     reg [7-1:0] out;
-    reg [3:0] counter;
-    always @(num or direction) begin
-        counter = 1;
+    reg [1:0] counter = 0;
+    reg [4-1:0] AN;
+
+    always @(negedge clk) begin
+        counter <= counter + 1;
     end
-    always @(posedge clk) begin
-        counter <<= 1;
-        AN <= ~counter[3:0];
-        if(counter[0] || counter[1]) begin
-            if(direction) begin
-                out <= ~7'b0011100;
-            end
-            else begin
-                out <= ~7'b0100111;
-            end
+
+    always @(*)begin
+        case (counter)
+        2'b00: begin
+            AN = 4'b1110;
+            if(direction == 1'b1) out = 7'b1011100;
+            else out = 7'b1100011;
         end
-        else if(counter[2]) begin
+        2'b01: begin
+            AN = 4'b1101;
+            if(direction == 1'b1) out = 7'b1011100;
+            else out = 7'b1100011;
+        end
+        2'b10: begin
+            AN = 4'b1011;
             case (num)
-                0: out <= ~7'b0111111;
-                1: out <= ~7'b0000110;
-                2: out <= ~7'b1011011;
-                3: out <= ~7'b1001111;
-                4: out <= ~7'b1100110;
-                5: out <= ~7'b1101101;
-                6: out <= ~7'b1111101;
-                7: out <= ~7'b0000111;
-                8: out <= ~7'b1111111;
-                9: out <= ~7'b1101111;
-                10: out <= ~7'b0111111;
-                11: out <= ~7'b0000110;
-                12: out <= ~7'b1011011;
-                13: out <= ~7'b1001111;
-                14: out <= ~7'b1100110;
-                15: out <= ~7'b1101101;
-                16: out <= ~7'b1111101;
+            4'b0000: out = 7'b1000000;
+            4'b0001: out = 7'b1111001;
+            4'b0010: out = 7'b0100100;
+            4'b0011: out = 7'b0110000;
+            4'b0100: out = 7'b0011001;
+            4'b0101: out = 7'b0010010;
+            4'b0110: out = 7'b0000010;
+            4'b0111: out = 7'b1111000;
+            4'b1000: out = 7'b0000000;
+            4'b1001: out = 7'b0010000;
+            4'b1010: out = 7'b1000000;
+            4'b1011: out = 7'b1111001;
+            4'b1100: out = 7'b0100100;
+            4'b1101: out = 7'b0110000;
+            4'b1110: out = 7'b0011001;
+            4'b1111: out = 7'b0010010;
             endcase
         end
-        else if(counter[3]) begin
-            if(num > 9) out <= ~7'b0000110;
-            else out <= ~7'b0000000;
+        2'b11: begin
+            AN = 4'b0111;
+            if(num > 4'b1001) out = 7'b1111001;
+            else out = 7'b1000000;
         end
+        endcase
     end
 endmodule
 
@@ -107,44 +129,43 @@ output [7-1:0] segs;
 reg direction;
 reg [4-1:0] out;
 
-wire clk_s;
+wire clk_s, clk_seg;
 wire rst_debounced, rst_enable;
 wire flip_debounced, flip_enable;
-
-
-clock_divider cd( .clk(clk), .clk_out(clk_s));
+clock_divider1 cd1( .clk(clk), .clk_out(clk_s));
+clock_divider2 cd2( .clk(clk), .clk_out(clk_seg));
 debounce db(.clk(clk), .button(rst_n), .button_debounced(rst_debounced));
 debounce db2(.clk(clk), .button(flip), .button_debounced(flip_debounced));
 one_pulse op(.clk(clk), .signal(rst_debounced), .pulse(rst_enable));
 one_pulse op2(.clk(clk), .signal(flip_debounced), .pulse(flip_enable));
-seven_segment ss(.clk(clk), .num(out), .direction(direction), .AN(AN), .out(segs));
-
-always @(posedge clk_s) begin
-    if(!rst_debounced)begin
+seven_segment ss(.clk(clk_seg), .num(out), .direction(direction), .AN(AN), .out(segs));
+always @(posedge clk) begin
+    if(rst_enable)begin
         out <= min;
         direction <= 1;
     end
-    else begin
-        if(enable) begin
-            if(out > max || out < min || ((out == max) && (out == min))) begin
-                out <= out;
+    else if(flip_enable) begin
+        direction <= ~direction;
+    end
+    else if(enable && clk_s) begin
+        if(out > max || out < min || ((out == max) && (out == min))) begin
+            out <= out;
+        end
+        else begin
+            if(flip_enable) begin
+                out <= (direction) ? out - 1 : out + 1;
+                direction <= ~direction;
+            end
+            else if(out===max) begin
+                out <= out - 1;
+                direction <= 1'b0;
+            end
+            else if(out===min) begin
+                out <= out + 1;
+                direction <= 1'b1;
             end
             else begin
-                if(flip_debounced) begin
-                    out <= (direction) ? out - 1 : out + 1;
-                    direction <= ~direction;
-                end
-                else if(out==max) begin
-                    out <= out - 1;
-                    direction <= 1'b0;
-                end
-                else if(out==min) begin
-                    out <= out + 1;
-                    direction <= 1'b1;
-                end
-                else begin
-                    out <= (direction) ? out + 1 : out - 1;
-                end
+                out <= (direction) ? out + 1 : out - 1;
             end
         end
     end
