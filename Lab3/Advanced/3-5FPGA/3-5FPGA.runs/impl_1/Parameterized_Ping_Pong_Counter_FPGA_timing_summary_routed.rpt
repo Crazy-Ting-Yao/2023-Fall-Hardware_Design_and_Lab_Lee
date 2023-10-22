@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Sun Oct 22 09:24:09 2023
+| Date         : Sun Oct 22 21:25:25 2023
 | Host         : CrazyTingYaoWIN running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file Parameterized_Ping_Pong_Counter_FPGA_timing_summary_routed.rpt -pb Parameterized_Ping_Pong_Counter_FPGA_timing_summary_routed.pb -rpx Parameterized_Ping_Pong_Counter_FPGA_timing_summary_routed.rpx -warn_on_violation
 | Design       : Parameterized_Ping_Pong_Counter_FPGA
@@ -42,7 +42,7 @@ Table of Contents
 1. checking no_clock (64)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (109)
+4. checking unconstrained_internal_endpoints (114)
 5. checking no_input_delay (11)
 6. checking no_output_delay (11)
 7. checking multiple_clock (0)
@@ -69,9 +69,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (109)
+4. checking unconstrained_internal_endpoints (114)
 --------------------------------------------------
- There are 109 pins that are not constrained for maximum delay. (HIGH)
+ There are 114 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 

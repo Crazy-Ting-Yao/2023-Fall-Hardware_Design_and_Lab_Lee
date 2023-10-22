@@ -67,7 +67,7 @@ module one_pulse(clk, signal, pulse);
 input clk;
 input signal;
 output reg pulse;
-reg A = 0;
+reg A;
 always @(posedge clk) begin
     A <= signal;
     pulse <= signal & ~A;
@@ -158,19 +158,12 @@ always @(posedge clk) begin
         out <= min;
         direction <= 1;
     end
-    else if(flip_enable) begin
-        direction <= ~direction;
-    end
     else if(enable && clk_s) begin
         if(out > max || out < min || ((out == max) && (out == min))) begin
             out <= out;
         end
         else begin
-            if(flip_enable) begin
-                out <= (direction) ? out - 1 : out + 1;
-                direction <= ~direction;
-            end
-            else if(out===max) begin
+            if(out===max) begin
                 out <= out - 1;
                 direction <= 1'b0;
             end
@@ -178,10 +171,17 @@ always @(posedge clk) begin
                 out <= out + 1;
                 direction <= 1'b1;
             end
+            else if(flip_enable) begin
+                out <= (direction) ? out - 1 : out + 1;
+                direction <= ~direction;
+            end
             else begin
                 out <= (direction) ? out + 1 : out - 1;
             end
         end
+    end
+    else if(flip_enable && enable && !(out > max || out < min)) begin
+        direction <= ~direction;
     end
 end
 endmodule
