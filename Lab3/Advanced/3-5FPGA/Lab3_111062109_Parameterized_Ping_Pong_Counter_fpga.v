@@ -1,37 +1,51 @@
-module clock_divider1(clk, clk_out);
+module clock_divider1(clk, rst, clk_out);
 input clk;
+input rst;
 output clk_out;
 
 reg clk_out;
 reg [27-1:0] counter = 0;
 
 always @(posedge clk) begin
-    if(counter == 2**25-1) begin
+    if(rst) begin
         counter <= 0;
-        clk_out <= 1;
+        clk_out <= 0;
     end
     else begin
-        counter <= counter + 1;
-        clk_out <= 0;
+        if(counter == 2**26-1) begin
+            counter <= 0;
+            clk_out <= 1;
+        end
+        else begin
+            counter <= counter + 1;
+            clk_out <= 0;
+        end
     end
 end
 endmodule
 
-module clock_divider2(clk, clk_out);
+module clock_divider2(clk, rst, clk_out);
 input clk;
+input rst;
 output clk_out;
 
 reg clk_out;
 reg [16-1:0] counter = 0;
 
 always @(posedge clk) begin
-    if(counter == 2**16-1) begin
+    if(rst) begin
         counter <= 0;
-        clk_out <= 1;
+        clk_out <= 0;
     end
     else begin
-        counter <= counter + 1;
-        clk_out <= 0;
+        if(counter == 2**16-1) begin
+            counter <= 0;
+            clk_out <= 1;
+        end
+        else begin
+            counter <= counter + 1;
+            clk_out <= 0;
+        end
     end
 end
 endmodule
@@ -132,8 +146,8 @@ reg [4-1:0] out;
 wire clk_s, clk_seg;
 wire rst_debounced, rst_enable;
 wire flip_debounced, flip_enable;
-clock_divider1 cd1( .clk(clk), .clk_out(clk_s));
-clock_divider2 cd2( .clk(clk), .clk_out(clk_seg));
+clock_divider1 cd1( .clk(clk), .rst(rst_enable), .clk_out(clk_s));
+clock_divider2 cd2( .clk(clk), .rst(rst_enable), .clk_out(clk_seg));
 debounce db(.clk(clk), .button(rst_n), .button_debounced(rst_debounced));
 debounce db2(.clk(clk), .button(flip), .button_debounced(flip_debounced));
 one_pulse op(.clk(clk), .signal(rst_debounced), .pulse(rst_enable));

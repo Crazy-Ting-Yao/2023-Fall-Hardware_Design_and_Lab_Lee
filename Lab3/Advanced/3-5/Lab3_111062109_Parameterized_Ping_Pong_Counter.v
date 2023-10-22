@@ -23,7 +23,7 @@ always @(posedge clk) begin
                 out <= out;
             end
             else begin
-                if(flip) begin
+                if(flip && out < max && out > min) begin
                     out <= (direction) ? out - 1 : out + 1;
                     direction <= ~direction;
                 end

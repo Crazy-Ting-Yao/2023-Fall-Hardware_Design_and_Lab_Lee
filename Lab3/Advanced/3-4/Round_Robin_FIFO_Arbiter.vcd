@@ -1,5 +1,5 @@
 $date
-	Sat Oct 21 16:40:49 2023
+	Sun Oct 22 13:38:44 2023
 $end
 $version
 	Icarus Verilog
@@ -25,102 +25,104 @@ $var wire 1 & clk $end
 $var wire 8 - d [7:0] $end
 $var wire 1 ( rst_n $end
 $var wire 4 . wen [3:0] $end
-$var wire 4 / errors [3:0] $end
-$var reg 2 0 cnt [1:0] $end
-$var reg 8 1 dout [7:0] $end
+$var wire 4 / error [3:0] $end
+$var wire 8 0 dout [7:0] $end
+$var reg 2 1 counter [1:0] $end
+$var reg 3 2 fifo_out [2:0] $end
 $var reg 1 ! valid $end
-$scope module FIFO_a $end
+$scope module a_fifo $end
 $var wire 1 & clk $end
-$var wire 8 2 din [7:0] $end
-$var wire 1 3 ren $end
+$var wire 8 3 din [7:0] $end
+$var wire 1 4 ren $end
 $var wire 1 ( rst_n $end
-$var wire 1 4 wen $end
-$var reg 8 5 dontcare [7:0] $end
-$var reg 8 6 dout [7:0] $end
-$var reg 1 7 error $end
-$var reg 1 8 full $end
-$var reg 3 9 read_pointer [2:0] $end
-$var reg 3 : write_pointer [2:0] $end
+$var wire 1 5 wen $end
+$var reg 8 6 dontcare [7:0] $end
+$var reg 8 7 dout [7:0] $end
+$var reg 1 8 error $end
+$var reg 1 9 full $end
+$var reg 3 : read_pointer [2:0] $end
+$var reg 3 ; write_pointer [2:0] $end
 $upscope $end
-$scope module FIFO_b $end
+$scope module b_fifo $end
 $var wire 1 & clk $end
-$var wire 8 ; din [7:0] $end
-$var wire 1 < ren $end
+$var wire 8 < din [7:0] $end
+$var wire 1 = ren $end
 $var wire 1 ( rst_n $end
-$var wire 1 = wen $end
-$var reg 8 > dontcare [7:0] $end
-$var reg 8 ? dout [7:0] $end
-$var reg 1 @ error $end
-$var reg 1 A full $end
-$var reg 3 B read_pointer [2:0] $end
-$var reg 3 C write_pointer [2:0] $end
+$var wire 1 > wen $end
+$var reg 8 ? dontcare [7:0] $end
+$var reg 8 @ dout [7:0] $end
+$var reg 1 A error $end
+$var reg 1 B full $end
+$var reg 3 C read_pointer [2:0] $end
+$var reg 3 D write_pointer [2:0] $end
 $upscope $end
-$scope module FIFO_c $end
+$scope module c_fifo $end
 $var wire 1 & clk $end
-$var wire 8 D din [7:0] $end
-$var wire 1 E ren $end
+$var wire 8 E din [7:0] $end
+$var wire 1 F ren $end
 $var wire 1 ( rst_n $end
-$var wire 1 F wen $end
-$var reg 8 G dontcare [7:0] $end
-$var reg 8 H dout [7:0] $end
-$var reg 1 I error $end
-$var reg 1 J full $end
-$var reg 3 K read_pointer [2:0] $end
-$var reg 3 L write_pointer [2:0] $end
+$var wire 1 G wen $end
+$var reg 8 H dontcare [7:0] $end
+$var reg 8 I dout [7:0] $end
+$var reg 1 J error $end
+$var reg 1 K full $end
+$var reg 3 L read_pointer [2:0] $end
+$var reg 3 M write_pointer [2:0] $end
 $upscope $end
-$scope module FIFO_d $end
+$scope module d_fifo $end
 $var wire 1 & clk $end
-$var wire 8 M din [7:0] $end
-$var wire 1 N ren $end
+$var wire 8 N din [7:0] $end
+$var wire 1 O ren $end
 $var wire 1 ( rst_n $end
-$var wire 1 O wen $end
-$var reg 8 P dontcare [7:0] $end
-$var reg 8 Q dout [7:0] $end
-$var reg 1 R error $end
-$var reg 1 S full $end
-$var reg 3 T read_pointer [2:0] $end
-$var reg 3 U write_pointer [2:0] $end
+$var wire 1 P wen $end
+$var reg 8 Q dontcare [7:0] $end
+$var reg 8 R dout [7:0] $end
+$var reg 1 S error $end
+$var reg 1 T full $end
+$var reg 3 U read_pointer [2:0] $end
+$var reg 3 V write_pointer [2:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+bx V
 bx U
-bx T
+xT
 xS
-xR
+bx R
 bx Q
-bx P
-1O
-xN
+1P
+0O
+bx N
 bx M
 bx L
-bx K
+xK
 xJ
-xI
+bx I
 bx H
-bx G
-1F
-xE
+1G
+0F
+bx E
 bx D
 bx C
-bx B
+xB
 xA
-x@
+bx @
 bx ?
-bx >
-1=
-x<
+1>
+0=
+bx <
 bx ;
 bx :
-bx 9
+x9
 x8
-x7
+bx 7
 bx 6
-bx 5
-14
-x3
+15
+04
+bx 3
 bx 2
 bx 1
 bx 0
@@ -141,248 +143,255 @@ bx "
 x!
 $end
 #5000
-08
-bx 6
-17
-b0 9
-b0 :
-0A
-b0 ?
-0@
-b0 B
-b0 C
-0J
-b0 H
-0I
-b0 K
-b0 L
-0S
-b0 Q
-b1 /
-0R
-b0 T
-b0 U
-0!
 b0 "
-b0 1
-13
-0<
-0E
-0N
 b0 0
+0!
+09
+b0 7
+08
+b0 :
+b0 ;
+0B
+b0 @
+0A
+b0 C
+b0 D
+0K
+b0 I
+0J
+b0 L
+b0 M
+0T
+b0 R
+b0 /
+0S
+b0 U
+b0 V
+b100 2
+b0 1
 1&
 #10000
 b1101 '
 b1101 -
-b1101 M
+b1101 N
 b1001 %
 b1001 ,
-b1001 D
+b1001 E
 b111000 $
 b111000 +
-b111000 ;
+b111000 <
 b1010111 #
 b1010111 *
-b1010111 2
+b1010111 3
 1(
 0&
 #15000
-bx ?
-b11 /
-1@
-03
-1<
-b1 0
-b1 U
-b1 L
-b1 C
-b1 :
+b0 2
+b1 1
+bx R
+b1 V
+bx I
+b1 M
+bx @
+b1 D
+bx 7
+b1 ;
 1&
 #20000
-b111000 ?
-b1 /
-0@
-04
-0=
-0F
+1=
+05
+0>
+0G
 b1010101 '
 b1010101 -
-b1010101 M
+b1010101 N
 bx %
 bx ,
-bx D
+bx E
 bx $
 bx +
-bx ;
+bx <
 bx #
 bx *
-bx 2
+bx 3
 b1000 )
 b1000 .
 0&
 #25000
-b1001 H
-b1 B
-b10 U
 b111000 "
-b111000 1
+b111000 0
 1!
-0<
-1E
-b10 0
+0=
+1F
+b1 C
+b111000 @
+b10 V
+b1 2
+b10 1
 1&
 #30000
-bx H
-b101 /
-1I
-1F
-0O
+0F
+1G
+0P
 bx '
 bx -
-bx M
+bx N
 b10001011 %
 b10001011 ,
-b10001011 D
+b10001011 E
 b100 )
 b100 .
 0&
 #35000
-b1101 Q
-b0 "
-b0 1
 0!
-0E
-1N
-b11 0
-b10 L
+1O
+b0 "
+b0 0
+b10 2
+b11 1
+b10 M
+bx @
 1&
 #40000
-0F
+0G
 bx %
 bx ,
-bx D
+bx E
 b0 )
 b0 .
 0&
 #45000
-b1010111 6
-b100 /
-07
-b1 T
 b1101 "
-b1101 1
+b1101 0
 1!
-13
-0N
-b0 0
+14
+0O
+b1 U
+b1101 R
+b11 2
+b0 1
 1&
 #50000
 0&
 #55000
-bx ?
-b110 /
-1@
+04
+1=
 b1010111 "
-b1010111 1
-03
-1<
-b1 0
-b1 9
+b1010111 0
+b0 2
+b1 1
+bx R
+b1 :
+b1010111 7
 1&
 #60000
 0&
 #65000
-b1001 H
-b10 /
-0I
-b0 "
-b0 1
 0!
-0<
-1E
-b10 0
+b0 "
+b0 0
+0=
+1F
+bx 7
+b10 /
+1A
+b1 2
+b10 1
 1&
 #70000
-14
+15
 b110011 #
 b110011 *
-b110011 2
+b110011 3
 b1 )
 b1 .
 0&
 #75000
-b1010101 Q
 b1001 "
-b1001 1
+b1001 0
+0F
+1O
 1!
-0E
-1N
-b11 0
-b1 K
-b10 :
+b10 2
+b11 1
+b1 L
+b1001 I
+b0 /
+0A
+b10 ;
 1&
 #80000
-04
+05
 bx #
 bx *
-bx 2
+bx 3
 b0 )
 b0 .
 0&
 #85000
-b110011 6
-b10 T
 b1010101 "
-b1010101 1
-13
-0N
-b0 0
+b1010101 0
+14
+0O
+bx I
+b10 U
+b1010101 R
+b11 2
+b0 1
 1&
 #90000
 0&
 #95000
+04
+1=
 b110011 "
-b110011 1
-03
-1<
-b1 0
-b10 9
+b110011 0
+b0 2
+b1 1
+bx R
+b10 :
+b110011 7
 1&
 #100000
 0&
 #105000
-b10001011 H
-b0 "
-b0 1
 0!
-0<
-1E
-b10 0
+b0 "
+b0 0
+0=
+1F
+bx 7
+b10 /
+1A
+b1 2
+b10 1
 1&
 #110000
 0&
 #115000
-bx Q
-b1010 /
-1R
 b10001011 "
-b10001011 1
+b10001011 0
+0F
+1O
 1!
-0E
-1N
-b11 0
-b10 K
+b10 2
+b11 1
+b10 L
+b10001011 I
+b0 /
+0A
 1&
 #120000
 0&
 #125000
-bx 6
-b1011 /
-17
-b0 "
-b0 1
 0!
-13
-0N
+b0 "
 b0 0
+14
+0O
+bx I
+b1000 /
+1S
+b11 2
+b0 1
 1&
