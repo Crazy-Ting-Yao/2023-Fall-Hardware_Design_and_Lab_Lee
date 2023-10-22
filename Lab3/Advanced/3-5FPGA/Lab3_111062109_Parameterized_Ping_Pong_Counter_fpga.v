@@ -4,7 +4,7 @@ input rst;
 output clk_out;
 
 reg clk_out;
-reg [27-1:0] counter = 0;
+reg [27-1:0] counter;
 
 always @(posedge clk) begin
     if(rst) begin
@@ -30,7 +30,7 @@ input rst;
 output clk_out;
 
 reg clk_out;
-reg [16-1:0] counter = 0;
+reg [16-1:0] counter;
 
 always @(posedge clk) begin
     if(rst) begin
