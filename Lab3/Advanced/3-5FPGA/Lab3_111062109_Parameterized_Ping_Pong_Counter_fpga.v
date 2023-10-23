@@ -116,7 +116,7 @@ output [7-1:0] segs;
 
 reg direction;
 reg [4-1:0] out;
-
+wire _enable;
 wire clk_s, clk_seg;
 wire rst_debounced, rst_enable;
 wire flip_debounced, flip_enable;
@@ -127,34 +127,30 @@ debounce db2(.clk(clk), .button(flip), .button_debounced(flip_debounced));
 one_pulse op(.clk(clk), .signal(rst_debounced), .pulse(rst_enable));
 one_pulse op2(.clk(clk), .signal(flip_debounced), .pulse(flip_enable));
 seven_segment ss(.clk(clk_seg), .num(out), .direction(direction), .AN(AN), .out(segs));
+assign _enable = enable && !(out > max || out < min || (out == max && out == min));
 always @(posedge clk) begin
     if(rst_enable)begin
         out <= min;
         direction <= 1;
     end
-    else if(enable && clk_s) begin
-        if(out > max || out < min || ((out == max) && (out == min))) begin
-            out <= out;
+    else if(_enable && clk_s) begin
+        if(out===max) begin
+            out <= out - 1;
+            direction <= 1'b0;
+        end
+        else if(out===min) begin
+            out <= out + 1;
+            direction <= 1'b1;
+        end
+        else if(flip_enable) begin
+            out <= (direction) ? out - 1 : out + 1;
+            direction <= ~direction;
         end
         else begin
-            if(out===max) begin
-                out <= out - 1;
-                direction <= 1'b0;
-            end
-            else if(out===min) begin
-                out <= out + 1;
-                direction <= 1'b1;
-            end
-            else if(flip_enable) begin
-                out <= (direction) ? out - 1 : out + 1;
-                direction <= ~direction;
-            end
-            else begin
-                out <= (direction) ? out + 1 : out - 1;
-            end
+            out <= (direction) ? out + 1 : out - 1;
         end
     end
-    else if(flip_enable && enable && !(out > max || out < min)) begin
+    else if(flip_enable && _enable) begin
         direction <= ~direction;
     end
 end

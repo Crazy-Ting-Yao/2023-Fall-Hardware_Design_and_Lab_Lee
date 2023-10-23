@@ -8,36 +8,31 @@ input [4-1:0] max;
 input [4-1:0] min;
 output direction;
 output [4-1:0] out;
-
+wire _enable;
 reg direction;
 reg [4-1:0] out;
-
+assign _enable = enable && !(out > max || out < min || (out == max && out == min));
 always @(posedge clk) begin
     if(!rst_n)begin
         out <= min;
         direction <= 1;
     end
     else begin
-        if(enable) begin
-            if(out > max || out < min || ((out == max) && (out == min))) begin
-                out <= out;
+        if(_enable) begin
+            if(flip && out < max && out > min) begin
+                out <= (direction) ? out - 1 : out + 1;
+                direction <= ~direction;
+            end
+            else if(out==max) begin
+                out <= out - 1;
+                direction <= 1'b0;
+            end
+            else if(out==min) begin
+                out <= out + 1;
+                direction <= 1'b1;
             end
             else begin
-                if(flip && out < max && out > min) begin
-                    out <= (direction) ? out - 1 : out + 1;
-                    direction <= ~direction;
-                end
-                else if(out==max) begin
-                    out <= out - 1;
-                    direction <= 1'b0;
-                end
-                else if(out==min) begin
-                    out <= out + 1;
-                    direction <= 1'b1;
-                end
-                else begin
-                    out <= (direction) ? out + 1 : out - 1;
-                end
+                out <= (direction) ? out + 1 : out - 1;
             end
         end
     end
