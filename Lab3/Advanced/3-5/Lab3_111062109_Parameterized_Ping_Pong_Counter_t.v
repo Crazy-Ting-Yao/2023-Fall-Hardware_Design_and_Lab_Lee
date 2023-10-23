@@ -53,7 +53,9 @@ initial begin
     #10 flip = 0;
     min = 3;
     #20 min = 2; max = 2;
-    #30 min = 1; max = 3;
+    #10 flip = 1;
+    #10 flip = 0;
+    #10 min = 1; max = 3;
     #30 rst_n = 0;
     $finish;
 end
