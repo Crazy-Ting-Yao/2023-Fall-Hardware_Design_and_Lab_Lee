@@ -18,37 +18,37 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 9472
+INFO: [Synth 8-7075] Helper process launched with PID 17012
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1019.000 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1015.648 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'Parameterized_Ping_Pong_Counter_FPGA' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:134]
+INFO: [Synth 8-6157] synthesizing module 'Parameterized_Ping_Pong_Counter_FPGA' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:108]
 INFO: [Synth 8-6157] synthesizing module 'clock_divider1' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'clock_divider1' (1#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clock_divider2' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:27]
-INFO: [Synth 8-6155] done synthesizing module 'clock_divider2' (2#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:27]
-INFO: [Synth 8-6157] synthesizing module 'debounce' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:53]
-INFO: [Synth 8-6157] synthesizing module 'one_pulse' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:66]
-INFO: [Synth 8-6155] done synthesizing module 'one_pulse' (4#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:66]
-INFO: [Synth 8-6157] synthesizing module 'seven_segment' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:78]
-INFO: [Synth 8-6155] done synthesizing module 'seven_segment' (5#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:78]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:166]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:170]
-INFO: [Synth 8-6155] done synthesizing module 'Parameterized_Ping_Pong_Counter_FPGA' (6#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:134]
+INFO: [Synth 8-6157] synthesizing module 'clock_divider2' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'clock_divider2' (2#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:14]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:28]
+INFO: [Synth 8-6157] synthesizing module 'one_pulse' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'one_pulse' (4#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:41]
+INFO: [Synth 8-6157] synthesizing module 'seven_segment' [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:52]
+INFO: [Synth 8-6155] done synthesizing module 'seven_segment' (5#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:52]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:140]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:144]
+INFO: [Synth 8-6155] done synthesizing module 'Parameterized_Ping_Pong_Counter_FPGA' (6#1) [D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/Lab3_111062109_Parameterized_Ping_Pong_Counter_fpga.v:108]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1019.000 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1015.648 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1019.000 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1015.648 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1019.000 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1015.648 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1019.000 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1015.648 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -59,47 +59,43 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/Parameterized_Ping_Pong_Counter_FPGA_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1060.105 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1041.355 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1060.105 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1041.355 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1041.355 ; gain = 25.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1041.355 ; gain = 25.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1041.355 ; gain = 25.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 1041.355 ; gain = 25.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   27 Bit       Adders := 1     
-	   2 Input   16 Bit       Adders := 1     
 	   2 Input    4 Bit       Adders := 2     
 	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
-	               27 Bit    Registers := 1     
-	               16 Bit    Registers := 1     
-	                4 Bit    Registers := 3     
+	               16 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 7     
+	                1 Bit    Registers := 5     
 +---Muxes : 
-	   2 Input   27 Bit        Muxes := 1     
 	   2 Input    7 Bit        Muxes := 1     
 	  19 Input    7 Bit        Muxes := 1     
 	   4 Input    4 Bit        Muxes := 1     
@@ -121,25 +117,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 1041.355 ; gain = 25.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:24 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 1041.355 ; gain = 25.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:24 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 1041.355 ; gain = 25.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:24 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 1044.758 ; gain = 29.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -157,37 +153,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 1052.527 ; gain = 36.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 1052.527 ; gain = 36.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 1052.527 ; gain = 36.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 1052.527 ; gain = 36.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 1052.527 ; gain = 36.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 1052.527 ; gain = 36.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -207,37 +203,37 @@ Report Cell Usage:
 |2     |CARRY4 |    11|
 |3     |LUT1   |     3|
 |4     |LUT2   |    11|
-|5     |LUT3   |     5|
-|6     |LUT4   |    39|
-|7     |LUT5   |    23|
+|5     |LUT3   |     4|
+|6     |LUT4   |    17|
+|7     |LUT5   |     9|
 |8     |LUT6   |    21|
-|9     |FDRE   |    63|
+|9     |FDRE   |    85|
 |10    |FDSE   |     1|
 |11    |IBUF   |    12|
 |12    |OBUF   |    11|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 1052.527 ; gain = 36.879
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:26 . Memory (MB): peak = 1060.105 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1060.105 ; gain = 41.105
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1052.527 ; gain = 11.172
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 1052.527 ; gain = 36.879
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1067.152 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1064.551 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 11 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1067.152 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1068.492 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 27 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:36 . Memory (MB): peak = 1067.152 ; gain = 48.152
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:44 . Memory (MB): peak = 1068.492 ; gain = 52.844
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 INFO: [Common 17-1381] The checkpoint 'D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab3/Advanced/3-5FPGA/3-5FPGA.runs/synth_1/Parameterized_Ping_Pong_Counter_FPGA.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Parameterized_Ping_Pong_Counter_FPGA_utilization_synth.rpt -pb Parameterized_Ping_Pong_Counter_FPGA_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Oct 22 21:24:18 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 23 09:04:20 2023...

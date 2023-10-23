@@ -2,65 +2,40 @@ module clock_divider1(clk, rst, clk_out);
 input clk;
 input rst;
 output clk_out;
-
-reg clk_out;
 reg [27-1:0] counter;
 
 always @(posedge clk) begin
-    if(rst) begin
-        counter <= 0;
-        clk_out <= 0;
-    end
-    else begin
-        if(counter == 2**26-1) begin
-            counter <= 0;
-            clk_out <= 1;
-        end
-        else begin
-            counter <= counter + 1;
-            clk_out <= 0;
-        end
-    end
+    if(rst)  counter <= 0;
+    else counter <= counter + 1;
 end
+assign clk_out = (~counter == 27'd0) ? 1:0;
 endmodule
 
 module clock_divider2(clk, rst, clk_out);
 input clk;
 input rst;
 output clk_out;
-
-reg clk_out;
 reg [16-1:0] counter;
 
 always @(posedge clk) begin
-    if(rst) begin
-        counter <= 0;
-        clk_out <= 0;
-    end
-    else begin
-        if(counter == 2**16-1) begin
-            counter <= 0;
-            clk_out <= 1;
-        end
-        else begin
-            counter <= counter + 1;
-            clk_out <= 0;
-        end
-    end
+    if(rst)  counter <= 0;
+    else counter <= counter + 1;
 end
+assign clk_out = (~counter == 16'd0) ? 1:0;
+
 endmodule
 
 module debounce(clk, button, button_debounced);
 input clk;
 input button;
 output button_debounced;
-reg [3:0] counter;
+reg [15:0] counter;
 always @(posedge clk) begin
-    counter[3:1] <= counter[2:0];
+    counter[15:1] <= counter[14:0];
     counter[0] <= button;
 end
+assign button_debounced = (counter == ~16'd0) ? 1:0;
 
-and a1 (button_debounced, counter[0], counter[1], counter[2], counter[3]);
 endmodule
 
 module one_pulse(clk, signal, pulse);
@@ -68,11 +43,10 @@ input clk;
 input signal;
 output reg pulse;
 reg A;
-always @(posedge clk) begin
+always @(negedge clk) begin
     A <= signal;
     pulse <= signal & ~A;
 end
-
 endmodule
 
 module seven_segment(clk, num, direction, AN, out);
@@ -85,7 +59,7 @@ module seven_segment(clk, num, direction, AN, out);
     reg [1:0] counter = 0;
     reg [4-1:0] AN;
 
-    always @(negedge clk) begin
+    always @(posedge clk) begin
         counter <= counter + 1;
     end
 

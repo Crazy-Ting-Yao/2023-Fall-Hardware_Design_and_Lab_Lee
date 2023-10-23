@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1697981015">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1698023007">
   <File Type="PA-TCL" Name="Parameterized_Ping_Pong_Counter_FPGA.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="Parameterized_Ping_Pong_Counter_FPGA_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Parameterized_Ping_Pong_Counter_FPGA_reports.tcl"/>
