@@ -1,52 +1,50 @@
 module clock_divider1(clk, rst, clk_out);
-input clk;
-input rst;
-output clk_out;
-reg [27-1:0] counter;
+    input clk;
+    input rst;
+    output clk_out;
+    reg [27-1:0] counter;
 
-always @(posedge clk) begin
-    if(rst)  counter <= 0;
-    else counter <= counter + 1;
-end
-assign clk_out = (~counter == 27'd0) ? 1:0;
+    always @(posedge clk) begin
+        if(rst)  counter <= 0;
+        else counter <= counter + 1;
+    end
+    assign clk_out = (~counter == 27'd0) ? 1:0;
 endmodule
 
 module clock_divider2(clk, rst, clk_out);
-input clk;
-input rst;
-output clk_out;
-reg [16-1:0] counter;
+    input clk;
+    input rst;
+    output clk_out;
+    reg [16-1:0] counter;
 
-always @(posedge clk) begin
-    if(rst)  counter <= 0;
-    else counter <= counter + 1;
-end
-assign clk_out = (~counter == 16'd0) ? 1:0;
-
+    always @(posedge clk) begin
+        if(rst)  counter <= 0;
+        else counter <= counter + 1;
+    end
+    assign clk_out = (~counter == 16'd0) ? 1:0;
 endmodule
 
 module debounce(clk, button, button_debounced);
-input clk;
-input button;
-output button_debounced;
-reg [15:0] counter;
-always @(posedge clk) begin
-    counter[15:1] <= counter[14:0];
-    counter[0] <= button;
-end
-assign button_debounced = (counter == ~16'd0) ? 1:0;
-
+    input clk;
+    input button;
+    output button_debounced;
+    reg [15:0] counter;
+    always @(posedge clk) begin
+        counter[15:1] <= counter[14:0];
+        counter[0] <= button;
+    end
+    assign button_debounced = (counter == ~16'd0) ? 1:0;
 endmodule
 
 module one_pulse(clk, signal, pulse);
-input clk;
-input signal;
-output reg pulse;
-reg A;
-always @(negedge clk) begin
-    A <= signal;
-    pulse <= signal & ~A;
-end
+    input clk;
+    input signal;
+    output reg pulse;
+    reg A;
+    always @(negedge clk) begin
+        A <= signal;
+        pulse <= signal & ~A;
+    end
 endmodule
 
 module seven_segment(clk, num, direction, AN, out);
@@ -106,52 +104,52 @@ module seven_segment(clk, num, direction, AN, out);
 endmodule
 
 module Parameterized_Ping_Pong_Counter_FPGA (clk, rst_n, enable, flip, max, min, AN, segs);
-input clk, rst_n;
-input enable;
-input flip;
-input [4-1:0] max;
-input [4-1:0] min;
-output [4-1:0] AN;
-output [7-1:0] segs;
+    input clk, rst_n;
+    input enable;
+    input flip;
+    input [4-1:0] max;
+    input [4-1:0] min;
+    output [4-1:0] AN;
+    output [7-1:0] segs;
 
-reg direction;
-reg [4-1:0] out;
-wire _enable;
-wire clk_s, clk_seg;
-wire rst_debounced, rst_enable;
-wire flip_debounced, flip_enable;
-clock_divider1 cd1( .clk(clk), .rst(rst_enable), .clk_out(clk_s));
-clock_divider2 cd2( .clk(clk), .rst(rst_enable), .clk_out(clk_seg));
-debounce db(.clk(clk), .button(rst_n), .button_debounced(rst_debounced));
-debounce db2(.clk(clk), .button(flip), .button_debounced(flip_debounced));
-one_pulse op(.clk(clk), .signal(rst_debounced), .pulse(rst_enable));
-one_pulse op2(.clk(clk), .signal(flip_debounced), .pulse(flip_enable));
-seven_segment ss(.clk(clk_seg), .num(out), .direction(direction), .AN(AN), .out(segs));
-assign _enable = enable && !(out > max || out < min || (out == max && out == min));
-always @(posedge clk) begin
-    if(rst_enable)begin
-        out <= min;
-        direction <= 1;
-    end
-    else if(_enable && clk_s) begin
-        if(out===max) begin
-            out <= out - 1;
-            direction <= 1'b0;
+    reg direction;
+    reg [4-1:0] out;
+    wire _enable;
+    wire clk_s, clk_seg;
+    wire rst_debounced, rst_enable;
+    wire flip_debounced, flip_enable;
+    clock_divider1 cd1( .clk(clk), .rst(rst_enable), .clk_out(clk_s));
+    clock_divider2 cd2( .clk(clk), .rst(rst_enable), .clk_out(clk_seg));
+    debounce db(.clk(clk), .button(rst_n), .button_debounced(rst_debounced));
+    debounce db2(.clk(clk), .button(flip), .button_debounced(flip_debounced));
+    one_pulse op(.clk(clk), .signal(rst_debounced), .pulse(rst_enable));
+    one_pulse op2(.clk(clk), .signal(flip_debounced), .pulse(flip_enable));
+    seven_segment ss(.clk(clk_seg), .num(out), .direction(direction), .AN(AN), .out(segs));
+    assign _enable = enable && !(out > max || out < min || (out == max && out == min));
+    always @(posedge clk) begin
+        if(rst_enable)begin
+            out <= min;
+            direction <= 1;
         end
-        else if(out===min) begin
-            out <= out + 1;
-            direction <= 1'b1;
+        else if(_enable && clk_s) begin
+            if(out===max) begin
+                out <= out - 1;
+                direction <= 1'b0;
+            end
+            else if(out===min) begin
+                out <= out + 1;
+                direction <= 1'b1;
+            end
+            else if(flip_enable) begin
+                out <= (direction) ? out - 1 : out + 1;
+                direction <= ~direction;
+            end
+            else begin
+                out <= (direction) ? out + 1 : out - 1;
+            end
         end
-        else if(flip_enable) begin
-            out <= (direction) ? out - 1 : out + 1;
+        else if(flip_enable && _enable) begin
             direction <= ~direction;
         end
-        else begin
-            out <= (direction) ? out + 1 : out - 1;
-        end
     end
-    else if(flip_enable && _enable) begin
-        direction <= ~direction;
-    end
-end
 endmodule

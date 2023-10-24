@@ -36,7 +36,19 @@ module Round_Robin_FIFO_Arbiter_t;
         @(negedge clk)
         wen = 4'b0000;
         a = 8'dx; b = 8'dx; c = 8'dx; d = 8'dx;
-        #45 $finish;
+        #40 rst_n = 0;
+        @(negedge clk);
+        wen = 4'b1111;
+        a = 8'd1; b = 8'd2; c = 8'd3; d = 8'd4;
+        @(negedge clk)
+        rst_n = 1;
+        wen = 4'b0000;
+        a = 8'dx; b = 8'dx; c = 8'dx; d = 8'dx;
+        @(negedge clk);
+        @(negedge clk);
+        @(negedge clk);
+        @(negedge clk);
+        @(negedge clk) $finish;
     end
 
     always #5 clk = ~clk;
