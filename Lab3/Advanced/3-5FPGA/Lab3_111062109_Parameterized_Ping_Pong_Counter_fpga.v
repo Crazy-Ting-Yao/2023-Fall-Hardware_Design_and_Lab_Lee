@@ -2,13 +2,13 @@ module clock_divider1(clk, rst, clk_out);
     input clk;
     input rst;
     output clk_out;
-    reg [27-1:0] counter;
+    reg [26-1:0] counter;
 
     always @(posedge clk) begin
         if(rst)  counter <= 0;
         else counter <= counter + 1;
     end
-    assign clk_out = (~counter == 27'd0) ? 1:0;
+    assign clk_out = (~counter == 26'd0) ? 1:0;
 endmodule
 
 module clock_divider2(clk, rst, clk_out);
