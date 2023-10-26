@@ -1,17 +1,36 @@
 `timescale 1ns/1ps
-`include "One_to_many_LFSR.v"
+`include "Lab4_One_To_Many_LFSR.v"
+module One_To_Many_LFSR_t;
+reg clk = 0;
+reg rst_n = 1;
+wire [7:0] out;
 
-module One_to_many_LFSR_t;
-    reg clk, rst_n;
-    wire out;
-    One_to_many_LFSR One_to_many_LFSR(rst_n, clk, out);
-    initial begin
-        $dumpfile("One_to_many_LFSR.vcd");
-        $dumpvars(0, One_to_many_LFSR);
-        clk = 0;
-        rst_n = 0;
-        #10 rst_n = 1;
-        #200 $finish;
-    end
-    always #5 clk = ~clk;
+// specify duration of a clock cycle.
+parameter cyc = 10;
+
+// generate clock.
+always#(cyc/2)clk = !clk;
+
+One_TO_Many_LFSR one2mlfsr(
+    .clk(clk),
+    .rst_n(rst_n),
+    .out(out)
+);
+
+// uncommment and add "+access+r" to your nverilog command to dump fsdb waveform on NTHUCAD
+// initial begin
+//     $fsdbDumpfile("One_To_Many_LFSR.fsdb");
+//     $fsdbDumpvars;
+// end
+
+initial begin
+    $dumpfile("One_To_Many_LFSR.vcd");
+    $dumpvars(0, One_To_Many_LFSR_t);
+    @(negedge clk)
+    rst_n = 1'b0;
+    @(negedge clk)
+    rst_n = 1'b1;
+    #(cyc * 16)
+    $finish;
+end
 endmodule

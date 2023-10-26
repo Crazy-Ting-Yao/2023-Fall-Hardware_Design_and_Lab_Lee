@@ -1,14 +1,21 @@
 `timescale 1ns/1ps
 
-module mealy_machine(clk, in, rst_n, state, out);
-    input clk, in, rst_n;
-    output [3-1:0] state;
+module Mealy (clk, rst_n, in, out, state);
+    input clk, rst_n;
+    input in;
     output out;
+    output [3-1:0] state;
+
     reg out;
     reg [3-1:0] state;
     reg [3-1:0] next_state;
-    parameter S0 = 3'b000, S1 = 3'b001, S2 = 3'b010, S3 = 3'b011, S4 = 3'b100, S5 = 3'b101;
-    
+
+    parameter S0 = 3'b000;
+    parameter S1 = 3'b001;
+    parameter S2 = 3'b010;
+    parameter S3 = 3'b011;
+    parameter S4 = 3'b100;
+    parameter S5 = 3'b101;
     always @(posedge clk) begin
         if(!rst_n) begin
             state <= S0;

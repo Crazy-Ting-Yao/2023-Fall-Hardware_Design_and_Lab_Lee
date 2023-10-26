@@ -1,14 +1,13 @@
 `timescale 1ns/1ps
 
-module moore_machine(clk, in, rst_n, state);
-
-input clk;
+module Moore (clk, rst_n, in, out, state);
+input clk, rst_n;
 input in;
-input rst_n;
+output [2-1:0] out;
 output [3-1:0] state;
 reg [3-1:0] state;
 reg [3-1:0] next_state;
-
+reg [2-1:0] out;
 parameter S0 = 3'b000;
 parameter S1 = 3'b001;
 parameter S2 = 3'b010;
@@ -23,6 +22,17 @@ always @(posedge clk) begin
     else begin
         state <= next_state;
     end
+end
+
+always @(*) begin
+    case(state)
+        S0: out = 2'b11;
+        S1: out = 2'b01;
+        S2: out = 2'b11;
+        S3: out = 2'b10;
+        S4: out = 2'b10;
+        S5: out = 2'b00;
+    endcase
 end
 
 always @(*) begin
@@ -55,3 +65,5 @@ always @(*) begin
 end
 
 endmodule
+
+`timescale 1ns/1ps
