@@ -1,7 +1,0 @@
-Running: xsim.dir/Majority_t_behav/xsimk.exe -simmode gui -wdb Majority_t_behav.wdb -simrunnum 0 -socket 58050
-Design successfully loaded
-Design Loading Memory Usage: 7340 KB (Peak: 7340 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 8220 KB (Peak: 8220 KB)
-Simulation CPU Usage: 0 ms

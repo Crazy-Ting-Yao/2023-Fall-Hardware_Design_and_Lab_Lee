@@ -1,7 +1,0 @@
-0.6
-2019.2
-Nov  6 2019
-21:57:16
-D:/Lab1/Lab1-1/Lab1-1.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
-D:/Lab1/Lab1-1/Lab1-1.srcs/sources_1/imports/Lab1/Lab1_Mux_4x1_4bit.v,1695284260,verilog,,D:/Lab1/Lab1-1/Lab1-1.srcs/sources_1/imports/Lab1/Mux_4x1_4bit_t.v,,Mux_2x1_4bit;Mux_4x1_4bit,,,,,,,,
-D:/Lab1/Lab1-1/Lab1-1.srcs/sources_1/imports/Lab1/Mux_4x1_4bit_t.v,1695282852,verilog,,,D:/Lab1/Lab1-1/Lab1-1.srcs/sources_1/imports/Lab1/Lab1_Mux_4x1_4bit.v,Mux_4x1_4bit_t,,,,,,,,

@@ -1,1 +1,0 @@
--wto "0438f0db96714001813e064f8943dc80" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "Carry_Look_Ahead_Adder_8bit_t_behav" "xil_defaultlib.Carry_Look_Ahead_Adder_8bit_t" "xil_defaultlib.glbl" -log "elaborate.log" 

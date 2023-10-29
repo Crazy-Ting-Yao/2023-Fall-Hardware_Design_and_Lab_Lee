@@ -1,8 +1,0 @@
-0.7
-2020.2
-Nov 18 2020
-09:47:47
-D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/2-2.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
-D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Lab2_111062109_Decode_And_Execute.v,1697033785,verilog,,D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Universal_Gate.v,D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Universal_Gate.v,ADD;BITWISE_AND;BITWISE_OR;COMPARE_EQ;COMPARE_LT;Decode_And_Execute;Full_Adder;Majority;Mux_2x1_1bit;Mux_8x1_1bit;Mux_8x1_4bit;RS_CIR_LEFT_SHIFT;RT_ARI_RIGHT_SHIFT;SUB;Uni_AND;Uni_NAND;Uni_NOR;Uni_NOT;Uni_OR;Uni_XNOR;Uni_XOR,,,,,,,,
-D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Lab2_111062109_Decode_And_Execute_t.v,1697033537,verilog,,,D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Lab2_111062109_Decode_And_Execute.v,Decode_And_Execute_t,,,,,,,,
-D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Universal_Gate.v,1696836202,verilog,,D:/GitHub/2023-Fall-Hardware_Design_and_Lab_Lee/Lab2/Advanced/2-2/Lab2_111062109_Decode_And_Execute_t.v,,Universal_Gate,,,,,,,,

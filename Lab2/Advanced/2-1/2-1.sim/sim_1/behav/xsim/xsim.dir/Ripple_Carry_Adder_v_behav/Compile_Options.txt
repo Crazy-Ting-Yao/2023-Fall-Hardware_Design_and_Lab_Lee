@@ -1,1 +1,0 @@
--wto "0dac418e152345859fc55c9a0edd5e67" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "Ripple_Carry_Adder_v_behav" "xil_defaultlib.Ripple_Carry_Adder_v" "xil_defaultlib.glbl" -log "elaborate.log" 
