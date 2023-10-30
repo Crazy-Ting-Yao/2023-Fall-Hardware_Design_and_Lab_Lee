@@ -10,9 +10,8 @@ module Content_Addressable_Memory_t;
     wire hit;
 
     Content_Addressable_Memory uut(clk, wen, ren, din, addr, dout, hit);
-
     initial begin
-        $dumpfile("Content_Addressable_Memory.vcd");
+        $dumpfile("Content_Addressable_Memory_t.vcd");
         $dumpvars(0, Content_Addressable_Memory_t);
         clk = 0;
         wen = 0;
