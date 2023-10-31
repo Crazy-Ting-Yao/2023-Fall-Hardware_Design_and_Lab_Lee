@@ -55,6 +55,7 @@ module seven_segs(clk, rst_n, scan_in, scan_out, a, b, AN, segs);
         else begin
             clk_counter <= clk_counter + 1;
             if(clk_1000Hz) refresh_counter <= refresh_counter + 1;
+            else refresh_counter <= refresh_counter;
         end
     end
     always @(*) begin
