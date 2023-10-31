@@ -34,8 +34,9 @@ module one_pulse(clk, in, out);
     assign out = in & ~A;
 endmodule
 
-module seven_segs(clk, scan_in, scan_out, a, b, AN, segs);
+module seven_segs(clk, rst_n, scan_in, scan_out, a, b, AN, segs);
     input clk;
+    input rst_n;
     input scan_in;
     input scan_out;
     input [3:0] a, b;
@@ -43,14 +44,19 @@ module seven_segs(clk, scan_in, scan_out, a, b, AN, segs);
     output reg [6:0] segs;
 
     wire clk_1000Hz;
-    reg [19-1:0] clk_counter = 0;
-    reg [1:0] refresh_counter = 0;
-    
-    always @(posedge clk) clk_counter <= clk_counter + 1;
+    reg [19-1:0] clk_counter;
+    reg [1:0] refresh_counter;
     assign clk_1000Hz = (~clk_counter == 19'b0) ? 1 : 0;
-    always @(posedge clk_1000Hz) refresh_counter <= refresh_counter + 1;
-    
-    //always @(posedge clk) refresh_counter <= refresh_counter + 1;
+    always @(posedge clk) begin
+        if(!rst_n) begin
+            clk_counter <= 0;
+            refresh_counter <= 0;
+        end
+        else begin
+            clk_counter <= clk_counter + 1;
+            if(clk_1000Hz) refresh_counter <= refresh_counter + 1;
+        end
+    end
     always @(*) begin
         case (refresh_counter)
             2'b00: begin
@@ -194,6 +200,6 @@ module Built_In_Self_Test_fpga(clk, d_clk, rst, LFSR_rst, scan_en, scanDFF, AN, 
     one_pulse OP2(fanout_clks[1], d_clk_debounced, d_clk_pulse);
     Many_To_One_LFSR MTOL(fanout_clks[1], d_clk_pulse, rst_n, LFSR_rst, scan_in);
     Scan_Chain_Design SCD(fanout_clks[2], d_clk_pulse, rst_n, scan_in, scan_en, scan_out, scanDFF);
-    seven_segs SS(fanout_clks[3], scan_in, scan_out, scanDFF[7:4], scanDFF[3:0], AN, segs);
+    seven_segs SS(fanout_clks[3], rst_n, scan_in, scan_out, scanDFF[7:4], scanDFF[3:0], AN, segs);
     fanout FAN(clk, fanout_clks);
 endmodule
