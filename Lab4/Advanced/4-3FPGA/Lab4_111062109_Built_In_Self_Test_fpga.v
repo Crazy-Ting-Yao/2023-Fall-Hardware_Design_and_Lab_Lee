@@ -84,6 +84,7 @@ module seven_segs(clk, rst_n, scan_in, scan_out, a, b, AN, segs);
                     4'b1101: segs = 7'b0100001;
                     4'b1110: segs = 7'b0000110;
                     4'b1111: segs = 7'b0001110;
+                    default: segs = 7'b1111111;
                 endcase
             end
             2'b10: begin
@@ -105,6 +106,7 @@ module seven_segs(clk, rst_n, scan_in, scan_out, a, b, AN, segs);
                     4'b1101: segs = 7'b0100001;
                     4'b1110: segs = 7'b0000110;
                     4'b1111: segs = 7'b0001110;
+                    default: segs = 7'b1111111;
                 endcase                
             end
             2'b11: begin
@@ -140,6 +142,9 @@ module Scan_DFF(clk, d_clk, rst_n, scan_in, scan_en, data, out);
             else begin
                 out <= data;
             end
+        end
+        else begin
+            out <= out;
         end
     end
 endmodule
@@ -179,6 +184,9 @@ module Many_To_One_LFSR(clk, d_clk, rst_n, LFSR_rst, out);
         end
         else if(d_clk) begin
             DFF <= next_DFF;
+        end
+        else begin
+            DFF <= DFF;
         end
     end
     assign next_DFF = {DFF[6:0] , (DFF[7] ^ DFF[3]) ^ (DFF[1] ^ DFF[2])};
