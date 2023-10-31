@@ -72,6 +72,10 @@ module Mealy (clk, rst_n, in, out, state);
                 if(in) next_state = S4;
                 else next_state = S3;
             end
+            default: begin
+                out = 0;
+                next_state = S0;
+            end
         endcase
     end
 endmodule

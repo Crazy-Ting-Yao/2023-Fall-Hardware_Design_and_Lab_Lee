@@ -60,6 +60,7 @@ module seven_segment(clk, clk_seg, rst, num, direction, AN, out);
     always @(posedge clk) begin
         if(rst) counter <= 0;
         else if(clk_seg) counter <= counter + 1;
+        else counter <= counter;
     end
 
     always @(*)begin
@@ -93,12 +94,17 @@ module seven_segment(clk, clk_seg, rst, num, direction, AN, out);
             4'b1101: out = 7'b0110000;
             4'b1110: out = 7'b0011001;
             4'b1111: out = 7'b0010010;
+            default: out = 7'b1111111;
             endcase
         end
         2'b11: begin
             AN = 4'b0111;
             if(num > 4'b1001) out = 7'b1111001;
             else out = 7'b1000000;
+        end
+        default: begin
+            AN = 4'b1111;
+            out = 7'b1111111;
         end
         endcase
     end
@@ -146,11 +152,17 @@ module Parameterized_Ping_Pong_Counter_FPGA (clk, rst_n, enable, flip, max, min,
                 direction <= ~direction;
             end
             else begin
+                direction <= direction;
                 out <= (direction) ? out + 1 : out - 1;
             end
         end
         else if(flip_enable && _enable) begin
             direction <= ~direction;
+            out <= out;
+        end
+        else begin
+            direction <= direction;
+            out <= out;
         end
     end
 endmodule

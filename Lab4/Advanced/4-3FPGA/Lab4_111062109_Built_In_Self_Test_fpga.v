@@ -111,6 +111,10 @@ module seven_segs(clk, rst_n, scan_in, scan_out, a, b, AN, segs);
                 if(scan_in) segs = 7'b1111001;
                 else segs = 7'b1000000;
             end
+            default: begin
+                AN = 4'b1111;
+                segs = 7'b1111111;
+            end
         endcase
     end
 

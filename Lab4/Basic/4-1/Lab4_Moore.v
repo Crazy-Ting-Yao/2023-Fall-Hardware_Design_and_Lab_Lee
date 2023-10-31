@@ -32,6 +32,7 @@ always @(*) begin
         S3: out = 2'b10;
         S4: out = 2'b10;
         S5: out = 2'b00;
+        default: out = 2'b00;
     endcase
 end
 
@@ -61,6 +62,7 @@ always @(*) begin
             if(in) next_state = S0;
             else next_state = S3;
         end
+        default: next_state = S0;
     endcase
 end
 

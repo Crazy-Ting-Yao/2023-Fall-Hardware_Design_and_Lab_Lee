@@ -63,6 +63,10 @@ module Mealy_Sequence_Detector (clk, rst_n, in, dec);
                 next_state = S0;
                 dec = !in;
             end
+            default: begin
+                next_state = S0;
+                dec = 0;
+            end
         endcase
     end
 endmodule

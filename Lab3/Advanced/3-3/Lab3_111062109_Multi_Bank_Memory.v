@@ -36,12 +36,16 @@ reg [7-1:0] addrs [3:0];
 always @(*) begin
     if(ren) begin
         addrs[raddr[8:7]] <= raddr[6:0];
-        if(wen && (waddr[8:7] != raddr[8:7])) begin
-            addrs[waddr[8:7]] <= waddr[6:0];
-        end
-    end
+        if(wen && (waddr[8:7] != raddr[8:7])) addrs[waddr[8:7]] <= waddr[6:0];
+        else addrs[waddr[8:7]] <= addrs[waddr[8:7]];
+    end 
     else if(wen) begin
+        addrs[raddr[8:7]] <= addrs[raddr[8:7]];
         addrs[waddr[8:7]] <= waddr[6:0];
+    end
+    else begin
+        addrs[raddr[8:7]] <= addrs[raddr[8:7]];
+        addrs[waddr[8:7]] <= addrs[waddr[8:7]];
     end
 end
 

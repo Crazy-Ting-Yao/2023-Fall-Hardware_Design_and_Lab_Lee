@@ -11,33 +11,36 @@ reg direction;
 
 always @(posedge clk)
 begin
-    if (rst_n == 1'b0)
-    begin
+    if (rst_n == 1'b0) begin
         out <= 4'b0000;
         direction <= 1'b1;
     end
-    else if (enable == 1'b1)
-    begin
-        if (direction == 1'b1)
-        begin
-            if (out == 4'b1111)
-            begin
+    else if (enable == 1'b1) begin
+        if (direction == 1'b1) begin
+            if (out == 4'b1111) begin
                 out <= 4'b1110;
                 direction <= 1'b0;
             end
-            else
+            else begin
                 out <= out + 1'b1;
+                direction <= direction;
+            end
         end
         else
         begin
-            if (out == 4'b0000)
-            begin
+            if (out == 4'b0000)begin
                 out <= 4'b0001;
                 direction <= 1'b1;
             end
-            else
+            else begin 
                 out <= out - 1'b1;
+                direction <= direction;
+            end
         end
+    end
+    else begin
+        out <= out;
+        direction <= direction;
     end
 end
 endmodule
