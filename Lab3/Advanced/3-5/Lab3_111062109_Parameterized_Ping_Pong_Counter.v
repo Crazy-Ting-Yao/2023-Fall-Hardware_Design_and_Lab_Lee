@@ -33,7 +33,12 @@ always @(posedge clk) begin
             end
             else begin
                 out <= (direction) ? out + 1 : out - 1;
+                direction <= direction;
             end
+        end
+        else begin
+            out <= out;
+            direction <= direction;
         end
     end
 end
