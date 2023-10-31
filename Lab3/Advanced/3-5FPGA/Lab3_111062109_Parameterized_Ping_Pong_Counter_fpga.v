@@ -47,18 +47,19 @@ module one_pulse(clk, signal, pulse);
     end
 endmodule
 
-module seven_segment(clk, num, direction, AN, out);
-    input clk;
+module seven_segment(clk, clk_seg, rst, num, direction, AN, out);
+    input clk, clk_seg, rst;
     input direction;
     input [4-1:0] num;
     output [4-1:0] AN;
     output [7-1:0] out;
     reg [7-1:0] out;
-    reg [1:0] counter = 0;
+    reg [1:0] counter;
     reg [4-1:0] AN;
 
     always @(posedge clk) begin
-        counter <= counter + 1;
+        if(rst) counter <= 0;
+        else if(clk_seg) counter <= counter + 1;
     end
 
     always @(*)begin
@@ -124,7 +125,7 @@ module Parameterized_Ping_Pong_Counter_FPGA (clk, rst_n, enable, flip, max, min,
     debounce db2(.clk(clk), .button(flip), .button_debounced(flip_debounced));
     one_pulse op(.clk(clk), .signal(rst_debounced), .pulse(rst_enable));
     one_pulse op2(.clk(clk), .signal(flip_debounced), .pulse(flip_enable));
-    seven_segment ss(.clk(clk_seg), .num(out), .direction(direction), .AN(AN), .out(segs));
+    seven_segment ss(.clk(clk), .clk_seg(clk_seg), .rst(rst_enable), .num(out), .direction(direction), .AN(AN), .out(segs));
     assign _enable = enable && !(out > max || out < min || (out == max && out == min));
     always @(posedge clk) begin
         if(rst_enable)begin
