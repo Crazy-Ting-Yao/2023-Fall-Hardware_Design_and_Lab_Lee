@@ -1,6 +1,5 @@
 `timescale 1ns/1ps
 `include "Lab4_111062109_Scan_Chain_Design.v"
-
 module Scan_Chain_Design_t;
     reg clk;
     reg rst_n;

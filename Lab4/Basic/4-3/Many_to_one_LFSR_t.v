@@ -30,7 +30,7 @@ initial begin
     rst_n = 1'b0;
     @(negedge clk)
     rst_n = 1'b1;
-    #(cyc * 16)
+    #(cyc * 10)
     $finish;
 end
 endmodule
