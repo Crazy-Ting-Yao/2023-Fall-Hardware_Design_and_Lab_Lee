@@ -1,0 +1,7 @@
+.DS_Store
+*.vcd
+*.bkp
+*.dtmp
+*.v.out
+*.xpr
+.*.v
