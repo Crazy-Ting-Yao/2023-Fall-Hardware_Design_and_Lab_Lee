@@ -10,7 +10,7 @@ module TOP (
 	output pmod_2,
 	output pmod_4
 );
-parameter BEAT_FREQ = 32'd8;	//one beat=0.125sec
+parameter BEAT_FREQ = 32'd6;	//one beat=0.125sec
 parameter DUTY_BEST = 10'd512;	//duty cycle=50%
 
 wire [31:0] freq;

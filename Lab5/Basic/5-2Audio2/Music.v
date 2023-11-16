@@ -6,11 +6,12 @@
 `define NM1 32'd294 // D_freq
 `define NM1_5 32'd311 // #D_freq
 `define NM2 32'd330 // E_freq
-`define NM2_5 32'd450 // F_freq
+`define NM2_5 32'd350 // F_freq
 `define NM3 32'd370 // #F_freq
 `define NM4 32'd392 // G_freq
 `define NM4_5 32'd415 // #G_freq
 `define NM5 32'd440 // A_freq
+`define NM5_5 32'd446 // #A_freq
 `define NM6 32'd494 // B_freq
 `define NM6_5 32'd523 // #B_freq
 `define NM7 32'd554 // #C_freq
@@ -108,7 +109,7 @@ always @(*) begin
 		8'd77 : tone = `NM5;
 		8'd78 : tone = `NM0;
 		8'd79 : tone = `NM6;
-		8'd80 : tone = `NM7;
+		8'd80 : tone = `NM6_5;
 
 		8'd81 : tone = `NM1 << 1;
 		8'd82 : tone = `NM0;
@@ -172,7 +173,7 @@ always @(*) begin
 		8'd137 : tone = `NM6;
 		8'd138 : tone = `NM6;
 		8'd139 : tone = `NM6;
-		8'd140 : tone = `NM7;
+		8'd140 : tone = `NM6_5;
 		8'd141 : tone = `NM1 << 1;
 		8'd142 : tone = `NM0;
 		8'd143 : tone = `NM3;
@@ -233,14 +234,14 @@ always @(*) begin
 		8'd194 : tone = `NM0;
 		8'd195 : tone = `NM3;
 		8'd196 : tone = `NM0;
-		8'd197 : tone = `NM7 << 1;
+		8'd197 : tone = `NM7 >> 1;
 		8'd198 : tone = `NM0;
 		8'd199 : tone = `NM1_5;
 		8'd200 : tone = `NM0;
 		8'd201 : tone = `NM1_5;
 		8'd202 : tone = `NM2_5;
 		8'd203 : tone = `NM1_5;
-		8'd204 : tone = `NM7 << 1;
+		8'd204 : tone = `NM7 >> 1;
 		8'd205 : tone = `NM1_5;
 		8'd206 : tone = `NM0;
 		8'd207 : tone = `NM2_5;
@@ -248,9 +249,9 @@ always @(*) begin
 
 		8'd209 : tone = `NM4_5;
 		8'd210 : tone = `NM0;
-		8'd211 : tone = `NM7 << 1;
+		8'd211 : tone = `NM7 >> 1;
 		8'd212 : tone = `NM6_5 << 1;
-		8'd213 : tone = `NM7 << 1;
+		8'd213 : tone = `NM7 >> 1;
 		8'd214 : tone = `NM0;
 		8'd215 : tone = `NM4_5;
 		8'd216 : tone = `NM0;
@@ -258,9 +259,9 @@ always @(*) begin
 		8'd218 : tone = `NM2_5;
 		8'd219 : tone = `NM1_5;
 		8'd220 : tone = `NM0;
-		8'd221 : tone = `NM7 << 1;
-		8'd222 : tone = `NM7 << 1;
-		8'd223 : tone = `NM7 << 1;
+		8'd221 : tone = `NM7 >> 1;
+		8'd222 : tone = `NM7 >> 1;
+		8'd223 : tone = `NM7 >> 1;
 		8'd224 : tone = `NM0;
 		
 		default : tone = `NM0;
