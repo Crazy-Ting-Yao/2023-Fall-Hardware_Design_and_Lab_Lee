@@ -11,11 +11,11 @@ module Sliding_Window_Sequence_Detector (clk, rst_n, in, dec);
     parameter S0 = 3'b000; // _
     parameter S1 = 3'b001; // 1_
     parameter S2 = 3'b010; // 11_
-    parameter S3 = 3'b011; // 110_
-    parameter S4 = 3'b100; // 1100_
-    parameter S5 = 3'b101; // 1100(10)*1_
-    parameter S6 = 3'b110; // 1100(10)*10_
-    parameter S7 = 3'b111; // 1100(10)*101_
+    parameter S3 = 3'b011; // 111_
+    parameter S4 = 3'b100; // 1110_
+    parameter S5 = 3'b101; // 1110(01)*0_
+    parameter S6 = 3'b110; // 1110(01)*01_
+    parameter S7 = 3'b111; // 1110(01)*011_
 
     always @(posedge clk) begin
         if(rst_n == 1'b0) state <= S0;
@@ -28,18 +28,18 @@ module Sliding_Window_Sequence_Detector (clk, rst_n, in, dec);
             {S0, 1'b1}: nxt_state = S1;
             {S1, 1'b0}: nxt_state = S0;
             {S1, 1'b1}: nxt_state = S2;
-            {S2, 1'b0}: nxt_state = S3;
-            {S2, 1'b1}: nxt_state = S2;
+            {S2, 1'b0}: nxt_state = S0;
+            {S2, 1'b1}: nxt_state = S3;
             {S3, 1'b0}: nxt_state = S4;
-            {S3, 1'b1}: nxt_state = S1;
-            {S4, 1'b0}: nxt_state = S0;
-            {S4, 1'b1}: nxt_state = S5;
-            {S5, 1'b0}: nxt_state = S6;
-            {S5, 1'b1}: nxt_state = S2;
-            {S6, 1'b0}: nxt_state = S7;
-            {S6, 1'b1}: nxt_state = S5;
+            {S3, 1'b1}: nxt_state = S3;
+            {S4, 1'b0}: nxt_state = S5;
+            {S4, 1'b1}: nxt_state = S1;
+            {S5, 1'b0}: nxt_state = S0;
+            {S5, 1'b1}: nxt_state = S6;
+            {S6, 1'b0}: nxt_state = S5;
+            {S6, 1'b1}: nxt_state = S7;
             {S7, 1'b0}: nxt_state = S0;
-            {S7, 1'b1}: nxt_state = S1;
+            {S7, 1'b1}: nxt_state = S3;
         endcase
     end
 
