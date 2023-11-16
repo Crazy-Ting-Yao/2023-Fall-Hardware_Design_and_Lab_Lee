@@ -3,5 +3,7 @@
 *.bkp
 *.dtmp
 *.v.out
+v.out
 *.xpr
 .*.v
+*.sh
