@@ -250,18 +250,18 @@ always @(*) begin
 		8'd209 : tone = `NM4_5;
 		8'd210 : tone = `NM0;
 		8'd211 : tone = `NM7 >> 1;
-		8'd212 : tone = `NM6_5 << 1;
+		8'd212 : tone = `NM6_5 >> 1;
 		8'd213 : tone = `NM7 >> 1;
 		8'd214 : tone = `NM0;
 		8'd215 : tone = `NM4_5;
 		8'd216 : tone = `NM0;
-		8'd217 : tone = `NM2_5;
-		8'd218 : tone = `NM2_5;
-		8'd219 : tone = `NM1_5;
+		8'd217 : tone = `NM3;
+		8'd218 : tone = `NM3;
+		8'd219 : tone = `NM2_5;
 		8'd220 : tone = `NM0;
-		8'd221 : tone = `NM7 >> 1;
-		8'd222 : tone = `NM7 >> 1;
-		8'd223 : tone = `NM7 >> 1;
+		8'd221 : tone = `NM1_5;
+		8'd222 : tone = `NM1_5;
+		8'd223 : tone = `NM1_5;
 		8'd224 : tone = `NM0;
 
 		default : tone = `NM0;
