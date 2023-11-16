@@ -263,7 +263,7 @@ always @(*) begin
 		8'd222 : tone = `NM7 >> 1;
 		8'd223 : tone = `NM7 >> 1;
 		8'd224 : tone = `NM0;
-		
+
 		default : tone = `NM0;
 	endcase
 end
