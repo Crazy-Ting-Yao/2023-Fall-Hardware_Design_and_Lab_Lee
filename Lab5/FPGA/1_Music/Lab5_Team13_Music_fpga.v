@@ -1,16 +1,53 @@
-module Top (CLK, BTNU, BTND, BTNC, BTNR, AUD_SIG, AUD_GAIN, AUD_SHUT);
-    input CLK;
-    input BTNU, BTND, BTNC, BTNR;
-    output AUD_SIG, AUD_GAIN, AUD_SHUT;
+module Top (
+    input CLK,
+    inout PS2_CLK, PS2_DATA,
+    output AUD_SIG, AUD_GAIN, AUD_SHUT
+    );
 
     assign AUD_GAIN = 1'b1;
     assign AUD_SHUT = 1'b1;
 
-    wire btn_r, btn_s, btn_w, rst;
-    Button_Handler bh_r (CLK, BTNR, btn_r);
-    Button_Handler bh_s (CLK, BTND, btn_s);
-    Button_Handler bh_w (CLK, BTNU, btn_w);
-    Button_Handler bh_rst (CLK, BTNC, rst);
+    // targets:
+    //   W     1D
+    //   S     1B
+    //   R     2D
+    //   ENTER 5A
+
+    parameter [8:0] KEY_CODE_W = 9'h01D;
+    parameter [8:0] KEY_CODE_S = 9'h01B;
+    parameter [8:0] KEY_CODE_R = 9'h02D;
+    parameter [8:0] KEY_CODE_ENTER = 9'h05A;
+    
+    wire [511:0] key_down;
+    wire [8:0] last_change;
+    wire been_ready;
+    
+    KeyboardDecoder key_de (
+        .key_down(key_down),
+        .last_change(last_change),
+        .key_valid(been_ready),
+        .PS2_DATA(PS2_DATA),
+        .PS2_CLK(PS2_CLK),
+        .rst(rst),
+        .clk(clk)
+    );
+
+    always @(*) begin
+        if (been_ready && key_down[last_change] == 1'b1) begin
+            case (last_change)
+                KEY_CODE_W: btn_w <= 1'b1;
+                KEY_CODE_S: btn_s <= 1'b1;
+                KEY_CODE_R: btn_r <= 1'b1;
+                KEY_CODE_ENTER: btn_enter <= 1'b1;
+                default: begin
+                    btn_w <= 1'b0;
+                    btn_s <= 1'b0;
+                    btn_r <= 1'b0;
+                    btn_enter <= 1'b0;
+                end
+            endcase
+        end
+    end
 
     wire [4:0] tone;
     Tone_Generator tg (CLK, ~rst, btn_w, btn_s, btn_r, tone);
@@ -169,30 +206,155 @@ module Button_Handler(clk, in, out);
     end
 endmodule
 
-// module Keyboard_Handler (
-//     output reg [511:0] key_down,
-//     output wire [8:0] last_change,
-//     output reg key_valid,
-//     inout wire PS2_DATA,
-//     inout wire PS2_CLK,
-//     input wire rst,
-//     input wire clk
-//     );
-//     // targets:
-//     //   W     1D
-//     //   S     1B
-//     //   R     2D
-//     //   ENTER 5A
-//     wire key_in, is_extend, is_break, valid, err;
-//     // KeyboardCtrl_0 inst (
-//     //     .key_in(key_in),
-//     //     .is_extend(is_extend),
-//     //     .is_break(is_break),
-//     //     .valid(valid),
-//     //     .err(err),
-//     //     .PS2_DATA(PS2_DATA),
-//     //     .PS2_CLK(PS2_CLK),
-//     //     .rst(rst),
-//     //     .clk(clk)
-//     // );
-// endmodule
+module OnePulse (
+    output reg signal_single_pulse,
+    input wire signal,
+    input wire clock
+    );
+    
+    reg signal_delay;
+
+    always @(posedge clock) begin
+        if (signal == 1'b1 & signal_delay == 1'b0)
+            signal_single_pulse <= 1'b1;
+        else
+            signal_single_pulse <= 1'b0;
+        signal_delay <= signal;
+    end
+endmodule
+
+module KeyboardDecoder(
+    output reg [511:0] key_down,
+    output wire [8:0] last_change,
+    output reg key_valid,
+    inout wire PS2_DATA,
+    inout wire PS2_CLK,
+    input wire rst,
+    input wire clk
+    );
+    
+    parameter [1:0] INIT			= 2'b00;
+    parameter [1:0] WAIT_FOR_SIGNAL = 2'b01;
+    parameter [1:0] GET_SIGNAL_DOWN = 2'b10;
+    parameter [1:0] WAIT_RELEASE    = 2'b11;
+    
+    parameter [7:0] IS_INIT			= 8'hAA;
+    parameter [7:0] IS_EXTEND		= 8'hE0;
+    parameter [7:0] IS_BREAK		= 8'hF0;
+    
+    reg [9:0] key, next_key;		// key = {been_extend, been_break, key_in}
+    reg [1:0] state, next_state;
+    reg been_ready, been_extend, been_break;
+    reg next_been_ready, next_been_extend, next_been_break;
+    
+    wire [7:0] key_in;
+    wire is_extend;
+    wire is_break;
+    wire valid;
+    wire err;
+    
+    wire [511:0] key_decode = 1 << last_change;
+    assign last_change = {key[9], key[7:0]};
+    
+    KeyboardCtrl_0 inst (
+        .key_in(key_in),
+        .is_extend(is_extend),
+        .is_break(is_break),
+        .valid(valid),
+        .err(err),
+        .PS2_DATA(PS2_DATA),
+        .PS2_CLK(PS2_CLK),
+        .rst(rst),
+        .clk(clk)
+    );
+    
+    OnePulse op (
+        .signal_single_pulse(pulse_been_ready),
+        .signal(been_ready),
+        .clock(clk)
+    );
+    
+    always @ (posedge clk, posedge rst) begin
+        if (rst) begin
+            state <= INIT;
+            been_ready  <= 1'b0;
+            been_extend <= 1'b0;
+            been_break  <= 1'b0;
+            key <= 10'b0_0_0000_0000;
+        end else begin
+            state <= next_state;
+            been_ready  <= next_been_ready;
+            been_extend <= next_been_extend;
+            been_break  <= next_been_break;
+            key <= next_key;
+        end
+    end
+    
+    always @ (*) begin
+        case (state)
+            INIT:            next_state = (key_in == IS_INIT) ? WAIT_FOR_SIGNAL : INIT;
+            WAIT_FOR_SIGNAL: next_state = (valid == 1'b0) ? WAIT_FOR_SIGNAL : GET_SIGNAL_DOWN;
+            GET_SIGNAL_DOWN: next_state = WAIT_RELEASE;
+            WAIT_RELEASE:    next_state = (valid == 1'b1) ? WAIT_RELEASE : WAIT_FOR_SIGNAL;
+            default:         next_state = INIT;
+        endcase
+    end
+    always @ (*) begin
+        next_been_ready = been_ready;
+        case (state)
+            INIT:            next_been_ready = (key_in == IS_INIT) ? 1'b0 : next_been_ready;
+            WAIT_FOR_SIGNAL: next_been_ready = (valid == 1'b0) ? 1'b0 : next_been_ready;
+            GET_SIGNAL_DOWN: next_been_ready = 1'b1;
+            WAIT_RELEASE:    next_been_ready = next_been_ready;
+            default:         next_been_ready = 1'b0;
+        endcase
+    end
+    always @ (*) begin
+        next_been_extend = (is_extend) ? 1'b1 : been_extend;
+        case (state)
+            INIT:            next_been_extend = (key_in == IS_INIT) ? 1'b0 : next_been_extend;
+            WAIT_FOR_SIGNAL: next_been_extend = next_been_extend;
+            GET_SIGNAL_DOWN: next_been_extend = next_been_extend;
+            WAIT_RELEASE:    next_been_extend = (valid == 1'b1) ? next_been_extend : 1'b0;
+            default:         next_been_extend = 1'b0;
+        endcase
+    end
+    always @ (*) begin
+        next_been_break = (is_break) ? 1'b1 : been_break;
+        case (state)
+            INIT:            next_been_break = (key_in == IS_INIT) ? 1'b0 : next_been_break;
+            WAIT_FOR_SIGNAL: next_been_break = next_been_break;
+            GET_SIGNAL_DOWN: next_been_break = next_been_break;
+            WAIT_RELEASE:    next_been_break = (valid == 1'b1) ? next_been_break : 1'b0;
+            default:         next_been_break = 1'b0;
+        endcase
+    end
+    always @ (*) begin
+        next_key = key;
+        case (state)
+            INIT:            next_key = (key_in == IS_INIT) ? 10'b0_0_0000_0000 : next_key;
+            WAIT_FOR_SIGNAL: next_key = next_key;
+            GET_SIGNAL_DOWN: next_key = {been_extend, been_break, key_in};
+            WAIT_RELEASE:    next_key = next_key;
+            default:         next_key = 10'b0_0_0000_0000;
+        endcase
+    end
+
+    always @ (posedge clk, posedge rst) begin
+        if (rst) begin
+            key_valid <= 1'b0;
+            key_down <= 511'b0;
+        end else if (key_decode[last_change] && pulse_been_ready) begin
+            key_valid <= 1'b1;
+            if (key[8] == 0) begin
+                key_down <= key_down | key_decode;
+            end else begin
+                key_down <= key_down & (~key_decode);
+            end
+        end else begin
+            key_valid <= 1'b0;
+            key_down <= key_down;
+        end
+    end
+
+endmodule
