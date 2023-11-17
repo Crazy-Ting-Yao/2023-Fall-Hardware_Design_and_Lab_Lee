@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-`include "Lab5_Team13_Traffic_Light_Controller.v"
+`include "Lab5_111062109_Traffic_Light_Controller.v"
 
 module Traffic_Light_Controller_t;
     reg clk, rst_n, lr_has_car;

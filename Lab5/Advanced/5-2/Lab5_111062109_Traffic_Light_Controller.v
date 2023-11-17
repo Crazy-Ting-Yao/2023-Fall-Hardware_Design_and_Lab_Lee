@@ -1,5 +1,7 @@
 `timescale 1ns/1ps
 
+
+
 module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light);
     input clk, rst_n;
     input lr_has_car;
@@ -23,7 +25,7 @@ module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light);
     always @(*) begin
         case(current_state) 
         S0: begin
-            if(counter<80) begin
+            if(counter<70) begin
                 next_state = S0;
                 next_counter = counter + 1;
             end
@@ -39,7 +41,7 @@ module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light);
             end
         end
         S1: begin
-            if(counter<20) begin
+            if(counter<25) begin
                 next_state = S1;
                 next_counter = counter + 1;
             end
@@ -53,7 +55,7 @@ module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light);
             next_counter = 9'd0;
         end
         S3: begin
-            if(counter<80)begin
+            if(counter<70)begin
                 next_state = S3;
                 next_counter = counter + 1;
             end
@@ -63,7 +65,7 @@ module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light);
             end
         end
         S4: begin
-            if(counter<20)begin
+            if(counter<25)begin
                 next_state = S4;
                 next_counter = counter + 1;
             end
