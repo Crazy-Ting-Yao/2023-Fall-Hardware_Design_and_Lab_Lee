@@ -1,6 +1,6 @@
 module Top (
     input CLK,
-    inout PS2_CLK, PS2_DATA,
+    inout PS2_CLK, PS2_DAT,
     output AUD_SIG, AUD_GAIN, AUD_SHUT
     );
 
@@ -13,10 +13,10 @@ module Top (
     //   R     2D
     //   ENTER 5A
 
-    parameter [8:0] KEY_CODE_W = 9'h01D;
-    parameter [8:0] KEY_CODE_S = 9'h01B;
-    parameter [8:0] KEY_CODE_R = 9'h02D;
-    parameter [8:0] KEY_CODE_ENTER = 9'h05A;
+    parameter [8:0] KEY_CODE_W = 9'b0_0001_1101;
+    parameter [8:0] KEY_CODE_S = 9'b0_0001_1011;
+    parameter [8:0] KEY_CODE_R = 9'b0_0010_1101;
+    parameter [8:0] KEY_CODE_ENTER = 9'b0_0101_1010;
     
     wire [511:0] key_down;
     wire [8:0] last_change;
@@ -26,36 +26,50 @@ module Top (
         .key_down(key_down),
         .last_change(last_change),
         .key_valid(been_ready),
-        .PS2_DATA(PS2_DATA),
+        .PS2_DATA(PS2_DAT),
         .PS2_CLK(PS2_CLK),
-        .rst(rst),
-        .clk(clk)
+        .rst(1'b0),
+        .clk(CLK)
     );
 
-    always @(*) begin
-        if (been_ready && key_down[last_change] == 1'b1) begin
-            case (last_change)
-                KEY_CODE_W: btn_w <= 1'b1;
-                KEY_CODE_S: btn_s <= 1'b1;
-                KEY_CODE_R: btn_r <= 1'b1;
-                KEY_CODE_ENTER: btn_enter <= 1'b1;
-                default: begin
-                    btn_w <= 1'b0;
-                    btn_s <= 1'b0;
-                    btn_r <= 1'b0;
-                    btn_enter <= 1'b0;
-                end
-            endcase
-        end
-    end
+    wire btn_w, btn_s, btn_r, btn_enter;
+    assign btn_w = key_down[KEY_CODE_W];
+    assign btn_s = key_down[KEY_CODE_S];
+    assign btn_r = key_down[KEY_CODE_R];
+    assign btn_enter = key_down[KEY_CODE_ENTER];
+
+    wire btn_w_op, btn_s_op, btn_r_op, btn_enter_op;
+    OnePulse op_w (btn_w_op, btn_w, CLK);
+    OnePulse op_s (btn_s_op, btn_s, CLK);
+    OnePulse op_r (btn_r_op, btn_r, CLK);
+    OnePulse op_enter (btn_enter_op, btn_enter, CLK);
+    wire rst_n = ~btn_enter_op;
+    
+    // reg btn_w, btn_s, btn_r, btn_enter;
+    // wire rst_n = ~btn_enter;
+    // always @(*) begin
+    //     btn_w = 1'b0;
+    //     btn_s = 1'b0;
+    //     btn_r = 1'b0;
+    //     btn_enter = 1'b0;
+    //     if (been_ready && key_down[last_change] == 1'b1) begin
+    //         case (last_change)
+    //             KEY_CODE_W: btn_w = 1'b1;
+    //             KEY_CODE_S: btn_s = 1'b1;
+    //             KEY_CODE_R: btn_r = 1'b1;
+    //             KEY_CODE_ENTER: btn_enter = 1'b1;
+    //             default: 
+    //         endcase
+    //     end
+    // end
 
     wire [4:0] tone;
-    Tone_Generator tg (CLK, ~rst, btn_w, btn_s, btn_r, tone);
+    Tone_Generator tg (CLK, rst_n, btn_w, btn_s, btn_r, tone);
 
     wire [31:0] freq;
     Freq_Decoder fd (tone, freq);
 
-    PWM_gen pwm (CLK, rst, freq, 10'd512, AUD_SIG);
+    PWM_gen pwm (CLK, ~rst_n, freq, 10'd512, AUD_SIG);
 endmodule
 
 // Music
