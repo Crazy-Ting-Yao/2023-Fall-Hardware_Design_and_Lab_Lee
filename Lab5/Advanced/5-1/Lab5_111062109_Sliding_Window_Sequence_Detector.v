@@ -24,6 +24,7 @@ module Sliding_Window_Sequence_Detector (clk, rst_n, in, dec);
         S5: next_state = in ? S6 : S0;
         S6: next_state = in ? S7 : S5;
         S7: next_state = in ? S3 : S0;
+        default: next_state = S0;
         endcase
     end
     assign dec = (state==S7 && in);

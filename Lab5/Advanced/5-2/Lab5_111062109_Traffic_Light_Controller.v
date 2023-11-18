@@ -76,6 +76,10 @@ module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light);
             next_state = S0;
             next_counter = 7'd0;
         end
+        default: begin
+            next_state = S0;
+            next_counter = 7'd0;
+        end
         endcase
     end
 
@@ -102,6 +106,10 @@ module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light);
             lr_light = 3'b010;
         end
         S5: begin
+            hw_light = 3'b001;
+            lr_light = 3'b001;
+        end
+        default: begin
             hw_light = 3'b001;
             lr_light = 3'b001;
         end

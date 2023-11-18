@@ -71,6 +71,10 @@ module Greatest_Common_Divisor (clk, rst_n, start, a, b, done, gcd);
             next_a = a_tmp;
             next_b = b_tmp;
         end
+        default: begin
+            next_a = a_tmp;
+            next_b = b_tmp;
+        end
         endcase
     end
     assign done = (state==FINISH);

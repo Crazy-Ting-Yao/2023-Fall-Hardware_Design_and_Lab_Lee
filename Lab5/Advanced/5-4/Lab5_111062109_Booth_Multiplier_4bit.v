@@ -88,8 +88,10 @@ module Booth_Multiplier_4bit(clk, rst_n, start, a, b, p);
             2'b01: next_temp_p = (temp_p+A)>>>1;
             2'b10: next_temp_p = (temp_p+S)>>>1;
             2'b11: next_temp_p = temp_p>>>1;
+            default: next_temp_p = temp_p;
             endcase
         end
+        default: next_temp_p = temp_p;
         endcase
     end
     
