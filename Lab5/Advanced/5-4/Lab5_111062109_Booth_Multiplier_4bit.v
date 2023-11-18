@@ -6,9 +6,9 @@ module Booth_Multiplier_4bit(clk, rst_n, start, a, b, p);
     input start;
     input signed [3:0] a, b;
     output signed [7:0] p;
-    reg signed [8:0] A, next_A;
-    reg signed [8:0] S, next_S;
-    reg signed [8:0] temp_p, next_temp_p;
+    reg signed [9:0] A, next_A;
+    reg signed [9:0] S, next_S;
+    reg signed [9:0] temp_p, next_temp_p;
 
     parameter WAIT = 2'b00, CAL = 2'b01, FINISH = 2'b10;
 
@@ -67,8 +67,8 @@ module Booth_Multiplier_4bit(clk, rst_n, start, a, b, p);
 
     always @(*) begin
         if(state==WAIT && start) begin
-            next_A = {a, 5'b00000};
-            next_S = {~a, 5'b00000} + 6'b100000;
+            next_A = {a[3], a, 5'b00000};
+            next_S = {~a[3], ~a, 5'b00000} + 6'b100000;
         end
         else begin
             next_A = A;
@@ -79,7 +79,7 @@ module Booth_Multiplier_4bit(clk, rst_n, start, a, b, p);
     always @(*) begin
         case(state)
         WAIT: begin
-            if(start) next_temp_p = {4'b0000, b, 1'b0};
+            if(start) next_temp_p = {5'b0000, b, 1'b0};
             else next_temp_p = 0;
         end
         CAL: begin
