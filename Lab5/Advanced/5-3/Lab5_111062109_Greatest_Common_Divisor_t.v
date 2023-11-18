@@ -27,6 +27,10 @@ module Greatest_Common_Divisor_t;
         #cyc b = 15'd160;
         start = 1;
         #cyc start = 0;
+        #(20*cyc) a = 15'd3;
+        b = 15'd15;
+        start = 1;
+        #cyc start = 0;
         #(20*cyc) $finish;
     end
 
