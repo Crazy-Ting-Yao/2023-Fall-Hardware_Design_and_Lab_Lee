@@ -13,13 +13,13 @@ module TOP(
     parameter [8:0] KEY_CODES_D = {1'b0,8'h23}; // D => 23
     parameter [8:0] KEY_CODES_F = {1'b0,8'h2B}; // F => 2B
     wire [511:0] key_down;
-    reg de_buttons [4:0], buttons [4:0];
+    wire de_buttons [4:0], buttons [4:0];
     reg [6:0] total_money;
     reg count_down, next_count_down;
     wire btn_a_op, btn_s_op, btn_d_op, btn_f_op;
     reg [3:0] available_drinks;
     wire one_sec_clk;
-    wire start_to_count_down;
+    reg start_to_count_down;
     one_sec_clock osc (.clk(clk),.rst(start_to_count_down),.one_sec(one_sec_clk));
     KeyboardDecoder inst (
         .key_down(key_down),
@@ -30,7 +30,7 @@ module TOP(
         .rst(buttons[UP]),
         .clk(clk)
     );
-    
+    sevenseg_display ssd(clk, rst, total_money, AN, segs);
     debounce db_up (clk, up_btn, de_buttons[UP]);
     debounce db_down (clk, down_btn, de_buttons[DOWN]);
     debounce db_left (clk, left_btn, de_buttons[LEFT]);
@@ -42,10 +42,10 @@ module TOP(
     OnePulse op_left(buttons[LEFT], de_buttons[LEFT], clk);
     OnePulse op_right(buttons[RIGHT], de_buttons[RIGHT], clk);
     OnePulse op_center(buttons[CENTER], de_buttons[CENTER], clk);
-    OnePulse op_a (btn_a_op, key_down[KEY_CODE_A], clk);
-    OnePulse op_s (btn_s_op, key_down[KEY_CODE_S], clk);
-    OnePulse op_d (btn_d_op, key_down[KEY_CODE_D], clk);
-    OnePulse op_f (btn_f_op, key_down[KEY_CODE_F], clk);
+    OnePulse op_a (btn_a_op, key_down[KEY_CODES_A], clk);
+    OnePulse op_s (btn_s_op, key_down[KEY_CODES_S], clk);
+    OnePulse op_d (btn_d_op, key_down[KEY_CODES_D], clk);
+    OnePulse op_f (btn_f_op, key_down[KEY_CODES_F], clk);
 
     always @(posedge clk) begin
         if(buttons[UP]) begin
@@ -56,8 +56,8 @@ module TOP(
         else if(count_down) begin
             start_to_count_down = 0;
             if(one_sec_clk) begin
-                total_money <= total_money - 5;
-                count_down <= (total_money<6) ? 1 : 0;
+                total_money <= (total_money>5) ?  total_money - 5 : 0;
+                count_down <= (total_money>5) ? 1 : 0;
             end
             else begin
                 total_money <= total_money;
@@ -89,8 +89,8 @@ module TOP(
         else if(btn_a_op) begin
             if(available_drinks[3]) begin
                 total_money <= total_money - 80;
-                count_down <= 1;
-                start_to_count_down <= 1;
+                count_down <= (total_money - 80) ? 1 : 0;
+                start_to_count_down <= (total_money - 80) ? 1 : 0;
             end
             else begin
                 total_money <= total_money;
@@ -101,8 +101,8 @@ module TOP(
         else if(btn_s_op) begin
             if(available_drinks[2]) begin
                 total_money <= total_money - 30;
-                count_down <= 1;
-                start_to_count_down <= 1;
+                count_down <= (total_money - 30) ? 1 : 0;
+                start_to_count_down <= (total_money - 30) ? 1 : 0;
             end
             else begin
                 total_money <= total_money;
@@ -113,8 +113,8 @@ module TOP(
         else if(btn_d_op) begin
             if(available_drinks[1]) begin
                 total_money <= total_money - 25;
-                count_down <= 1;
-                start_to_count_down <= 1;
+                count_down <= (total_money - 25) ? 1 : 0;
+                start_to_count_down <= (total_money - 25) ? 1 : 0;
             end
             else begin
                 total_money <= total_money;
@@ -125,7 +125,7 @@ module TOP(
         else if(btn_f_op) begin
             if(available_drinks[0]) begin
                 total_money <= total_money - 20;
-                count_down <= 1;
+                count_down <= (total_money - 20)? 1 : 0;
                 start_to_count_down <= 1;
             end
             else begin
@@ -312,10 +312,8 @@ module debounce(clk, in, out);
     input in, clk;
     output out;
     reg [7:0] count;
-    reg out;
     always @(posedge clk) begin
-        if(!rst_n) count <= 0;
-        else count = {count[6:0], in};
+        count = {count[6:0], in};
     end
     assign out = (~count == 8'd0);
 endmodule
@@ -326,7 +324,7 @@ module sevenseg_display(clk, rst, money, AN, seg);
     output reg [3:0] AN;
     output reg [6:0] seg;
     
-    reg [18:0] counter;
+    reg [19:0] counter;
 
     always @(posedge clk) begin
         if (rst)  counter <= 0;
@@ -334,7 +332,7 @@ module sevenseg_display(clk, rst, money, AN, seg);
     end
     reg [3:0] digit1, digit2;
     reg digit3;
-    reg [6:0] seg1, seg2;
+    wire [6:0] seg1, seg2;
     sevenseg_decoder inst1 (digit1, seg1);
     sevenseg_decoder inst2 (digit2, seg2);
     always @(*) begin
