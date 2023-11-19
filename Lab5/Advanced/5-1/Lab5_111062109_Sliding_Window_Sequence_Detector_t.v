@@ -22,7 +22,7 @@ module Sliding_Window_Sequence_Detector_t;
             #cyc rst_n = 1;
             in = in_seq1[i];
         end
-        #cyc rst_n = 1;
+        #cyc rst_n = 0;
         for(i = 0; i < 16; i = i + 1)begin
             #cyc rst_n = 1;
             in = in_seq2[i];

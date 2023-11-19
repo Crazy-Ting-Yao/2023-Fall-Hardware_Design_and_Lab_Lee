@@ -22,15 +22,19 @@ module Greatest_Common_Divisor_t;
         a = 15'd18;
         b = 15'd12;
         #cyc start = 0;
-        #(20*cyc) a = 15'd1000;
-        #cyc b = 15'd160;
+        a = 15'd15;
+        b = 15'd8;
+        #(10*cyc) start = 1;
+        #cyc start = 0;
+        #(20*cyc) a = 15'd12;
+        b = 15'd0;
         start = 1;
         #cyc start = 0;
-        #(20*cyc) a = 15'd3;
-        b = 15'd15;
+        #(5*cyc) a = 15'd0;
+        b = 15'd4;
         start = 1;
         #cyc start = 0;
-        #(20*cyc) $finish;
+        #(5*cyc) $finish;
     end
 
     always #5 clk = ~clk;
