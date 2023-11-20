@@ -14,12 +14,11 @@ module TOP(
     parameter [8:0] KEY_CODES_F = {1'b0,8'h2B}; // F => 2B
     wire [511:0] key_down;
     wire [4:0] de_buttons , buttons;
-    reg [6:0] total_money;
-    reg count_down, next_count_down;
+    wire count_down, next_count_down, start_to_count_down;
     wire btn_a_op, btn_s_op, btn_d_op, btn_f_op;
-    reg [3:0] available_drinks;
+    wire [3:0] available_drinks;
     wire one_sec_clk, clk_100Hz;
-    reg start_to_count_down;
+    wire [6:0] total_money;
     one_sec_clock osc (.clk(clk),.rst(start_to_count_down),.one_sec(one_sec_clk));
     clock_100Hz clk100(clk, buttons[UP], clk_100Hz);
     KeyboardDecoder inst (
@@ -48,20 +47,20 @@ module TOP(
     OnePulse op_d (btn_d_op, key_down[KEY_CODES_D], clk);
     OnePulse op_f (btn_f_op, key_down[KEY_CODES_F], clk);
 
-    vending_machine vm(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, available_drinks, total_money, count_down, start_to_count_down);
+    vending_machine vm(clk, buttons, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, total_money, available_drinks, count_down, start_to_count_down);
 
     assign LED = count_down ? 4'b0000 : available_drinks;
 
 endmodule
 
-module vending_machine(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, available_drinks, total_money, count_down, start_to_count_down);
+module vending_machine(clk, buttons, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, total_money, available_drinks, count_down, start_to_count_down);
     
     input clk, one_sec_clk;
     input [4:0] buttons;
     input btn_a_op, btn_s_op, btn_d_op, btn_f_op;
-    input [3:0] available_drinks;
-    output [6:0] total_money;
+    output reg [3:0] available_drinks; 
     output reg start_to_count_down, count_down;
+    output reg [6:0] total_money;
 
     parameter UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3, CENTER = 4;
 
@@ -287,73 +286,31 @@ module sevenseg_display(clk, rst, money, AN, seg);
         if (rst)  counter <= 0;
         else  counter <= counter + 1;
     end
-    reg [3:0] digit1, digit2;
-    reg digit3;
+    reg [3:0] digit2;
+    wire digit3;
+    wire digit1;
     wire [6:0] seg1, seg2;
-    sevenseg_decoder inst1 (digit1, seg1);
     sevenseg_decoder inst2 (digit2, seg2);
+    assign digit1 = money[0];
+    assign digit3 = (money==100) ? 1 : 0;
     always @(*) begin
-        if(money==100) begin
-            digit1 = 0;
-            digit2 = 0;
-            digit3 = 1;
-        end
-        else if(money>89) begin
-            digit1 = money-90;
-            digit2 = 9;
-            digit3 = 0;
-        end
-        else if(money>79) begin
-            digit1 = money-80;
-            digit2 = 8;
-            digit3 = 0;
-        end
-        else if(money>69) begin
-            digit1 = money-70;
-            digit2 = 7;
-            digit3 = 0;
-        end
-        else if(money>59) begin
-            digit1 = money-60;
-            digit2 = 6;
-            digit3 = 0;
-        end
-        else if(money>49) begin
-            digit1 = money-50;
-            digit2 = 5;
-            digit3 = 0;
-        end
-        else if(money>39) begin
-            digit1 = money-40;
-            digit2 = 4;
-            digit3 = 0;
-        end
-        else if(money>29) begin
-            digit1 = money-30;
-            digit2 = 3;
-            digit3 = 0;
-        end
-        else if(money>19) begin
-            digit1 = money-20;
-            digit2 = 2;
-            digit3 = 0;
-        end
-        else if(money>9) begin
-            digit1 = money-10;
-            digit2 = 1;
-            digit3 = 0;
-        end
-        else begin
-            digit1 = money;
-            digit2 = 0;
-            digit3 = 0;
-        end
+        if(money==100) digit2 = 0;
+        else if(money>89) digit2 = 9;
+        else if(money>79) digit2 = 8;
+        else if(money>69) digit2 = 7;
+        else if(money>59) digit2 = 6;
+        else if(money>49) digit2 = 5;
+        else if(money>39) digit2 = 4;
+        else if(money>29) digit2 = 3;
+        else if(money>19) digit2 = 2;
+        else if(money>9) digit2 = 1;
+        else digit2 = 0;
     end
     always @(*) begin
         case(counter[18:17])
         2'b00: begin
             AN <= 4'b1110;
-            seg <= seg1;
+            seg <= digit1 ? 7'b0010010 : 7'b1000000;
         end
         2'b01: begin
             AN <= 4'b1101;
