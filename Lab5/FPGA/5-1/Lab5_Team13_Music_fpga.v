@@ -40,7 +40,7 @@ module Top (
     wire rst_n = ~btn_enter_op;
 
     wire [4:0] tone;
-    Tone_Generator tg (CLK, rst_n, btn_w, btn_s, btn_r, tone);
+    Tone_Generator tg (CLK, rst_n, btn_w_op, btn_s_op, btn_r_op, tone);
 
     wire [31:0] freq;
     Freq_Decoder fd (tone, freq);
