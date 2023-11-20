@@ -7,16 +7,10 @@ module Top (
     assign AUD_GAIN = 1'b1;
     assign AUD_SHUT = 1'b1;
 
-    // targets:
-    //   W     1D
-    //   S     1B
-    //   R     2D
-    //   ENTER 5A
-
-    parameter [8:0] KEY_CODE_W = 9'b0_0001_1101;
-    parameter [8:0] KEY_CODE_S = 9'b0_0001_1011;
-    parameter [8:0] KEY_CODE_R = 9'b0_0010_1101;
-    parameter [8:0] KEY_CODE_ENTER = 9'b0_0101_1010;
+    parameter [8:0] KEY_CODE_W = 9'b0_0001_1101;     // 0x1D
+    parameter [8:0] KEY_CODE_S = 9'b0_0001_1011;     // 0x1B
+    parameter [8:0] KEY_CODE_R = 9'b0_0010_1101;     // 0x2D
+    parameter [8:0] KEY_CODE_ENTER = 9'b0_0101_1010; // 0x5A
     
     wire [511:0] key_down;
     wire [8:0] last_change;
@@ -39,29 +33,11 @@ module Top (
     assign btn_enter = key_down[KEY_CODE_ENTER];
 
     wire btn_w_op, btn_s_op, btn_r_op, btn_enter_op;
-    OnePulse op_w (btn_w_op, btn_w, CLK);
-    OnePulse op_s (btn_s_op, btn_s, CLK);
-    OnePulse op_r (btn_r_op, btn_r, CLK);
-    OnePulse op_enter (btn_enter_op, btn_enter, CLK);
+    One_Pulse op_w (btn_w_op, btn_w, CLK);
+    One_Pulse op_s (btn_s_op, btn_s, CLK);
+    One_Pulse op_r (btn_r_op, btn_r, CLK);
+    One_Pulse op_enter (btn_enter_op, btn_enter, CLK);
     wire rst_n = ~btn_enter_op;
-    
-    // reg btn_w, btn_s, btn_r, btn_enter;
-    // wire rst_n = ~btn_enter;
-    // always @(*) begin
-    //     btn_w = 1'b0;
-    //     btn_s = 1'b0;
-    //     btn_r = 1'b0;
-    //     btn_enter = 1'b0;
-    //     if (been_ready && key_down[last_change] == 1'b1) begin
-    //         case (last_change)
-    //             KEY_CODE_W: btn_w = 1'b1;
-    //             KEY_CODE_S: btn_s = 1'b1;
-    //             KEY_CODE_R: btn_r = 1'b1;
-    //             KEY_CODE_ENTER: btn_enter = 1'b1;
-    //             default: 
-    //         endcase
-    //     end
-    // end
 
     wire [4:0] tone;
     Tone_Generator tg (CLK, rst_n, btn_w, btn_s, btn_r, tone);
@@ -188,7 +164,7 @@ module Clock_Divider #(parameter D = 10000, B = 14) (
     output dclk
     );
     
-    reg [B:0] cnt;
+    reg [B-1:0] cnt;
     assign dclk = (cnt == (D - 1));
     
     always @ (posedge clk, negedge rst_n) begin
@@ -204,36 +180,17 @@ module Clock_Divider #(parameter D = 10000, B = 14) (
     end
 endmodule
 
-module Button_Handler(clk, in, out);
-    input clk, in;
-    output reg out;
-
-    reg [3:0] debreg;
-    reg delay;
-
-    wire deb = &debreg;
-
-    always @(posedge clk) begin
-        debreg <= {debreg[2:0], in};
-        out <= deb && !delay;
-        delay <= deb;
-    end
-endmodule
-
-module OnePulse (
-    output reg signal_single_pulse,
+module One_Pulse (
+    output reg signal_op,
     input wire signal,
-    input wire clock
+    input wire clk
     );
     
-    reg signal_delay;
+    reg delay;
 
-    always @(posedge clock) begin
-        if (signal == 1'b1 & signal_delay == 1'b0)
-            signal_single_pulse <= 1'b1;
-        else
-            signal_single_pulse <= 1'b0;
-        signal_delay <= signal;
+    always @(posedge clk) begin
+        signal_op <= (signal & ~delay);
+        delay <= signal;
     end
 endmodule
 
@@ -282,10 +239,10 @@ module KeyboardDecoder(
         .clk(clk)
     );
     
-    OnePulse op (
-        .signal_single_pulse(pulse_been_ready),
+    One_Pulse op (
+        .signal_op(pulse_been_ready),
         .signal(been_ready),
-        .clock(clk)
+        .clk(clk)
     );
     
     always @ (posedge clk, posedge rst) begin
