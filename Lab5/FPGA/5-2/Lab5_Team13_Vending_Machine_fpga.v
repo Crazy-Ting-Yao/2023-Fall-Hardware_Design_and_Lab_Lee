@@ -13,7 +13,7 @@ module TOP(
     parameter [8:0] KEY_CODES_D = {1'b0,8'h23}; // D => 23
     parameter [8:0] KEY_CODES_F = {1'b0,8'h2B}; // F => 2B
     wire [511:0] key_down;
-    wire de_buttons [4:0], buttons [4:0];
+    wire [4:0] de_buttons , buttons;
     reg [6:0] total_money;
     reg count_down, next_count_down;
     wire btn_a_op, btn_s_op, btn_d_op, btn_f_op;
@@ -48,113 +48,75 @@ module TOP(
     OnePulse op_d (btn_d_op, key_down[KEY_CODES_D], clk);
     OnePulse op_f (btn_f_op, key_down[KEY_CODES_F], clk);
 
-    always @(posedge clk) begin
-        if(buttons[UP]) begin
-            total_money = 0;
-            count_down = 0;
-            start_to_count_down = 0;
-        end
-        else if(count_down) begin
-            start_to_count_down = 0;
-            if(one_sec_clk) begin
-                total_money <= (total_money>5) ?  total_money - 5 : 0;
-                count_down <= (total_money>5) ? 1 : 0;
-            end
-            else begin
-                total_money <= total_money;
-                count_down <= count_down;
-            end
-        end
-        else if(buttons[DOWN]) begin
-            if(total_money) begin
-                start_to_count_down = 1;
-                count_down = 1;
-            end
-            else begin
-                start_to_count_down = 0;
-                count_down = 0;
-            end
-        end
-        else if(buttons[LEFT]) begin
-            total_money = (total_money + 5 > 100) ? 100 : total_money + 5;
-            start_to_count_down = 0;
-        end
-        else if(buttons[CENTER]) begin
-            total_money = (total_money + 10 > 100) ? 100 : total_money + 10;
-            start_to_count_down = 0;
-        end
-        else if(buttons[RIGHT]) begin
-            total_money = (total_money + 50 > 100) ? 100 : total_money + 50;
-            start_to_count_down = 0;
-        end
-        else if(btn_a_op) begin
-            if(available_drinks[3]) begin
-                total_money <= total_money - 80;
-                count_down <= (total_money - 80) ? 1 : 0;
-                start_to_count_down <= (total_money - 80) ? 1 : 0;
-            end
-            else begin
-                total_money <= total_money;
-                count_down <= 0;
-                start_to_count_down <= 0;
-            end
-        end
-        else if(btn_s_op) begin
-            if(available_drinks[2]) begin
-                total_money <= total_money - 30;
-                count_down <= (total_money - 30) ? 1 : 0;
-                start_to_count_down <= (total_money - 30) ? 1 : 0;
-            end
-            else begin
-                total_money <= total_money;
-                count_down <= 0;
-                start_to_count_down <= 0;
-            end
-        end
-        else if(btn_d_op) begin
-            if(available_drinks[1]) begin
-                total_money <= total_money - 25;
-                count_down <= (total_money - 25) ? 1 : 0;
-                start_to_count_down <= (total_money - 25) ? 1 : 0;
-            end
-            else begin
-                total_money <= total_money;
-                count_down <= 0;
-                start_to_count_down <= 0;
-            end
-        end
-        else if(btn_f_op) begin
-            if(available_drinks[0]) begin
-                total_money <= total_money - 20;
-                count_down <= (total_money - 20)? 1 : 0;
-                start_to_count_down <= 1;
-            end
-            else begin
-                total_money <= total_money;
-                count_down <= 0;
-                start_to_count_down <= 0;
-            end
-        end
-        else begin
-            total_money <= total_money;
-            count_down <= 0;
-            start_to_count_down <= 0;
-        end
-    end
-
-    always @(*) begin
-        if(total_money >= 80) available_drinks[3] = 1'b1;
-        else available_drinks[3] = 1'b0;
-        if(total_money >= 30) available_drinks[2] = 1'b1;
-        else available_drinks[2] = 1'b0;
-        if(total_money >= 25) available_drinks[1] = 1'b1;
-        else available_drinks[1] = 1'b0;
-        if(total_money >= 20) available_drinks[0] = 1'b1;
-        else available_drinks[0] = 1'b0;
-    end
+    money_calculator mc(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, available_drinks, total_money);
+    start_count_down_module scdm(clk, buttons, total_money, available_drinks, start_to_count_down);
+    count_down_module cdm(clk, buttons, total_money, available_drinks, count_down, one_sec_clk);
+    available_drink_gen adg(total_money, available_drinks);
     
     assign LED = count_down ? 4'b0000 : available_drinks;
 
+endmodule
+
+module money_calculator(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, available_drinks, total_money);
+
+    input clk, count_down, one_sec_clk;
+    input [4:0] buttons;
+    input btn_a_op, btn_s_op, btn_d_op, btn_f_op;
+    input [3:0] available_drinks;
+    output [6:0] total_money;
+
+    always @(posedge clk) begin
+        if(buttons[UP]) total_money = 0;
+        else if(count_down && one_sec_clk) total_money <= (total_money>5) ?  total_money - 5 : 0;
+        else if(buttons[LEFT]) total_money = (total_money + 5 > 100) ? 100 : total_money + 5;
+        else if(buttons[CENTER]) total_money = (total_money + 10 > 100) ? 100 : total_money + 10;
+        else if(buttons[RIGHT]) total_money = (total_money + 50 > 100) ? 100 : total_money + 50;
+        else if(btn_a_op && available_drinks[3]) total_money <= total_money - 80;
+        else if(btn_s_op && available_drinks[2]) total_money <= total_money - 30;
+        else if(btn_d_op && available_drinks[1]) total_money <= total_money - 25;
+        else if(btn_f_op && available_drinks[0]) total_money <= total_money - 20;
+        else total_money <= total_money;
+    end
+endmodule
+
+module start_count_down_module(clk, buttons, total_money, available_drinks, start_to_count_down);
+
+    input clk;
+    input [4:0] buttons;
+    input [6:0] total_money;
+    input [3:0] available_drinks;
+    output reg start_to_count_down;
+
+    always @(posedge clk) begin
+        if(buttons[DOWN] && total_money) start_to_count_down = 1;
+        else if(btn_a_op && available_drinks[3] && (total_money > 80)) start_to_count_down = 1;
+        else if(btn_s_op && available_drinks[2] && (total_money > 30)) start_to_count_down = 1;
+        else if(btn_d_op && available_drinks[1] && (total_money > 25)) start_to_count_down = 1;
+        else if(btn_f_op && available_drinks[0] && (total_money > 20)) start_to_count_down = 1;   
+        else start_to_count_down <= 0;
+    end
+endmodule
+
+module count_down_module(clk, buttons, total_money, available_drinks, count_down, one_sec_clk);
+    
+    input clk, one_sec_clk;
+    input [4:0] buttons;
+    input [6:0] total_money;
+    input [3:0] available_drinks;  
+    output reg count_down;
+    
+    always @(posedge clk) begin
+        if(count_down) begin
+            if(one_sec_clk) count_down <= (total_money>5) ? 1 : 0;
+            else count_down <= count_down;
+        end
+        else if(buttons[DOWN] && total_money) count_down = 1;
+        else if(btn_a_op && available_drinks[3] && (total_money > 80)) count_down <= 1;
+        else if(btn_s_op && available_drinks[2] && (total_money > 30)) count_down <= 1;
+        else if(btn_d_op && available_drinks[1] && (total_money > 25)) count_down <= 1;
+        else if(btn_f_op && available_drinks[0] && (total_money > 20)) count_down <= 1;
+        else count_down <= 0;
+    end
 endmodule
 
 module KeyboardDecoder(
@@ -289,6 +251,23 @@ module KeyboardDecoder(
             key_valid <= 1'b0;
             key_down <= key_down;
         end
+    end
+endmodule
+
+module available_drink_gen(total_money, available_drinks);
+
+    input [6:0] total_money;
+    output reg [3:0] available_drinks;
+
+    always @(*) begin
+        if(total_money >= 80) available_drinks[3] = 1'b1;
+        else available_drinks[3] = 1'b0;
+        if(total_money >= 30) available_drinks[2] = 1'b1;
+        else available_drinks[2] = 1'b0;
+        if(total_money >= 25) available_drinks[1] = 1'b1;
+        else available_drinks[1] = 1'b0;
+        if(total_money >= 20) available_drinks[0] = 1'b1;
+        else available_drinks[0] = 1'b0;
     end
 endmodule
 
@@ -462,14 +441,14 @@ endmodule
 module clock_100Hz(clk, rst, clock_100);
     input clk, rst;
     output reg clock_100;
-    reg [20:0] counter;
+    reg [19:0] counter;
 
     always @(posedge clk) begin
         if (rst) begin
             counter <= 0; 
             clock_100 <= 0;
         end
-        else if(counter == 21'd1000000 - 1) begin
+        else if(counter == 20'd1000000 - 1) begin
             counter <= 0;
             clock_100 <= 1;
         end
