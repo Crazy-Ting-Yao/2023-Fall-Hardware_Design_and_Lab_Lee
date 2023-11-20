@@ -48,22 +48,22 @@ module TOP(
     OnePulse op_d (btn_d_op, key_down[KEY_CODES_D], clk);
     OnePulse op_f (btn_f_op, key_down[KEY_CODES_F], clk);
 
-    money_calculator mc(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, available_drinks, total_money);
-    start_count_down_module scdm(clk, buttons, total_money, available_drinks, start_to_count_down);
-    count_down_module cdm(clk, buttons, total_money, available_drinks, count_down, one_sec_clk);
-    available_drink_gen adg(total_money, available_drinks);
-    
+    vending_machine vm(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, available_drinks, total_money, count_down, start_to_count_down);
+
     assign LED = count_down ? 4'b0000 : available_drinks;
 
 endmodule
 
-module money_calculator(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, available_drinks, total_money);
-
-    input clk, count_down, one_sec_clk;
+module vending_machine(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, btn_f_op, available_drinks, total_money, count_down, start_to_count_down);
+    
+    input clk, one_sec_clk;
     input [4:0] buttons;
     input btn_a_op, btn_s_op, btn_d_op, btn_f_op;
     input [3:0] available_drinks;
     output [6:0] total_money;
+    output reg start_to_count_down, count_down;
+
+    parameter UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3, CENTER = 4;
 
     always @(posedge clk) begin
         if(buttons[UP]) total_money = 0;
@@ -77,15 +77,6 @@ module money_calculator(clk, buttons, count_down, one_sec_clk, btn_a_op, btn_s_o
         else if(btn_f_op && available_drinks[0]) total_money <= total_money - 20;
         else total_money <= total_money;
     end
-endmodule
-
-module start_count_down_module(clk, buttons, total_money, available_drinks, start_to_count_down);
-
-    input clk;
-    input [4:0] buttons;
-    input [6:0] total_money;
-    input [3:0] available_drinks;
-    output reg start_to_count_down;
 
     always @(posedge clk) begin
         if(buttons[DOWN] && total_money) start_to_count_down = 1;
@@ -95,16 +86,7 @@ module start_count_down_module(clk, buttons, total_money, available_drinks, star
         else if(btn_f_op && available_drinks[0] && (total_money > 20)) start_to_count_down = 1;   
         else start_to_count_down <= 0;
     end
-endmodule
 
-module count_down_module(clk, buttons, total_money, available_drinks, count_down, one_sec_clk);
-    
-    input clk, one_sec_clk;
-    input [4:0] buttons;
-    input [6:0] total_money;
-    input [3:0] available_drinks;  
-    output reg count_down;
-    
     always @(posedge clk) begin
         if(count_down) begin
             if(one_sec_clk) count_down <= (total_money>5) ? 1 : 0;
@@ -117,6 +99,18 @@ module count_down_module(clk, buttons, total_money, available_drinks, count_down
         else if(btn_f_op && available_drinks[0] && (total_money > 20)) count_down <= 1;
         else count_down <= 0;
     end
+
+    always @(*) begin
+        if(total_money >= 80) available_drinks[3] = 1'b1;
+        else available_drinks[3] = 1'b0;
+        if(total_money >= 30) available_drinks[2] = 1'b1;
+        else available_drinks[2] = 1'b0;
+        if(total_money >= 25) available_drinks[1] = 1'b1;
+        else available_drinks[1] = 1'b0;
+        if(total_money >= 20) available_drinks[0] = 1'b1;
+        else available_drinks[0] = 1'b0;
+    end
+
 endmodule
 
 module KeyboardDecoder(
@@ -251,23 +245,6 @@ module KeyboardDecoder(
             key_valid <= 1'b0;
             key_down <= key_down;
         end
-    end
-endmodule
-
-module available_drink_gen(total_money, available_drinks);
-
-    input [6:0] total_money;
-    output reg [3:0] available_drinks;
-
-    always @(*) begin
-        if(total_money >= 80) available_drinks[3] = 1'b1;
-        else available_drinks[3] = 1'b0;
-        if(total_money >= 30) available_drinks[2] = 1'b1;
-        else available_drinks[2] = 1'b0;
-        if(total_money >= 25) available_drinks[1] = 1'b1;
-        else available_drinks[1] = 1'b0;
-        if(total_money >= 20) available_drinks[0] = 1'b1;
-        else available_drinks[0] = 1'b0;
     end
 endmodule
 
