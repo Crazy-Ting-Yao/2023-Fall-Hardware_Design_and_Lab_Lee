@@ -18,9 +18,10 @@ module TOP(
     reg count_down, next_count_down;
     wire btn_a_op, btn_s_op, btn_d_op, btn_f_op;
     reg [3:0] available_drinks;
-    wire one_sec_clk;
+    wire one_sec_clk, clk_100Hz;
     reg start_to_count_down;
     one_sec_clock osc (.clk(clk),.rst(start_to_count_down),.one_sec(one_sec_clk));
+    clock_100Hz clk100(clk, buttons[UP], clk_100Hz);
     KeyboardDecoder inst (
         .key_down(key_down),
         .last_change(last_change),
@@ -31,11 +32,11 @@ module TOP(
         .clk(clk)
     );
     sevenseg_display ssd(clk, rst, total_money, AN, segs);
-    debounce db_up (clk, up_btn, de_buttons[UP]);
-    debounce db_down (clk, down_btn, de_buttons[DOWN]);
-    debounce db_left (clk, left_btn, de_buttons[LEFT]);
-    debounce db_right (clk, right_btn, de_buttons[RIGHT]);
-    debounce db_center (clk, center_btn, de_buttons[CENTER]);
+    debounce db_up (clk_100Hz, up_btn, de_buttons[UP]);
+    debounce db_down (clk_100Hz, down_btn, de_buttons[DOWN]);
+    debounce db_left (clk_100Hz, left_btn, de_buttons[LEFT]);
+    debounce db_right (clk_100Hz, right_btn, de_buttons[RIGHT]);
+    debounce db_center (clk_100Hz, center_btn, de_buttons[CENTER]);
     
     OnePulse op_up (buttons[UP], de_buttons[UP], clk);
     OnePulse op_down(buttons[DOWN], de_buttons[DOWN], clk);
@@ -311,11 +312,11 @@ endmodule
 module debounce(clk, in, out);
     input in, clk;
     output out;
-    reg [7:0] count;
+    reg [1:0] count;
     always @(posedge clk) begin
-        count = {count[6:0], in};
+        count = {count[0], in};
     end
-    assign out = (~count == 8'd0);
+    assign out = (~count == 2'd0);
 endmodule
 
 module sevenseg_display(clk, rst, money, AN, seg);
@@ -454,6 +455,27 @@ module one_sec_clock(clk, rst, one_sec);
         else begin
             counter <= counter + 1;
             one_sec <= 0;
+        end
+    end
+endmodule
+
+module clock_100Hz(clk, rst, clock_100);
+    input clk, rst;
+    output reg clock_100;
+    reg [20:0] counter;
+
+    always @(posedge clk) begin
+        if (rst) begin
+            counter <= 0; 
+            clock_100 <= 0;
+        end
+        else if(counter == 21'd1000000 - 1) begin
+            counter <= 0;
+            clock_100 <= 1;
+        end
+        else begin
+            counter <= counter + 1;
+            clock_100 <= 0;
         end
     end
 endmodule
