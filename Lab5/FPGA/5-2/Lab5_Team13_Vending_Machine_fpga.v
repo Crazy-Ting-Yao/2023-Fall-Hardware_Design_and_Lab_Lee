@@ -66,7 +66,10 @@ module vending_machine(clk, buttons, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, 
 
     always @(posedge clk) begin
         if(buttons[UP]) total_money = 0;
-        else if(count_down && one_sec_clk) total_money <= (total_money>5) ?  total_money - 5 : 0;
+        else if(count_down) begin
+            if(one_sec_clk) total_money <= (total_money>5) ?  total_money - 5 : 0;
+            else total_money <= total_money;
+        end
         else if(buttons[LEFT]) total_money = (total_money + 5 > 100) ? 100 : total_money + 5;
         else if(buttons[CENTER]) total_money = (total_money + 10 > 100) ? 100 : total_money + 10;
         else if(buttons[RIGHT]) total_money = (total_money + 50 > 100) ? 100 : total_money + 50;
@@ -78,11 +81,12 @@ module vending_machine(clk, buttons, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, 
     end
 
     always @(posedge clk) begin
-        if(buttons[DOWN] && total_money) start_to_count_down = 1;
-        else if(btn_a_op && available_drinks[3] && (total_money > 80)) start_to_count_down = 1;
-        else if(btn_s_op && available_drinks[2] && (total_money > 30)) start_to_count_down = 1;
-        else if(btn_d_op && available_drinks[1] && (total_money > 25)) start_to_count_down = 1;
-        else if(btn_f_op && available_drinks[0] && (total_money > 20)) start_to_count_down = 1;   
+        if(count_down) start_to_count_down = 0;
+        else if(buttons[DOWN] && total_money) start_to_count_down = 1;
+        else if(btn_a_op && (total_money > 80)) start_to_count_down = 1;
+        else if(btn_s_op && (total_money > 30)) start_to_count_down = 1;
+        else if(btn_d_op && (total_money > 25)) start_to_count_down = 1;
+        else if(btn_f_op && (total_money > 20)) start_to_count_down = 1;   
         else start_to_count_down <= 0;
     end
 
@@ -92,10 +96,10 @@ module vending_machine(clk, buttons, one_sec_clk, btn_a_op, btn_s_op, btn_d_op, 
             else count_down <= count_down;
         end
         else if(buttons[DOWN] && total_money) count_down = 1;
-        else if(btn_a_op && available_drinks[3] && (total_money > 80)) count_down <= 1;
-        else if(btn_s_op && available_drinks[2] && (total_money > 30)) count_down <= 1;
-        else if(btn_d_op && available_drinks[1] && (total_money > 25)) count_down <= 1;
-        else if(btn_f_op && available_drinks[0] && (total_money > 20)) count_down <= 1;
+        else if(btn_a_op && (total_money > 80)) count_down <= 1;
+        else if(btn_s_op && (total_money > 30)) count_down <= 1;
+        else if(btn_d_op && (total_money > 25)) count_down <= 1;
+        else if(btn_f_op && (total_money > 20)) count_down <= 1;
         else count_down <= 0;
     end
 
