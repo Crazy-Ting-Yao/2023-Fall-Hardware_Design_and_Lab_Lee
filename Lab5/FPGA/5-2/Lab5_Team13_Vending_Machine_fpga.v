@@ -30,7 +30,7 @@ module TOP(
         .rst(buttons[UP]),
         .clk(clk)
     );
-    sevenseg_display ssd(clk, rst, total_money, AN, segs);
+    sevenseg_display ssd(clk, de_buttons[UP], total_money, AN, segs);
     debounce db_up (clk_100Hz, up_btn, de_buttons[UP]);
     debounce db_down (clk_100Hz, down_btn, de_buttons[DOWN]);
     debounce db_left (clk_100Hz, left_btn, de_buttons[LEFT]);
