@@ -37,15 +37,14 @@ module Top (
     One_Pulse op_s (btn_s_op, btn_s, CLK);
     One_Pulse op_r (btn_r_op, btn_r, CLK);
     One_Pulse op_enter (btn_enter_op, btn_enter, CLK);
-    wire rst_n = ~btn_enter_op;
 
     wire [4:0] tone;
-    Tone_Generator tg (CLK, rst_n, btn_w_op, btn_s_op, btn_r_op, tone);
+    Tone_Generator tg (CLK, btn_enter_op, btn_w_op, btn_s_op, btn_r_op, tone);
 
     wire [31:0] freq;
     Freq_Decoder fd (tone, freq);
 
-    PWM_gen pwm (CLK, ~rst_n, freq, 10'd512, AUD_SIG);
+    PWM_gen pwm (CLK, btn_enter_op, freq, 10'd512, AUD_SIG);
 endmodule
 
 // Music
@@ -67,7 +66,7 @@ module PWM_gen (
             PWM <= 0;
         end else if (count < count_max) begin
             count <= count + 1;
-            if(count < count_duty)
+            if (count < count_duty)
                 PWM <= 1;
             else
                 PWM <= 0;
@@ -120,7 +119,7 @@ module Freq_Decoder (
 endmodule
 
 module Tone_Generator (
-    input clk, rst_n,
+    input clk, rst,
     input btn_w, btn_s, btn_r,
     output reg [4:0] tone // C4 (0) ~ C8 (28)
     );
@@ -134,10 +133,10 @@ module Tone_Generator (
     wire dclk_2hz;
     reg toggle_2hz;
     wire dclk_1hz = toggle_2hz & dclk_2hz;
-    Clock_Divider #(.D(100_000_000 / 2), .B(26)) cd_2hz (clk, rst_n, dclk_2hz);
+    Clock_Divider #(.D(100_000_000 / 2), .B(26)) cd_2hz (clk, rst, dclk_2hz);
     
     always @(posedge clk) begin
-        if (~rst_n) begin
+        if (rst) begin
             toggle_2hz <= 1'b0;
             tone <= 5'b00000;
             dir <= 1'b0;
@@ -160,15 +159,15 @@ endmodule
 
 // Utility
 module Clock_Divider #(parameter D = 10000, B = 14) (
-    input clk, rst_n,
+    input clk, rst,
     output dclk
     );
     
     reg [B-1:0] cnt;
     assign dclk = (cnt == (D - 1));
     
-    always @ (posedge clk, negedge rst_n) begin
-        if (~rst_n) begin
+    always @ (posedge clk) begin
+        if (rst) begin
             cnt <= 0;
         end else begin
             if (cnt == D - 1) begin
