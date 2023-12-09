@@ -1,9 +1,10 @@
-module sonic_top(clk, rst, Echo, Trig, stop);
+module sonic_top(clk, rst, Echo, Trig, stop, dis);
 	input clk, rst, Echo;
 	output Trig, stop;
+    output [19:0] dis;
 
-	wire[19:0] dis;
-	wire[19:0] d;
+	wire [19:0] dis;
+	wire [19:0] d;
     wire clk1M;
 	wire clk_2_17;
 
@@ -13,6 +14,8 @@ module sonic_top(clk, rst, Echo, Trig, stop);
 
     // [TO-DO] calculate the right distance to trig stop(triggered when the distance is lower than 40 cm)
     // Hint: using "dis"
+    assign stop = (dis < 20'h0b00) ? 1'b1 : 1'b0; // 'h1000 = 40 cm
+    // assign stop = (dis < 20'h1000) ? 1'b1 : 1'b0; // 'h1000 = 40 cm
  
 endmodule
 
@@ -92,7 +95,7 @@ module TrigSignal(clk, rst, trig);
     output trig;
 
     reg trig, next_trig;
-    reg[23:0] count, next_count;
+    reg [23:0] count, next_count;
 
     always @(posedge clk, posedge rst) begin
         if (rst) begin
@@ -117,11 +120,11 @@ module TrigSignal(clk, rst, trig);
     end
 endmodule
 
-module div(clk ,out_clk);
+module div(clk, out_clk);
     input clk;
     output out_clk;
     reg out_clk;
-    reg [6:0]cnt;
+    reg [6:0] cnt;
     
     always @(posedge clk) begin   
         if(cnt < 7'd50) begin
