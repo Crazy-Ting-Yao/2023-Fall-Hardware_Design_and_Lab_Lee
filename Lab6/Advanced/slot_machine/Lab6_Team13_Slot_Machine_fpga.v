@@ -73,7 +73,7 @@ module Top(CLK, BTN_RST, BTN_DOWN, BTN_UP, VGA_R, VGA_B, VGA_G, hsync, vsync);
 
     vga_controller VC0(
         .pclk(clk_d2),
-        .reset(rst),
+        .reset(rst_op),
         .hsync(hsync),
         .vsync(vsync),
         .valid(valid),
@@ -130,11 +130,11 @@ module state_control(clk, rst, start_down, start_up, A_v_count, B_v_count, C_v_c
 
     always @(posedge clk) begin
         if (counter == 10'd0 && start_down == 1'b1) begin
-            dir = DOWN;
+            dir <= DOWN;
         end else if (counter == 10'd0 && start_up == 1'b1) begin
-            dir = UP;
+            dir <= UP;
         end else begin
-            dir = dir;
+            dir <= dir;
         end
     end
     

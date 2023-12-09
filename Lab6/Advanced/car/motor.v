@@ -1,9 +1,13 @@
 module motor(
     input clk,
     input rst,
-    // input [?? :0]mode,
+    input [2:0] mode, // {speed, state[1:0]}
     output [1:0] pwm
 );
+    parameter [1:0] stop        = 2'b00;
+    parameter [1:0] turn_left   = 2'b10;
+    parameter [1:0] turn_right  = 2'b01;
+    parameter [1:0] go_straight = 2'b11;
 
     reg [9:0] next_left_motor, next_right_motor;
     reg [9:0] left_motor, right_motor;
@@ -20,13 +24,37 @@ module motor(
             left_motor <= next_left_motor;
             right_motor <= next_right_motor;
         end
-
-        next_left_motor = 10'd1020;
-        next_right_motor = 10'd1020;
     end
     
     // [TO-DO] take the right speed for different situation
+    wire [9:0] speed_high = mode[2] ? 10'd1020 : 10'd950;
+    wire [9:0] speed_slow = 10'd880;
+    wire [9:0] speed_stop = 10'd0;
 
+    always @(*) begin
+        case (mode[1:0])
+            stop: begin
+                next_left_motor <= speed_slow;
+                next_right_motor <= speed_slow;
+            end
+            turn_left: begin
+                next_left_motor <= speed_high;
+                next_right_motor <= speed_slow;
+            end
+            turn_right: begin
+                next_left_motor <= speed_slow;
+                next_right_motor <= speed_high;
+            end
+            go_straight: begin
+                next_left_motor <= speed_high;
+                next_right_motor <= speed_high;
+            end
+            default: begin
+                next_left_motor <= speed_stop;
+                next_right_motor <= speed_stop;
+            end
+        endcase
+    end
 
     assign pwm = {left_pwm, right_pwm};
 endmodule

@@ -1,5 +1,6 @@
-module sonic_top(clk, rst, Echo, Trig, stop, dis);
+module sonic_top(clk, rst, Echo, thres, Trig, stop, dis);
 	input clk, rst, Echo;
+    input thres; // 0 -> 25 cm, 1 -> 40 cm
 	output Trig, stop;
     output [19:0] dis;
 
@@ -8,14 +9,13 @@ module sonic_top(clk, rst, Echo, Trig, stop, dis);
     wire clk1M;
 	wire clk_2_17;
 
-    div clk1(clk ,clk1M);
+    div clk1(clk, clk1M);
 	TrigSignal u1(.clk(clk), .rst(rst), .trig(Trig));
 	PosCounter u2(.clk(clk1M), .rst(rst), .echo(Echo), .distance_count(dis));
 
-    // [TO-DO] calculate the right distance to trig stop(triggered when the distance is lower than 40 cm)
-    // Hint: using "dis"
-    assign stop = (dis < 20'h0b00) ? 1'b1 : 1'b0; // 'h1000 = 40 cm
-    // assign stop = (dis < 20'h1000) ? 1'b1 : 1'b0; // 'h1000 = 40 cm
+    // [V] calculate the right distance to trig stop(triggered when the distance is lower than 40 cm)
+    wire [19:0] thres_dis = thres ? 20'h1000 : 20'h0000; // 'h1000 = 40 cm
+    assign stop = (dis < thres_dis) ? 1'b1 : 1'b0;
  
 endmodule
 
@@ -28,20 +28,19 @@ module PosCounter(clk, rst, echo, distance_count);
     parameter S2 = 2'b10;
     
     wire start, finish;
-    reg[1:0] curr_state, next_state;
+    reg [1:0] curr_state, next_state;
     reg echo_reg1, echo_reg2;
-    reg[19:0] count, next_count, distance_register, next_distance;
-    wire[19:0] distance_count; 
+    reg [19:0] count, next_count, distance_register, next_distance;
+    wire [19:0] distance_count; 
 
-    always@(posedge clk) begin
-        if(rst) begin
+    always @(posedge clk) begin
+        if (rst) begin
             echo_reg1 <= 1'b0;
             echo_reg2 <= 1'b0;
             count <= 20'b0;
             distance_register <= 20'b0;
             curr_state <= S0;
-        end
-        else begin
+        end else begin
             echo_reg1 <= echo;   
             echo_reg2 <= echo_reg1; 
             count <= next_count;
