@@ -30,9 +30,9 @@ module Top(
         .stop(_stop)
     );
     assign stop = _stop | (!SW15);
-    assign state = stop ? 3'b111 : {!left_signal, !mid_signal, !right_signal};
-    assign left = (state==3'b111) ? 2'b00 : 2'b10;
-    assign right = (state==3'b111) ? 2'b00 : 2'b10;
+    assign state = stop ? 3'b000 : {left_signal, mid_signal, right_signal};
+    assign left = (state==3'b000) ? 2'b00 : 2'b10;
+    assign right = (state==3'b000) ? 2'b00 : 2'b10;
 endmodule
 
 module debounce (pb_debounced, pb, clk);
