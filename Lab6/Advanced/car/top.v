@@ -1,6 +1,5 @@
 module Top(
     input CLK,
-
     input BTNC, // button reset
     input [15:0] SW,
 
