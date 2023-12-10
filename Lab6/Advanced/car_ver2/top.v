@@ -5,13 +5,14 @@ module Top(
     input left_signal, // JB4
     input right_signal, // JB2
     input mid_signal,   // JB3
+    input SW15, // SW15
     output trig,     // JA4
     output left_motor,  // JC1
     output [1:0]left, // JC3, JC2
     output right_motor, // JC7
-    output [1:0]right // JC9, JC3
+    output [1:0]right // JC9, JC8
 );
-    wire rst_op, rst_pb, stop;
+    wire rst_op, rst_pb, stop, _stop;
     wire [2:0] state;
     debounce d0(rst_pb, rst, clk);
     onepulse d1(rst_pb, clk, rst_op);
@@ -26,9 +27,10 @@ module Top(
         .rst(rst_op), 
         .Echo(echo), 
         .Trig(trig),
-        .stop(stop)
+        .stop(_stop)
     );
-    assign state = stop ? 3'b111 : {left_signal, mid_signal, right_signal};
+    assign stop = _stop | (!SW15);
+    assign state = stop ? 3'b111 : {!left_signal, !mid_signal, !right_signal};
     assign left = (state==3'b111) ? 2'b00 : 2'b10;
     assign right = (state==3'b111) ? 2'b00 : 2'b10;
 endmodule
