@@ -43,7 +43,7 @@ module Top(
     assign LED[15:0] = {
         {stop, 3'b0},
         {state, 1'b0},
-        {4'b0},
+        {4'b1000},
         {~left_dir, left_dir, right_dir, ~right_dir}
     };
 endmodule

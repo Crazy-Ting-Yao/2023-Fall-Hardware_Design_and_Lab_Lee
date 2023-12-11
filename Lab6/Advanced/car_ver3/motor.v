@@ -33,20 +33,20 @@ module motor(
                 next_right_motor = (right_motor > 11'sd1000) ? 11'sd1023 : right_motor + 11'sd23;
             end
             3'b110: begin
-                next_left_motor  = (left_motor  > 11'sd10)   ? left_motor - 11'sd10 : 11'sd0;
+                next_left_motor  = (left_motor  > 11'sd0)   ? left_motor - 11'sd100 : -11'sd100;
                 next_right_motor = (right_motor > 11'sd1003) ? 10'sd1023 : right_motor + 10'sd20;
             end
             3'b100: begin
-                next_left_motor  = (left_motor  > -11'sd300)  ? left_motor - 11'sd100 : -11'sd400;
+                next_left_motor  = (left_motor  > -11'sd300)  ? left_motor - 11'sd200 : -11'sd800;
                 next_right_motor = (right_motor > 11'sd1003) ? 10'sd1023 : right_motor + 10'sd20;
             end
             3'b011: begin
                 next_left_motor  = (left_motor  > 11'sd1003) ? 11'sd1023 : left_motor  + 11'sd20;
-                next_right_motor = (right_motor > 11'sd10)   ? right_motor - 11'sd10 : 11'sd0;
+                next_right_motor = (right_motor > 11'sd0)   ? right_motor - 11'sd100 : -11'sd100;
             end
             3'b001: begin
                 next_left_motor  = (left_motor  > 11'sd1003) ? 11'sd1023 : left_motor  + 11'sd20;
-                next_right_motor = (right_motor > -11'sd300)  ? right_motor - 11'sd100 : -11'sd400;
+                next_right_motor = (right_motor > -11'sd300)  ? right_motor - 11'sd200 : -11'sd800;
             end
             3'b000: begin
                 next_left_motor  = (left_motor  > right_motor) ? 11'sd1023 : 11'sd0;
