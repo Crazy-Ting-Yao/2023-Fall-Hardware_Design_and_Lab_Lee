@@ -71,8 +71,8 @@ module Top(
         .clk(CLK), 
         .reset(rst_op), 
         .left_signal(JB4), 
-        .right_signal(JB3),
-        .mid_signal(JB2),
+        .right_signal(JB2),
+        .mid_signal(JB3),
         .target(SW[14]), // 0: white, 1: black
         .state(state)
     );

@@ -6,13 +6,14 @@ module Top(
     input right_signal, // JB2
     input mid_signal,   // JB3
     input SW15, // SW15
+    input SW14, // SW14
     output trig,     // JA4
     output left_motor,  // JC1
     output [1:0]left, // JC3, JC2
     output right_motor, // JC7
     output [1:0]right // JC9, JC8
 );
-    wire rst_op, rst_pb, stop, _stop;
+    wire rst_op, rst_pb, stop;
     wire [2:0] state;
     wire [19:0] dis;
     debounce d0(rst_pb, rst, clk);
@@ -26,14 +27,14 @@ module Top(
     sonic_top B(
         .clk(clk), 
         .rst(rst_op), 
-        .Echo(echo), 
+        .Echo(echo),
+        .thres(SW14),
         .Trig(trig),
-        .stop(_stop)
+        .stop(stop)
     );
-    assign stop = _stop | (!SW15);
-    assign state = stop ? 3'b000 : {left_signal, mid_signal, right_signal};
-    assign left = (state==3'b000) ? 2'b00 : 2'b10;
-    assign right = (state==3'b000) ? 2'b00 : 2'b10;
+    assign state = {left_signal, mid_signal, right_signal};
+    assign left  = (stop | (!SW15)) ? 2'b00 : 2'b10;
+    assign right = (stop | (!SW15)) ? 2'b00 : 2'b01;
 endmodule
 
 module debounce (pb_debounced, pb, clk);
