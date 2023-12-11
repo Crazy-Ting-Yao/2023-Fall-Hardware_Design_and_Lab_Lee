@@ -17,6 +17,7 @@ module Top(
 );
     wire rst_op, rst_pb, stop, _stop;
     wire [2:0] state;
+    wire [19:0] dis;
     debounce d0(rst_pb, rst, clk);
     onepulse d1(rst_pb, clk, rst_op);
     motor A(
@@ -38,6 +39,11 @@ module Top(
     assign right = (state==3'b000) ? 2'b00 : 2'b10;
 
     wire [7:0] seg3, seg2, seg1, seg0;
+    assign LED = {
+        {stop, 3'b0},
+        {left_signal, mid_signal, right_signal, 1'b0},
+        {2'b0, right_motor, left_motor},
+        {4'b0}};
     seg_map sm3(dis[19:16], seg3);
     seg_map sm2(dis[15:12], seg2);
     seg_map sm1(dis[11: 8], seg1);
