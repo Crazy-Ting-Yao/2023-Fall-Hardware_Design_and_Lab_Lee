@@ -53,8 +53,8 @@ module motor(
                 next_right_motor = (left_motor  > right_motor) ? 11'sd0 : 11'sd1023;
             end
             default: begin
-                next_left_motor  = -11'sd1023;
-                next_right_motor = -11'sd1023;
+                next_left_motor  = -11'sd750;
+                next_right_motor = -11'sd750;
             end
         endcase
     end
@@ -65,36 +65,8 @@ module motor(
             right_motor <= 11'sd1023;
         end 
         else begin
-            case(mode)
-            3'b111: begin
-                left_motor <= (left_motor>10'd1000) ? 10'd1023 : left_motor + 10'd23;
-                right_motor <= (right_motor>10'd1000) ? 10'd1023 : right_motor + 10'd23;
-            end
-            3'b110: begin
-                left_motor <= (left_motor > 10'd10) ? left_motor - 10'd10 : 0;
-                right_motor <= (right_motor > 10'd1003) ? 10'd1023 : right_motor + 10'd20;
-            end
-            3'b100: begin
-                left_motor <= (left_motor > 10'd100) ? left_motor - 10'd100 : 0;
-                right_motor <= (right_motor > 10'd1003) ? 10'd1023 : right_motor + 10'd20;
-            end
-            3'b011: begin
-                left_motor <= (left_motor> 10'd1003) ? 10'd1023 : left_motor + 10'd20;
-                right_motor <= (right_motor > 10'd10) ? right_motor - 10'd10 : 0;
-            end
-            3'b001: begin
-                left_motor <= (left_motor > 10'd1003) ? 10'd1023 : left_motor + 10'd20;
-                right_motor <= (right_motor > 10'd100) ? right_motor - 10'd100 : 0;
-            end
-            3'b000: begin
-                left_motor <= (left_motor > right_motor) ? 10'd1023 : 0;
-                right_motor <= (left_motor > right_motor) ? 0 : 10'd1023;
-            end
-            default: begin
-                left_motor <= 10'd1023;
-                right_motor <= 10'd1023;
-            end
-            endcase
+            left_motor  <= next_left_motor;
+            right_motor <= next_right_motor;
         end
     end
     assign pwm = {left_pwm, right_pwm};
