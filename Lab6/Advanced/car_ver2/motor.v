@@ -31,24 +31,24 @@ module motor(
                 right_motor <= (right_motor>10'd1000) ? 10'd1023 : right_motor + 10'd23;
             end
             3'b110: begin
-                left_motor <= left_motor ? left_motor - 10'd1 : 0;
-                right_motor <= (right_motor==10'd1023) ? 10'd1023 : right_motor + 10'd1;
+                left_motor <= (left_motor > 10'd10) ? left_motor - 10'd10 : 0;
+                right_motor <= (right_motor> 10'd1003) ? 10'd1023 : right_motor + 10'd20;
             end
             3'b100: begin
-                left_motor <= (left_motor > 10'd50) ? left_motor - 10'd50 : 0;
-                right_motor <= right_motor ? right_motor - 10'd1 : 0;
+                left_motor <= (left_motor > 10'd100) ? left_motor - 10'd100 : 0;
+                right_motor <= (right_motor > 10'd1003) ? 10'd1023 : right_motor + 10'd20;
             end
             3'b011: begin
-                left_motor <= (left_motor==10'd1023) ? 10'd1023 : left_motor + 10'd1;
-                right_motor <= right_motor ? right_motor - 10'd1 : 0;
+                left_motor <= (left_motor> 10'd1003) ? 10'd1023 : left_motor + 10'd20;
+                right_motor <= (right_motor > 10'd10) ? right_motor - 10'd10 : 0;
             end
             3'b001: begin
-                left_motor <= left_motor ? left_motor - 10'd1 : 0;
-                right_motor <= (right_motor > 10'd50) ? right_motor - 10'd50 : 0;
+                left_motor <= (left_motor > 10'd1003) ? 10'd1023 : left_motor + 10'd20;
+                right_motor <= (right_motor > 10'd100) ? right_motor - 10'd100 : 0;
             end
             3'b000: begin
-                left_motor <= (left_motor>right_motor) ? 10'd1023 : 0;
-                right_motor <= (left_motor>right_motor) ? 0 : 10'd1023;
+                left_motor <= (left_motor > right_motor) ? 10'd1023 : 0;
+                right_motor <= (left_motor > right_motor) ? 0 : 10'd1023;
             end
             default: begin
                 left_motor <= 10'd1023;
