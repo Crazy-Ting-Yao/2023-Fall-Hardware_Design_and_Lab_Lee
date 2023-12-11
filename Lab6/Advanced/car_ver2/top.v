@@ -17,15 +17,13 @@ module Top(
     wire rst_op, rst_pb, stop;
     wire [2:0] state;
     wire [19:0] dis;
-    wire left_dir, right_dir;
     debounce d0(rst_pb, rst, clk);
     onepulse d1(rst_pb, clk, rst_op);
     motor A(
         .clk(clk),
         .rst(rst_op | stop),
         .mode(state),
-        .pwm({left_motor, right_motor}),
-        .dir({left_dir, right_dir})
+        .pwm({left_motor, right_motor})
     );
     sonic_top B(
         .clk(clk), 
@@ -36,15 +34,15 @@ module Top(
         .stop(stop)
     );
     assign state = {left_signal, mid_signal, right_signal};
-    assign left  = (stop | (!SW15)) ? 2'b00 : (left_dir  ? 2'b01 : 2'b10);
-    assign right = (stop | (!SW15)) ? 2'b00 : (right_dir ? 2'b01 : 2'b10);
+    assign left  = (stop | (!SW15)) ? 2'b00 : 2'b10;
+    assign right = (stop | (!SW15)) ? 2'b00 : 2'b10;
 
     // debugging signals
     assign LED[15:0] = {
         {stop, 3'b0},
         {state, 1'b0},
         {4'b0},
-        {~left_dir, left_dir, right_dir, ~right_dir}
+        {4'b0}
     };
 endmodule
 
