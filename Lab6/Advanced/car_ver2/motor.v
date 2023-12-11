@@ -32,7 +32,7 @@ module motor(
             end
             3'b110: begin
                 left_motor <= (left_motor > 10'd10) ? left_motor - 10'd10 : 0;
-                right_motor <= (right_motor> 10'd1003) ? 10'd1023 : right_motor + 10'd20;
+                right_motor <= (right_motor > 10'd1003) ? 10'd1023 : right_motor + 10'd20;
             end
             3'b100: begin
                 left_motor <= (left_motor > 10'd100) ? left_motor - 10'd100 : 0;

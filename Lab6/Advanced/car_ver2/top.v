@@ -11,7 +11,8 @@ module Top(
     output left_motor,  // JC1
     output [1:0]left, // JC3, JC2
     output right_motor, // JC7
-    output [1:0]right // JC9, JC8
+    output [1:0] right, // JC9, JC8
+    output [15:0] LED
 );
     wire rst_op, rst_pb, stop;
     wire [2:0] state;
@@ -22,7 +23,7 @@ module Top(
         .clk(clk),
         .rst(rst_op | stop),
         .mode(state),
-        .pwm({right_motor, left_motor})
+        .pwm({left_motor, right_motor})
     );
     sonic_top B(
         .clk(clk), 
@@ -34,7 +35,15 @@ module Top(
     );
     assign state = {left_signal, mid_signal, right_signal};
     assign left  = (stop | (!SW15)) ? 2'b00 : 2'b10;
-    assign right = (stop | (!SW15)) ? 2'b00 : 2'b01;
+    assign right = (stop | (!SW15)) ? 2'b00 : 2'b10;
+
+    // debugging signals
+    assign LED[15:0] = {
+        {stop, 3'b0},
+        {state, 1'b0},
+        {4'b0},
+        {4'b0}
+    };
 endmodule
 
 module debounce (pb_debounced, pb, clk);
