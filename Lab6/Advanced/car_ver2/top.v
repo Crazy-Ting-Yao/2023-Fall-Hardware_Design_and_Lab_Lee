@@ -10,7 +10,10 @@ module Top(
     output left_motor,  // JC1
     output [1:0]left, // JC3, JC2
     output right_motor, // JC7
-    output [1:0]right // JC9, JC8
+    output [1:0]right, // JC9, JC8
+    output [15:0] LED,
+    output [7:0] SEGD,
+    output [3:0] SEGA
 );
     wire rst_op, rst_pb, stop, _stop;
     wire [2:0] state;
@@ -33,6 +36,13 @@ module Top(
     assign state = stop ? 3'b000 : {left_signal, mid_signal, right_signal};
     assign left = (state==3'b000) ? 2'b00 : 2'b10;
     assign right = (state==3'b000) ? 2'b00 : 2'b10;
+
+    wire [7:0] seg3, seg2, seg1, seg0;
+    seg_map sm3(dis[19:16], seg3);
+    seg_map sm2(dis[15:12], seg2);
+    seg_map sm1(dis[11: 8], seg1);
+    seg_map sm0(dis[ 7: 4], seg0);
+    seg_mux sm(CLK, seg3, seg2, seg1, seg0, SEGD, SEGA);
 endmodule
 
 module debounce (pb_debounced, pb, clk);
