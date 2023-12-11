@@ -8,8 +8,10 @@ module motor(
     reg signed [10:0] next_left_motor, next_right_motor;
     reg signed [10:0] left_motor, right_motor;
     wire left_pwm, right_pwm;
-
+    wire [11:0] period = 32'd4000;
+    reg [11:0] count;
     wire [9:0] left_motor_abs, right_motor_abs;
+
     assign left_motor_abs = (left_motor[10]) ? ~left_motor[9:0] + 10'b1 : left_motor[9:0];
     assign right_motor_abs = (right_motor[10]) ? ~right_motor[9:0] + 10'b1 : right_motor[9:0];
 
@@ -18,9 +20,6 @@ module motor(
     PWM_gen pg0(clk, rst, left_motor_abs, count, left_pwm);
     PWM_gen pg1(clk, rst, right_motor_abs, count, right_pwm);
     
-    wire [11:0] period = 32'd4000;
-    reg [11:0] count;
-        
     always @(posedge clk, posedge rst) begin
         if (rst) count <= 32'b0;
         else count <= (count + 1 == period) ? 0 : count + 32'd1;
@@ -34,11 +33,11 @@ module motor(
             end
             3'b110: begin
                 next_left_motor  = (left_motor  > 11'sd0)   ? left_motor - 11'sd100 : -11'sd100;
-                next_right_motor = (right_motor > 11'sd1003) ? 10'sd1023 : right_motor + 10'sd20;
+                next_right_motor = (right_motor > 11'sd1003) ? 11'sd1023 : right_motor + 11'sd20;
             end
             3'b100: begin
-                next_left_motor  = (left_motor  > -11'sd300)  ? left_motor - 11'sd200 : -11'sd800;
-                next_right_motor = (right_motor > 11'sd1003) ? 10'sd1023 : right_motor + 10'sd20;
+                next_left_motor  = (left_motor  > -11'sd100)  ? left_motor - 11'sd200 : -11'sd800;
+                next_right_motor = (right_motor > 11'sd1003) ? 11'sd1023 : right_motor + 11'sd20;
             end
             3'b011: begin
                 next_left_motor  = (left_motor  > 11'sd1003) ? 11'sd1023 : left_motor  + 11'sd20;
@@ -46,7 +45,7 @@ module motor(
             end
             3'b001: begin
                 next_left_motor  = (left_motor  > 11'sd1003) ? 11'sd1023 : left_motor  + 11'sd20;
-                next_right_motor = (right_motor > -11'sd300)  ? right_motor - 11'sd200 : -11'sd800;
+                next_right_motor = (right_motor > -11'sd100)  ? right_motor - 11'sd200 : -11'sd800;
             end
             3'b000: begin
                 next_left_motor  = (left_motor  > right_motor) ? 11'sd1023 : 11'sd0;
