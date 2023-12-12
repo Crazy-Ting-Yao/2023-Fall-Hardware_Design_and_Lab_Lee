@@ -14,7 +14,7 @@ module sonic_top(clk, rst, Echo, thres, Trig, stop, dis);
 	PosCounter u2(.clk(clk1M), .rst(rst), .echo(Echo), .distance_count(dis));
 
     // [V] calculate the right distance to trig stop(triggered when the distance is lower than 40 cm)
-    wire [19:0] thres_dis = thres ? 20'h1000 : 20'h0000; // 'h1000 = 40 cm
+    wire [19:0] thres_dis = thres ? 20'd4000 : 20'h0000; // 'h1000 = 40 cm
     assign stop = (dis < thres_dis) ? 1'b1 : 1'b0;
  
 endmodule
@@ -68,7 +68,7 @@ module PosCounter(clk, rst, echo, distance_count);
                     next_count = count;
                 end else begin
                     next_state = curr_state;
-                    next_count = (count > 20'd600_000) ? count : count + 1'b1;
+                    next_count = (count > 20'd60_000) ? count : count + 1'b1;
                 end 
             end
             S2: begin
