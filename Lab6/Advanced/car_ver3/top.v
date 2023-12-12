@@ -22,7 +22,7 @@ module Top(
     onepulse d1(rst_pb, clk, rst_op);
     motor A(
         .clk(clk),
-        .rst(rst_op | stop),
+        .rst(rst_op),
         .mode(state),
         .pwm({left_motor, right_motor}),
         .dir({left_dir, right_dir})
