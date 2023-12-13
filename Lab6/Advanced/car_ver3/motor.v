@@ -7,10 +7,9 @@ module motor(
 );
     wire signed [9:0] left_motor, right_motor;
     wire left_pwm, right_pwm;
-    parameter period = 12'd4000;
     reg [11:0] count;
     wire [9:0] left_motor_abs, right_motor_abs;
-    wire renew = (count + 1 == period) ? 1'b1 : 1'b0;
+    wire renew = (count + 1 == 12'd4000) ? 1'b1 : 1'b0;
 
     duty_gen dg(clk, rst, renew, mode, left_motor, right_motor);
     assign left_motor_abs = {1'b1, (left_motor[9]) ? ~left_motor[8:0] : left_motor[8:0]};
@@ -34,8 +33,7 @@ module PWM_gen (
     input [11:0] count,
     output reg PWM
 );
-    parameter period = 12'd4000;
-    wire [11:0] count_duty = period * duty / 12'd1024;
+    wire [31:0] count_duty = 32'd4000 * duty / 32'd1024;
     always @(posedge clk) begin
         PWM <= (count < count_duty) ? 1'b1 : 1'b0;
     end
