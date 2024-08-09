@@ -289,9 +289,9 @@ module Decode_And_Execute_FPGA(rs, rt, sel, AN, regs);
     COMPARE_EQ EQ1 (h, rs, rt);
     Mux_8x1_4bit M1 (rd, a, b, c, d, e, f, g, h, sel);
 
-    Uni_NOT NT1(AN[0], 1'b1);
-    Uni_NOT NT2(AN[1], 1'b1);
-    Uni_NOT NT3(AN[2], 1'b1);
+    Uni_NOT NT1(AN[0], 1'b0);
+    Uni_NOT NT2(AN[1], 1'b0);
+    Uni_NOT NT3(AN[2], 1'b0);
     Uni_NOT NT4(AN[3], 1'b1);
 
     Decoder_4bit D1 (de, rd);
